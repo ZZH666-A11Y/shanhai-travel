@@ -1,0 +1,605 @@
+<!DOCTYPE html><html lang="zh-CN"><head><style id="mb-code-iframe-style">
+  html, body { margin: 0; width: 100%; min-height: 100%; }
+  html { --uiWidth: 100% !important; --uiHeight: 100% !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>个人中心｜山海行</title>
+<meta content="管理山海行订单、行程、游记、收藏与账户信息。" name="description">
+<script src="assets/vendor/tailwindcss.js"></script>
+<script src="assets/vendor/iconify-icon.min.js"></script>
+  <script src="assets/vendor/mdi-icons.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { sand: '#F6F2E9', cream: '#FFFCF6', ink: '#12312E', pine: '#0E5A52', moss: '#6F8F7C', coral: '#E9663F', sun: '#F0C264', line: '#E4DDCF' },
+          fontFamily: {
+            display: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+            sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -36px rgba(18,49,46,.4)',
+            card: '0 14px 34px -24px rgba(18,49,46,.28)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-sand font-sans text-ink antialiased">
+<div class="bg-ink text-[11px] tracking-wide text-cream/70">
+<div class="mx-auto flex h-9 max-w-[1240px] items-center justify-between px-6">
+<p class="flex items-center gap-2"><iconify-icon class="text-[14px] text-sun" icon="mdi:compass-rose"></iconify-icon>山海行 · 把假期过成故事</p>
+<div class="flex items-center gap-6"><span class="hidden items-center gap-1.5 sm:flex"><iconify-icon class="text-[13px]" icon="mdi:headset"></iconify-icon>400-820-2026</span><a class="transition hover:text-sun" href="booking.html">预订服务</a><a class="transition hover:text-sun" data-logout="" href="login.html">退出登录</a></div>
+</div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-sand/95 backdrop-blur-md">
+<div class="mx-auto flex h-[76px] max-w-[1240px] items-center justify-between px-6">
+<a aria-label="山海行首页" class="flex items-center gap-3" href="home.html">
+<span class="grid h-10 w-10 place-items-center rounded-full bg-pine text-cream"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span>
+<span class="flex flex-col"><span class="font-display text-[22px] font-bold leading-none tracking-[0.16em]">山海行</span><span class="mt-1 text-[8px] font-medium uppercase tracking-[0.3em] text-ink/45">Shanhai Travel</span></span>
+</a>
+<nav class="-mx-1 hidden items-center gap-1 text-[14px] font-medium text-ink/60 lg:flex">
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="home.html">首页</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="destinations.html">目的地</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="guides.html">攻略游记</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="booking.html">预订服务</a>
+<a class="relative inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-coral" href="profile.html">我的行程</a>
+</nav>
+<div class="flex items-center gap-3">
+<a aria-label="搜索游记" class="hidden h-10 w-10 place-items-center rounded-full border border-ink/15 text-ink/65 transition hover:border-pine hover:text-pine md:grid" href="guides.html"><iconify-icon class="text-[20px]" icon="mdi:magnify"></iconify-icon></a>
+<a class="hidden h-10 items-center rounded-full border border-ink/20 px-5 text-[13px] font-semibold transition hover:border-pine hover:text-pine sm:flex" href="publish.html">写游记</a>
+<a class="flex h-10 items-center gap-2 rounded-full bg-pine px-4 text-[12px] font-semibold text-cream" data-profile-name="" href="profile.html"><span class="grid h-6 w-6 place-items-center rounded-full bg-[#D1A27F] text-[8px] text-white" data-profile-initial="">林</span><span data-profile-name-text="">林小满</span></a>
+</div>
+</div>
+</header>
+<main class="mx-auto max-w-[1240px] px-6 pb-20 pt-7">
+<div class="flex items-center gap-2 text-[10px] text-ink/40">
+<a class="hover:text-pine" href="home.html">首页</a><iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<span class="text-ink/65">个人中心</span>
+</div>
+<section class="relative mt-5 h-[230px] overflow-hidden rounded-[30px] bg-[#6E8A80]">
+<img alt="Quiet mountain lake landscape in Yunnan" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_e4a0ac6a4a97418b8dc6ed8d865ce42b.jpg">
+<div class="absolute inset-0 bg-gradient-to-r from-ink/65 via-ink/20 to-transparent"></div>
+<div class="absolute right-5 top-5 flex gap-2">
+<button class="flex h-9 items-center gap-2 rounded-full bg-ink/30 px-4 text-[9px] font-medium text-white backdrop-blur transition hover:bg-ink/50" id="coverButton" type="button"><iconify-icon class="text-[15px]" icon="mdi:image-edit-outline"></iconify-icon>更换封面</button>
+<button aria-label="分享个人主页" class="grid h-9 w-9 place-items-center rounded-full bg-cream/90 text-ink backdrop-blur transition hover:bg-sun" id="shareProfile" type="button"><iconify-icon class="text-[17px]" icon="mdi:share-variant-outline"></iconify-icon></button>
+</div>
+<div class="absolute bottom-6 left-6 flex items-center gap-2 rounded-full bg-ink/25 px-3 py-1.5 text-[8px] text-white/75 backdrop-blur"><iconify-icon class="text-[14px]" icon="mdi:compass-outline"></iconify-icon>山海行者 · 已走过 18 座城市</div>
+</section>
+<section class="relative z-10 mx-4 -mt-12 rounded-[26px] border border-line bg-cream p-5 shadow-card sm:mx-8 sm:p-6">
+<div class="flex flex-col gap-5 sm:flex-row sm:items-start">
+<div class="-mt-14 h-[104px] w-[104px] shrink-0 overflow-hidden rounded-[28px] border-4 border-cream bg-[#D1A27F] shadow-card">
+<img alt="Portrait of traveler Lin Xiaoman" class="h-full w-full object-cover" src="assets/img/generated_images_2026-09-30_f1af01ced5f8445584cc7d4dc7536bd1.jpg">
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-3">
+<h1 class="font-display text-[29px] font-semibold" data-profile-name-text="">林小满</h1>
+<span class="flex items-center gap-1 rounded-full bg-[#E7F0E8] px-2.5 py-1 text-[8px] font-semibold text-pine"><iconify-icon class="text-[13px]" icon="mdi:medal-outline"></iconify-icon>山海行者 Lv.3</span>
+<span class="rounded-full bg-sand px-2.5 py-1 text-[8px] text-ink/40">@linxiaoman</span>
+</div>
+<div class="mt-2 flex flex-wrap items-center gap-2"><span class="flex items-center gap-1 rounded-full border border-line px-2.5 py-1 text-[8px] font-semibold text-ink/55" id="heroRoleTag"><iconify-icon class="text-[12px]" icon="mdi:account-outline"></iconify-icon>普通用户</span><span class="text-[8px] text-ink/35" id="heroCity">云南 · 大理</span></div>
+<p class="mt-2 max-w-[560px] text-[10px] leading-5 text-ink/45" data-profile-bio="">旅居大理的自由撰稿人。喜欢慢一点的火车、没有招牌的小店，和在陌生城市散步到天黑。</p>
+<div class="mt-3 flex flex-wrap gap-2"><span class="rounded-full bg-sand px-2.5 py-1 text-[8px] text-ink/45">#慢旅行</span><span class="rounded-full bg-sand px-2.5 py-1 text-[8px] text-ink/45">#古镇散步</span><span class="rounded-full bg-sand px-2.5 py-1 text-[8px] text-ink/45">#咖啡地图</span><span class="rounded-full bg-sand px-2.5 py-1 text-[8px] text-ink/45">#摄影记录</span></div>
+</div>
+<div class="flex shrink-0 gap-2">
+<button class="flex h-10 items-center gap-2 rounded-full border border-ink/15 px-4 text-[9px] font-semibold text-ink/55 transition hover:border-pine hover:text-pine" onclick="switchAccountTab('settings')" type="button"><iconify-icon class="text-[14px]" icon="mdi:pencil-outline"></iconify-icon>编辑资料</button>
+<a class="flex h-10 items-center gap-2 rounded-full bg-coral px-4 text-[9px] font-semibold text-white transition hover:bg-[#D95530]" href="publish.html"><iconify-icon class="text-[15px]" icon="mdi:pencil-plus-outline"></iconify-icon>写游记</a>
+</div>
+</div>
+<div class="mt-5 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-line pt-4">
+<span class="text-[9px] text-ink/40"><strong class="mr-1 font-display text-[17px] font-semibold text-ink">12</strong>篇游记</span>
+<span class="text-[9px] text-ink/40"><strong class="mr-1 font-display text-[17px] font-semibold text-ink">8,426</strong>获赞与收藏</span>
+<span class="text-[9px] text-ink/40"><strong class="mr-1 font-display text-[17px] font-semibold text-ink">36</strong>个收藏</span>
+<span class="text-[9px] text-ink/40"><strong class="mr-1 font-display text-[17px] font-semibold text-ink">18</strong>座城市</span>
+<div class="ml-auto flex min-w-[180px] items-center gap-3">
+<div class="h-1.5 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full w-[68%] rounded-full bg-pine"></div></div>
+<span class="text-[8px] text-ink/35">距 Lv.4 还差 320 足迹</span>
+</div>
+</div>
+</section>
+<div class="mt-7 grid gap-6 lg:grid-cols-[216px_minmax(0,1fr)]">
+<aside class="lg:sticky lg:top-[100px] lg:self-start">
+<div class="rounded-[22px] border border-line bg-cream p-2">
+<button class="account-tab flex w-full items-center gap-3 rounded-[15px] bg-pine px-4 py-3.5 text-left text-[10px] font-semibold text-cream transition" data-account-tab="overview" type="button"><iconify-icon class="text-[17px]" icon="mdi:view-dashboard-outline"></iconify-icon>行程概览</button>
+<button class="account-tab flex w-full items-center gap-3 rounded-[15px] px-4 py-3.5 text-left text-[10px] font-medium text-ink/55 transition hover:bg-sand hover:text-ink" data-account-tab="orders" type="button"><iconify-icon class="text-[17px]" icon="mdi:receipt-text-outline"></iconify-icon><span class="flex-1">我的订单</span><span class="rounded-full bg-[#F8EAE4] px-1.5 py-0.5 text-[7px] font-semibold text-coral">1</span></button>
+<button class="account-tab flex w-full items-center gap-3 rounded-[15px] px-4 py-3.5 text-left text-[10px] font-medium text-ink/55 transition hover:bg-sand hover:text-ink" data-account-tab="stories" type="button"><iconify-icon class="text-[17px]" icon="mdi:book-open-page-variant-outline"></iconify-icon>我的游记</button>
+<button class="account-tab flex w-full items-center gap-3 rounded-[15px] px-4 py-3.5 text-left text-[10px] font-medium text-ink/55 transition hover:bg-sand hover:text-ink" data-account-tab="favorites" type="button"><iconify-icon class="text-[17px]" icon="mdi:heart-outline"></iconify-icon>我的收藏</button>
+<button class="account-tab flex w-full items-center gap-3 rounded-[15px] px-4 py-3.5 text-left text-[10px] font-medium text-ink/55 transition hover:bg-sand hover:text-ink" data-account-tab="settings" type="button"><iconify-icon class="text-[17px]" icon="mdi:cog-outline"></iconify-icon>账号设置</button>
+</div>
+<div class="mt-4 rounded-[22px] bg-[#E9DFCE] p-4">
+<div class="flex items-center gap-2 text-[10px] font-semibold"><iconify-icon class="text-[18px] text-coral" icon="mdi:compass-rose"></iconify-icon>下一站，去哪里？</div>
+<p class="mt-2 text-[9px] leading-5 text-ink/45">根据你的收藏和季节，为你挑了 3 个刚刚好的目的地。</p>
+<a class="mt-3 inline-flex items-center gap-1 text-[9px] font-semibold text-pine" href="destinations.html">去发现 <iconify-icon class="text-[13px]" icon="mdi:arrow-right"></iconify-icon></a>
+</div>
+<a class="mt-4 flex items-center justify-center gap-2 rounded-full py-2 text-[8px] text-ink/35 transition hover:text-coral" data-logout="" href="login.html"><iconify-icon class="text-[13px]" icon="mdi:logout"></iconify-icon>退出登录</a>
+</aside>
+<div class="min-w-0">
+<section class="account-panel" id="panel-overview">
+<div class="flex items-end justify-between"><div><p class="text-[9px] font-semibold uppercase tracking-[0.24em] text-coral">下一段旅程</p><h2 class="mt-1.5 font-display text-[27px] font-semibold">下一段旅程</h2></div><span class="text-[9px] text-ink/35">今天是 2026 年 10 月 29 日</span></div>
+<div class="mt-4 grid overflow-hidden rounded-[26px] bg-pine text-cream md:grid-cols-[0.9fr_1.1fr]">
+<div class="relative min-h-[230px] bg-[#809A8D]">
+<img alt="Erhai lake view at dusk with mountains" class="absolute inset-0 h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_8e31031eb98b4ad193267391676e6a83.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-ink/60 to-transparent"></div>
+<span class="absolute left-5 top-5 rounded-full bg-cream/90 px-3 py-1.5 text-[8px] font-semibold text-ink">待出行 · 9 天后</span>
+<div class="absolute bottom-5 left-5 text-white"><p class="text-[8px] uppercase tracking-[0.2em] text-white/60">Yunnan · Dali</p><p class="mt-1 font-display text-[25px] font-semibold">大理 · 洱海慢行</p><p class="mt-1 text-[9px] text-white/65">2026.11.07 - 11.09 · 2 位成人</p></div>
+</div>
+<div class="flex flex-col justify-center p-6">
+<div class="flex items-center justify-between"><span class="text-[9px] uppercase tracking-[0.2em] text-sun">出发倒计时</span><span class="rounded-full bg-white/10 px-2.5 py-1 text-[8px] text-cream/65">订单 SH202610290018</span></div>
+<div class="mt-4 flex items-end gap-2"><p class="font-display text-[44px] font-semibold leading-none">09</p><p class="pb-1 text-[10px] text-cream/50">天后出发</p></div>
+<p class="mt-3 text-[10px] leading-5 text-cream/55">旅行管家已为你确认园景大床房和接机信息。出行前一天会发送天气与行李提醒。</p>
+<div class="mt-5 flex flex-wrap gap-2">
+<a class="flex h-9 items-center gap-1.5 rounded-full bg-cream px-4 text-[9px] font-semibold text-ink transition hover:bg-sun" href="destination-detail.html">查看行程 <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+<button class="flex h-9 items-center gap-1.5 rounded-full border border-white/20 px-4 text-[9px] font-semibold text-cream/70 transition hover:border-sun hover:text-sun" onclick="showToast('旅行管家将在 10 分钟内联系你')" type="button">联系管家</button>
+</div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-3">
+<div class="rounded-[20px] border border-line bg-cream p-4"><div class="flex items-center justify-between"><span class="text-[8px] text-ink/35">今年旅行</span><iconify-icon class="text-[18px] text-pine" icon="mdi:map-marker-path"></iconify-icon></div><p class="mt-3 font-display text-[25px] font-semibold">23 <span class="font-sans text-[9px] font-normal text-ink/35">天</span></p></div>
+<div class="rounded-[20px] border border-line bg-cream p-4"><div class="flex items-center justify-between"><span class="text-[8px] text-ink/35">走过城市</span><iconify-icon class="text-[18px] text-pine" icon="mdi:city-variant-outline"></iconify-icon></div><p class="mt-3 font-display text-[25px] font-semibold">05 <span class="font-sans text-[9px] font-normal text-ink/35">座</span></p></div>
+<div class="rounded-[20px] border border-line bg-cream p-4"><div class="flex items-center justify-between"><span class="text-[8px] text-ink/35">旅行足迹</span><iconify-icon class="text-[18px] text-pine" icon="mdi:foot-print"></iconify-icon></div><p class="mt-3 font-display text-[25px] font-semibold">1,680 <span class="font-sans text-[9px] font-normal text-ink/35">km</span></p></div>
+</div>
+<div class="mt-7 flex items-end justify-between"><div><p class="text-[9px] font-semibold uppercase tracking-[0.22em] text-coral">最近收藏</p><h2 class="mt-1.5 font-display text-[23px] font-semibold">最近收藏</h2></div><button class="text-[9px] font-semibold text-pine" onclick="switchAccountTab('favorites')" type="button">查看全部</button></div>
+<div class="mt-3 grid gap-3 md:grid-cols-3">
+<a class="group overflow-hidden rounded-[18px] border border-line bg-cream transition hover:shadow-card" href="destination-detail.html"><div class="h-32 overflow-hidden bg-[#A8B49A]"><img alt="Autumn trees and old village in Wuyuan" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_f8a8ff24b743467cb57d921fcdc9b799.jpg"></div><div class="p-3"><p class="text-[8px] text-ink/35">江西 · 婺源</p><h3 class="mt-1 font-display text-[16px] font-semibold">婺源 · 晒秋人家</h3></div></a>
+<a class="group overflow-hidden rounded-[18px] border border-line bg-cream transition hover:shadow-card" href="guide-detail.html"><div class="h-32 overflow-hidden bg-[#B39B7E]"><img alt="Local breakfast market in Quanzhou" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_71ddff9f73e346f79f6e35555915fabd.jpg"></div><div class="p-3"><p class="text-[8px] text-ink/35">攻略 · 泉州</p><h3 class="mt-1 font-display text-[16px] font-semibold">把泉州的胃空出来</h3></div></a>
+<a class="group overflow-hidden rounded-[18px] border border-line bg-cream transition hover:shadow-card" href="destination-detail.html"><div class="h-32 overflow-hidden bg-[#9C9D82]"><img alt="Golden birch forest in Hemu Xinjiang" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_76a0349317a3450994b52021cfb70875.jpg"></div><div class="p-3"><p class="text-[8px] text-ink/35">新疆 · 禾木</p><h3 class="mt-1 font-display text-[16px] font-semibold">禾木 · 金色森林</h3></div></a>
+</div>
+</section>
+<section class="account-panel hidden" id="panel-orders">
+<div class="flex flex-wrap items-end justify-between gap-4"><div><p class="text-[9px] font-semibold uppercase tracking-[0.24em] text-coral">我的预订</p><h2 class="mt-1.5 font-display text-[27px] font-semibold">我的订单</h2><p class="mt-1 text-[9px] text-ink/40">在这里查看与管理住宿、门票和体验预订。</p></div><a class="flex h-9 items-center gap-1.5 rounded-full bg-pine px-4 text-[9px] font-semibold text-cream" href="booking.html">发现新旅程 <iconify-icon icon="mdi:arrow-right"></iconify-icon></a></div>
+<div class="mt-5 flex flex-wrap gap-2 border-b border-line pb-4" id="orderFilters">
+<button class="order-filter h-8 rounded-full bg-pine px-4 text-[9px] font-semibold text-cream" data-order-status="all" type="button">全部订单</button>
+<button class="order-filter h-8 rounded-full border border-ink/10 bg-cream px-4 text-[9px] text-ink/50" data-order-status="paid" type="button">待出行</button>
+<button class="order-filter h-8 rounded-full border border-ink/10 bg-cream px-4 text-[9px] text-ink/50" data-order-status="pending" type="button">待支付</button>
+<button class="order-filter h-8 rounded-full border border-ink/10 bg-cream px-4 text-[9px] text-ink/50" data-order-status="done" type="button">已完成</button>
+</div>
+<div class="mt-4 space-y-4" id="orderList">
+<article class="overflow-hidden rounded-[22px] border border-line bg-cream" data-order="" data-status="paid">
+<div class="flex items-center justify-between border-b border-line px-5 py-3"><div class="flex items-center gap-3 text-[8px] text-ink/35"><span>订单号 SH202610290018</span><span>2026.10.29 下单</span></div><span class="rounded-full bg-[#E7F0E8] px-2.5 py-1 text-[8px] font-semibold text-pine">待出行</span></div>
+<div class="flex flex-col gap-4 p-5 sm:flex-row sm:items-center">
+<div class="h-24 w-full shrink-0 overflow-hidden rounded-[16px] bg-[#91A79A] sm:w-36"><img alt="White guesthouse by Erhai lake" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_190b91aa7eda41a99a7f562eca7fa928.jpg"></div>
+<div class="flex-1"><p class="text-[8px] text-ink/35">云南 · 大理</p><h3 class="mt-1 font-display text-[20px] font-semibold">大理 3 天 2 晚 · 洱海慢行</h3><p class="mt-1.5 text-[9px] text-ink/40">2026.11.07 - 11.09 · 园景大床房 · 2 位成人</p><p class="mt-1 text-[9px] text-ink/40">含双早 · 接机 · 环海电单车</p></div>
+<div class="flex items-end justify-between gap-4 sm:block sm:text-right"><p class="font-display text-[22px] font-semibold text-coral">¥2,560</p><div class="mt-2 flex gap-2 sm:justify-end"><button class="h-8 rounded-full border border-ink/15 px-3 text-[8px] text-ink/50" onclick="showToast('电子行程单已发送至你的邮箱')" type="button">行程单</button><a class="flex h-8 items-center rounded-full bg-pine px-3 text-[8px] font-semibold text-cream" href="destination-detail.html">查看行程</a></div></div>
+</div>
+</article>
+<article class="overflow-hidden rounded-[22px] border border-line bg-cream" data-checkin="2026-11-08" data-order="" data-status="pending">
+<div class="flex items-center justify-between border-b border-line px-5 py-3"><div class="flex items-center gap-3 text-[8px] text-ink/35"><span>订单号 SH202610280012</span><span>2026.10.28 下单</span></div><span class="rounded-full bg-[#F8EAE4] px-2.5 py-1 text-[8px] font-semibold text-coral">待支付 · 剩余 18 分钟</span></div>
+<div class="flex flex-col gap-4 p-5 sm:flex-row sm:items-center">
+<div class="h-24 w-full shrink-0 overflow-hidden rounded-[16px] bg-[#B39F83] sm:w-36"><img alt="Bai tie-dye workshop in Zhoucheng" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_bd923576ee144c77afd1809003592f55.jpg"></div>
+<div class="flex-1"><p class="text-[8px] text-ink/35">云南 · 周城</p><h3 class="mt-1 font-display text-[20px] font-semibold">白族扎染工坊半日体验</h3><p class="mt-1.5 text-[9px] text-ink/40">2026.11.08 · 2 人 · 14:00 出发</p><p class="mt-1 text-[9px] text-ink/40">含材料、老师指导与茶点</p></div>
+<div class="flex items-end justify-between gap-4 sm:block sm:text-right"><p class="font-display text-[22px] font-semibold text-coral">¥336</p><div class="mt-2 flex gap-2 sm:justify-end"><button class="h-8 rounded-full border border-ink/15 px-3 text-[8px] text-ink/50" data-cancel-order="" type="button">取消</button><a class="flex h-8 items-center rounded-full bg-coral px-3 text-[8px] font-semibold text-white" href="booking.html">去支付</a></div></div>
+</div>
+</article>
+<article class="overflow-hidden rounded-[22px] border border-line bg-cream" data-order="" data-status="done">
+<div class="flex items-center justify-between border-b border-line px-5 py-3"><div class="flex items-center gap-3 text-[8px] text-ink/35"><span>订单号 SH202609120006</span><span>2026.09.12 下单</span></div><span class="rounded-full bg-sand px-2.5 py-1 text-[8px] font-semibold text-ink/45">已完成</span></div>
+<div class="flex flex-col gap-4 p-5 sm:flex-row sm:items-center">
+<div class="h-24 w-full shrink-0 overflow-hidden rounded-[16px] bg-[#9FAF9F] sm:w-36"><img alt="Quiet courtyard guesthouse in Quanzhou" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_ef8d8a9e0d9b4f08a56e183bea6a3d92.jpg"></div>
+<div class="flex-1"><p class="text-[8px] text-ink/35">福建 · 泉州</p><h3 class="mt-1 font-display text-[20px] font-semibold">泉州 2 天 1 晚 · 古城散步</h3><p class="mt-1.5 text-[9px] text-ink/40">2026.09.20 - 09.21 · 1 位成人</p><p class="mt-1 text-[9px] text-ink/40">已离店 · 已开票</p></div>
+<div class="flex items-end justify-between gap-4 sm:block sm:text-right"><p class="font-display text-[22px] font-semibold text-pine">¥860</p><div class="mt-2 flex gap-2 sm:justify-end"><a class="flex h-8 items-center rounded-full border border-ink/15 px-3 text-[8px] text-ink/50" href="publish.html">写游记</a><a class="flex h-8 items-center rounded-full bg-pine px-3 text-[8px] font-semibold text-cream" href="booking.html">再次预订</a></div></div>
+</div>
+</article>
+</div>
+<div class="mt-4 hidden flex-col items-center rounded-[22px] border border-dashed border-ink/15 py-14 text-center" id="orderEmpty"><iconify-icon class="text-[32px] text-pine/60" icon="mdi:receipt-text-outline"></iconify-icon><p class="mt-3 text-[11px] font-semibold">这个状态下还没有订单</p><p class="mt-1 text-[9px] text-ink/35">去发现一段新的旅程吧。</p></div>
+</section>
+<section class="account-panel hidden" id="panel-stories">
+<div class="flex items-end justify-between"><div><p class="text-[9px] font-semibold uppercase tracking-[0.24em] text-coral">我的故事</p><h2 class="mt-1.5 font-display text-[27px] font-semibold">我的游记</h2><p class="mt-1 text-[9px] text-ink/40">共 12 篇，累计 8,426 次收藏与喜欢。</p></div><a class="flex h-9 items-center gap-1.5 rounded-full bg-coral px-4 text-[9px] font-semibold text-white" href="publish.html">写新游记 <iconify-icon icon="mdi:pencil-plus-outline"></iconify-icon></a></div>
+<div class="mt-5 grid gap-4 sm:grid-cols-2">
+<article class="group overflow-hidden rounded-[22px] border border-line bg-cream">
+<a href="guide-detail.html"><div class="relative h-40 overflow-hidden bg-[#A5B39F]"><img alt="Traveler in rice fields near Dali" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_d78919a3d4694ca298f0f17b84423504.jpg"><span class="absolute left-3 top-3 rounded-full bg-cream/90 px-2.5 py-1 text-[8px] font-semibold">已发布</span></div></a>
+<div class="p-4"><p class="text-[8px] text-ink/35">2026.10.21 · 云南大理</p><h3 class="mt-1 font-display text-[18px] font-semibold leading-7">在大理住进风里｜4 天 3 晚环洱海慢行记</h3><div class="mt-3 flex items-center justify-between border-t border-line pt-3 text-[8px] text-ink/35"><span class="flex gap-3"><span>阅读 6,428</span><span>收藏 328</span></span><div class="flex gap-2"><a class="font-semibold text-pine" href="publish.html">编辑</a><a class="font-semibold text-coral" href="guide-detail.html">查看</a></div></div></div>
+</article>
+<article class="group overflow-hidden rounded-[22px] border border-line bg-cream">
+<a href="guide-detail.html"><div class="relative h-40 overflow-hidden bg-[#B1A083]"><img alt="Old streets and breakfast stalls in Quanzhou" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_183af2790e7d4bc681202a1cba568a01.jpg"><span class="absolute left-3 top-3 rounded-full bg-cream/90 px-2.5 py-1 text-[8px] font-semibold">草稿</span></div></a>
+<div class="p-4"><p class="text-[8px] text-ink/35">最后编辑于 2026.10.28</p><h3 class="mt-1 font-display text-[18px] font-semibold leading-7">为了吃一碗面线糊，我多留了三天</h3><div class="mt-3 flex items-center justify-between border-t border-line pt-3 text-[8px] text-ink/35"><span>完成 72%</span><div class="flex gap-2"><a class="font-semibold text-pine" href="publish.html">继续编辑</a><button class="font-semibold text-ink/30" onclick="showToast('草稿已删除')" type="button">删除</button></div></div></div>
+</article>
+<article class="group overflow-hidden rounded-[22px] border border-line bg-cream">
+<a href="guide-detail.html"><div class="relative h-40 overflow-hidden bg-[#8FA09A]"><img alt="Cangshan mountain trail in the rain" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_aaba50acee2347de9abc80807dc53437.jpg"><span class="absolute left-3 top-3 rounded-full bg-cream/90 px-2.5 py-1 text-[8px] font-semibold">已发布</span></div></a>
+<div class="p-4"><p class="text-[8px] text-ink/35">2026.09.16 · 云南大理</p><h3 class="mt-1 font-display text-[18px] font-semibold leading-7">雨后走玉带路，苍山把云借给了我</h3><div class="mt-3 flex items-center justify-between border-t border-line pt-3 text-[8px] text-ink/35"><span class="flex gap-3"><span>阅读 3,210</span><span>收藏 186</span></span><div class="flex gap-2"><a class="font-semibold text-pine" href="publish.html">编辑</a><a class="font-semibold text-coral" href="guide-detail.html">查看</a></div></div></div>
+</article>
+<a class="flex min-h-[280px] flex-col items-center justify-center rounded-[22px] border border-dashed border-ink/20 bg-cream/50 text-center transition hover:border-pine hover:bg-cream" href="publish.html"><span class="grid h-12 w-12 place-items-center rounded-full bg-sand text-pine"><iconify-icon class="text-[24px]" icon="mdi:plus"></iconify-icon></span><p class="mt-3 font-display text-[18px] font-semibold">写下下一段故事</p><p class="mt-1 text-[9px] text-ink/35">旅行结束后，记忆值得被认真安放。</p></a>
+</div>
+</section>
+<section class="account-panel hidden" id="panel-favorites">
+<div class="flex items-end justify-between"><div><p class="text-[9px] font-semibold uppercase tracking-[0.24em] text-coral">留待出发</p><h2 class="mt-1.5 font-display text-[27px] font-semibold">我的收藏</h2><p class="mt-1 text-[9px] text-ink/40">收录了想去的地方和想读的故事。</p></div><span class="rounded-full bg-cream px-3 py-1.5 text-[8px] text-ink/40">共 36 项</span></div>
+<div class="mt-5 flex items-center justify-between border-b border-line pb-3"><h3 class="text-[11px] font-semibold">想去的目的地 <span class="ml-1 text-[8px] font-normal text-ink/35">12</span></h3><a class="text-[8px] font-semibold text-pine" href="destinations.html">发现更多</a></div>
+<div class="mt-4 grid gap-3 sm:grid-cols-3">
+<a class="group overflow-hidden rounded-[20px] border border-line bg-cream transition hover:shadow-card" href="destination-detail.html"><div class="relative h-36 overflow-hidden bg-[#A9B29A]"><img alt="Autumn village scenery in Wuyuan" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_6e68a96d457f418bbc591d60b60c63e1.jpg"><span class="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream/90 text-coral"><iconify-icon class="text-[14px]" icon="mdi:heart"></iconify-icon></span></div><div class="p-3"><p class="text-[8px] text-ink/35">江西 · 上饶</p><h3 class="mt-1 font-display text-[16px] font-semibold">婺源 · 晒秋人家</h3></div></a>
+<a class="group overflow-hidden rounded-[20px] border border-line bg-cream transition hover:shadow-card" href="destination-detail.html"><div class="relative h-36 overflow-hidden bg-[#9C9E84]"><img alt="Golden forest in Hemu village Xinjiang" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_a52224cf14c2438992442f0654a4777e.jpg"><span class="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream/90 text-coral"><iconify-icon class="text-[14px]" icon="mdi:heart"></iconify-icon></span></div><div class="p-3"><p class="text-[8px] text-ink/35">新疆 · 阿勒泰</p><h3 class="mt-1 font-display text-[16px] font-semibold">禾木 · 金色森林</h3></div></a>
+<a class="group overflow-hidden rounded-[20px] border border-line bg-cream transition hover:shadow-card" href="destination-detail.html"><div class="relative h-36 overflow-hidden bg-[#91A59B]"><img alt="Ocean promenade in Xiamen" class="h-full w-full object-cover transition group-hover:scale-105" src="assets/img/generated_images_2026-10-29_ee16c00d26f449798552858314b65a9e.jpg"><span class="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-cream/90 text-coral"><iconify-icon class="text-[14px]" icon="mdi:heart"></iconify-icon></span></div><div class="p-3"><p class="text-[8px] text-ink/35">福建 · 厦门</p><h3 class="mt-1 font-display text-[16px] font-semibold">厦门 · 海岛慢生活</h3></div></a>
+</div>
+<div class="mt-6 flex items-center justify-between border-b border-line pb-3"><h3 class="text-[11px] font-semibold">收藏的攻略与游记 <span class="ml-1 text-[8px] font-normal text-ink/35">24</span></h3><a class="text-[8px] font-semibold text-pine" href="guides.html">去逛游记</a></div>
+<div class="mt-4 space-y-3">
+<a class="group flex items-center gap-4 rounded-[18px] border border-line bg-cream p-3 transition hover:shadow-card" href="guide-detail.html"><div class="h-20 w-24 shrink-0 overflow-hidden rounded-[13px] bg-[#B29B7F]"><img alt="Breakfast stall in Quanzhou old town" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_a5fc979b3f0547a6bea3b4a3339d173a.jpg"></div><div class="flex-1"><p class="text-[8px] text-ink/35">攻略 · 福建泉州</p><h3 class="mt-1 font-display text-[17px] font-semibold">去泉州，先把胃空出来｜8 家本地人早餐</h3><p class="mt-1 text-[8px] text-ink/35">小鹿向南 · 2 天前收藏</p></div><iconify-icon class="mr-2 text-ink/25 transition group-hover:text-coral" icon="mdi:arrow-right"></iconify-icon></a>
+<a class="group flex items-center gap-4 rounded-[18px] border border-line bg-cream p-3 transition hover:shadow-card" href="guide-detail.html"><div class="h-20 w-24 shrink-0 overflow-hidden rounded-[13px] bg-[#93A897]"><img alt="Traveler resting in a tea house in Chengdu" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_5ffa754f66c4442b9ae3fedcf4a575c1.jpg"></div><div class="flex-1"><p class="text-[8px] text-ink/35">游记 · 四川成都</p><h3 class="mt-1 font-display text-[17px] font-semibold">在成都，把周末过成三天那么长</h3><p class="mt-1 text-[8px] text-ink/35">南方有海 · 5 天前收藏</p></div><iconify-icon class="mr-2 text-ink/25 transition group-hover:text-coral" icon="mdi:arrow-right"></iconify-icon></a>
+</div>
+</section>
+<section class="account-panel hidden" id="panel-settings">
+<div class="flex flex-wrap items-start justify-between gap-3"><div><p class="text-[9px] font-semibold uppercase tracking-[0.24em] text-coral">Account</p><h2 class="mt-1.5 font-display text-[27px] font-semibold">账号设置</h2><p class="mt-1 text-[9px] text-ink/40">管理你的公开资料、联系方式与安全设置。</p></div><div class="flex items-center gap-2"><span class="flex items-center gap-1 rounded-full bg-pine/10 px-3 py-1.5 text-[8px] font-semibold text-pine" id="roleBadge"><iconify-icon icon="mdi:account-outline"></iconify-icon>普通用户</span><a class="hidden items-center gap-1 rounded-full bg-coral px-3 py-1.5 text-[8px] font-semibold text-white" href="admin.html" id="adminEntry"><iconify-icon icon="mdi:shield-account-outline"></iconify-icon>进入管理后台</a><button class="flex items-center gap-1 rounded-full border border-ink/15 px-3 py-1.5 text-[8px] font-semibold text-ink/55 transition hover:border-coral hover:text-coral" data-logout="" type="button"><iconify-icon icon="mdi:logout"></iconify-icon>退出登录</button></div></div>
+<div class="mt-5 rounded-[22px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex items-center gap-4 border-b border-line pb-5"><div class="h-16 w-16 overflow-hidden rounded-[20px] bg-[#D1A27F]"><img alt="Traveler profile portrait" class="h-full w-full object-cover" data-avatar-image="" src="assets/img/generated_images_2026-10-29_354273e9c11f4ec196a1caeeba252fec.jpg"></div><div><h3 class="text-[11px] font-semibold">个人头像</h3><p class="mt-1 text-[8px] text-ink/35">支持 JPG、PNG，小于 2MB</p></div><div class="ml-auto flex items-center gap-2"><div class="flex gap-1.5" id="avatarOptions"><button class="h-8 w-8 overflow-hidden rounded-full ring-2 ring-pine" data-avatar-set="/agent-py/media/generated_images/2026-10-29/354273e9c11f4ec196a1caeeba252fec.jpg" type="button"><img alt="Avatar option one" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_354273e9c11f4ec196a1caeeba252fec.jpg"></button><button class="h-8 w-8 overflow-hidden rounded-full ring-1 ring-line" data-avatar-set="/agent-py/media/generated_images/2026-10-29/5ffa754f66c4442b9ae3fedcf4a575c1.jpg" type="button"><img alt="Avatar option two" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_5ffa754f66c4442b9ae3fedcf4a575c1.jpg"></button><button class="h-8 w-8 overflow-hidden rounded-full ring-1 ring-line" data-avatar-set="/agent-py/media/generated_images/2026-10-29/a5fc979b3f0547a6bea3b4a3339d173a.jpg" type="button"><img alt="Avatar option three" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_a5fc979b3f0547a6bea3b4a3339d173a.jpg"></button></div><span class="text-[8px] text-ink/35">或</span><button class="h-8 rounded-full border border-ink/15 px-3 text-[8px] font-semibold text-ink/50" onclick="showToast('头像上传功能已打开')" type="button">更换头像</button></div></div>
+<div class="mt-5 grid gap-4 sm:grid-cols-2">
+<label><span class="mb-1.5 block text-[8px] font-medium text-ink/45">昵称</span><input class="h-10 w-full rounded-xl border border-line bg-white px-3 text-[10px] outline-none transition focus:border-pine" data-profile-field="nickname" maxlength="16" type="text" value="林小满"></label>
+<label><span class="mb-1.5 block text-[8px] font-medium text-ink/45">所在地</span><input class="h-10 w-full rounded-xl border border-line bg-white px-3 text-[10px] outline-none transition focus:border-pine" data-profile-field="city" maxlength="20" type="text" value="云南 · 大理"></label>
+<label class="sm:col-span-2"><span class="mb-1.5 block text-[8px] font-medium text-ink/45">个人简介</span><textarea class="w-full resize-none rounded-xl border border-line bg-white px-3 py-2.5 text-[10px] leading-5 outline-none transition focus:border-pine" data-profile-field="bio" maxlength="120" rows="3">旅居大理的自由撰稿人。喜欢慢一点的火车、没有招牌的小店，和在陌生城市散步到天黑。</textarea></label>
+<label><span class="mb-1.5 block text-[8px] font-medium text-ink/45">手机号</span><input class="h-10 w-full rounded-xl border border-line bg-white px-3 text-[10px] outline-none transition focus:border-pine" data-profile-field="phone" type="tel" value="138 0020 2086"></label>
+<label><span class="mb-1.5 block text-[8px] font-medium text-ink/45">邮箱</span><input class="h-10 w-full rounded-xl border border-line bg-white px-3 text-[10px] outline-none transition focus:border-pine" data-profile-field="email" type="email" value="linxiaoman@example.com"></label>
+</div>
+<div class="mt-5 flex flex-wrap items-center justify-between gap-3"><p class="text-[8px] text-ink/35">修改后点击保存，页面顶部与个人主页会同步更新。</p><div class="flex gap-2"><button class="h-10 rounded-full border border-ink/15 px-5 text-[9px] font-semibold text-ink/55 transition hover:border-pine hover:text-pine" id="profileReset" type="button">恢复默认</button><button class="h-10 rounded-full bg-pine px-6 text-[9px] font-semibold text-cream transition hover:bg-ink" id="profileSave" type="button">保存修改</button></div></div>
+</div>
+<div class="mt-4 rounded-[22px] border border-line bg-cream p-5 sm:p-6">
+<h3 class="text-[11px] font-semibold">通知偏好</h3>
+<label class="mt-4 flex items-center justify-between gap-4 border-b border-line pb-3 text-[9px] text-ink/50"><span><strong class="block text-[10px] font-medium text-ink">订单与出行提醒</strong>房态确认、出发前天气与行李提醒</span><input checked="" class="h-3.5 w-3.5 accent-[#0E5A52]" type="checkbox"></label>
+<label class="mt-3 flex items-center justify-between gap-4 border-b border-line pb-3 text-[9px] text-ink/50"><span><strong class="block text-[10px] font-medium text-ink">每周旅行灵感</strong>精选目的地、路线与旅人故事</span><input checked="" class="h-3.5 w-3.5 accent-[#0E5A52]" type="checkbox"></label>
+<label class="mt-3 flex items-center justify-between gap-4 text-[9px] text-ink/50"><span><strong class="block text-[10px] font-medium text-ink">社区互动消息</strong>评论、点赞与关注提醒</span><input class="h-3.5 w-3.5 accent-[#0E5A52]" type="checkbox"></label>
+</div>
+<div class="mt-4 flex flex-wrap items-center justify-between gap-4 rounded-[22px] border border-line bg-cream p-5">
+<div><h3 class="text-[10px] font-semibold">账号安全</h3><p class="mt-1 text-[8px] text-ink/35">上次登录：2026.10.29，杭州 · Chrome</p></div>
+<button class="h-9 rounded-full border border-ink/15 px-4 text-[8px] font-semibold text-ink/55" onclick="showToast('密码修改链接已发送至邮箱')" type="button">修改密码</button>
+</div>
+</section>
+</div>
+</div>
+<section class="mt-6 rounded-[26px] border border-dashed border-coral/40 bg-[#FDF4F0] p-5 sm:p-6" id="aiTrip">
+<div class="flex flex-wrap items-start justify-between gap-4">
+<div class="flex min-w-0 items-start gap-3">
+<span class="grid h-11 w-11 shrink-0 place-items-center rounded-[14px] bg-coral/15 text-coral"><iconify-icon class="text-[22px]" icon="mdi:robot-happy-outline"></iconify-icon></span>
+<div class="min-w-0">
+<div class="flex flex-wrap items-center gap-2"><h2 class="font-display text-[20px] font-semibold">AI 行程助手</h2><span class="rounded-full bg-coral px-2 py-0.5 text-[8px] font-semibold text-white">扩展功能 · 即将上线</span></div>
+<p class="mt-1.5 text-[9px] leading-5 text-ink/50">输入目的地、天数和偏好，就能拿到一份可参考的行程建议。当前版本仅展示功能定位，不提供实际对话能力。</p>
+</div>
+</div>
+<button class="h-9 shrink-0 rounded-full bg-ink/80 px-4 text-[9px] font-semibold text-cream opacity-60" disabled="" type="button">即将上线</button>
+</div>
+<div class="mt-4 grid gap-2 sm:grid-cols-3">
+<div class="rounded-[14px] border border-coral/25 bg-white/70 px-3 py-2.5"><p class="text-[8px] text-ink/40">目的地</p><p class="mt-1 text-[10px] font-semibold text-ink/60">大理 · 泉州 · 婺源</p></div>
+<div class="rounded-[14px] border border-coral/25 bg-white/70 px-3 py-2.5"><p class="text-[8px] text-ink/40">天数</p><p class="mt-1 text-[10px] font-semibold text-ink/60">2 - 7 天</p></div>
+<div class="rounded-[14px] border border-coral/25 bg-white/70 px-3 py-2.5"><p class="text-[8px] text-ink/40">偏好</p><p class="mt-1 text-[10px] font-semibold text-ink/60">慢行 / 美食 / 徒步</p></div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-6 left-1/2 z-[80] hidden -translate-x-1/2 rounded-full bg-ink px-5 py-3 text-[10px] font-medium text-cream shadow-soft" id="toast">操作成功</div>
+<footer class="bg-ink text-cream">
+<div class="mx-auto grid max-w-[1240px] gap-10 px-6 py-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+<div><a class="flex items-center gap-3 text-cream" href="home.html"><span class="grid h-10 w-10 place-items-center rounded-full bg-cream text-pine"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span><span class="font-display text-[22px] font-bold tracking-[0.16em]">山海行</span></a><p class="mt-4 max-w-[260px] text-[11px] leading-6 text-cream/50">把目的地灵感、当地人攻略、特色住宿与门票体验，放进同一趟旅程。</p></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">开始旅行</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="destinations.html">目的地灵感</a><a class="hover:text-sun" href="guides.html">攻略与游记</a><a class="hover:text-sun" href="booking.html">住宿门票预订</a><a class="hover:text-sun" href="publish.html">发布旅行记录</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行服务</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="profile.html">我的订单</a><a class="hover:text-sun" href="profile.html">收藏与心愿单</a><a class="hover:text-sun" href="booking.html">退改规则</a><a class="hover:text-sun" href="login.html">账号与安全</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行管家</h3><p class="mt-4 text-[11px] leading-6 text-cream/50">每天 08:00 - 20:00<br>400-820-2026</p><p class="mt-4 text-[10px] leading-5 text-cream/30">愿你每一次出发，<br>都抵达心里的那处山海。</p></div>
+</div>
+<div class="border-t border-white/10"><div class="mx-auto flex max-w-[1240px] flex-col gap-2 px-6 py-5 text-[9px] tracking-wide text-cream/30 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 山海行旅行 · Shanhai Travel. 本站为产品原型演示。</p><p class="flex gap-5"><a class="hover:text-cream/60" href="home.html">隐私说明</a><a class="hover:text-cream/60" href="home.html">服务条款</a><span>浙ICP备 2026001288 号</span></p></div></div>
+</footer>
+<script>
+    const accountTabs = Array.from(document.querySelectorAll('.account-tab'));
+    const accountPanels = Array.from(document.querySelectorAll('.account-panel'));
+
+    function switchAccountTab(name) {
+      accountTabs.forEach((tab) => {
+        const active = tab.dataset.accountTab === name;
+        tab.classList.toggle('bg-pine', active);
+        tab.classList.toggle('text-cream', active);
+        tab.classList.toggle('font-semibold', active);
+        tab.classList.toggle('text-ink/55', !active);
+        tab.classList.toggle('font-medium', !active);
+      });
+      accountPanels.forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== 'panel-' + name);
+      });
+    }
+
+    accountTabs.forEach((tab) => {
+      tab.addEventListener('click', () => switchAccountTab(tab.dataset.accountTab));
+    });
+
+    const orderFilters = Array.from(document.querySelectorAll('.order-filter'));
+    const orders = Array.from(document.querySelectorAll('[data-order]'));
+    const orderEmpty = document.getElementById('orderEmpty');
+
+    orderFilters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        const status = filter.dataset.orderStatus;
+        orderFilters.forEach((item) => {
+          const active = item === filter;
+          item.classList.toggle('bg-pine', active);
+          item.classList.toggle('text-cream', active);
+          item.classList.toggle('font-semibold', active);
+          item.classList.toggle('border', !active);
+          item.classList.toggle('border-ink/10', !active);
+          item.classList.toggle('bg-cream', !active);
+          item.classList.toggle('text-ink/50', !active);
+        });
+        let visible = 0;
+        orders.forEach((order) => {
+          const matched = status === 'all' || order.dataset.status === status;
+          order.classList.toggle('hidden', !matched);
+          if (matched) visible += 1;
+        });
+        orderEmpty.classList.toggle('hidden', visible !== 0);
+        orderEmpty.classList.toggle('flex', visible === 0);
+      });
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('hidden');
+      window.clearTimeout(window.profileToastTimer);
+      window.profileToastTimer = window.setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2400);
+    }
+
+    document.getElementById('shareProfile').addEventListener('click', () => {
+      showToast('个人主页链接已复制');
+    });
+
+    document.getElementById('coverButton').addEventListener('click', () => {
+      showToast('已打开封面选择器');
+    });
+
+    // ===== 订单同步 + 阶梯模拟退款 =====
+    (function () {
+      function role() {
+        try {
+          if (sessionStorage.getItem('用户名') === '1') return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : 'user';
+          return localStorage.getItem('sh_role') || 'guest';
+        } catch (error) {
+          return 'guest';
+        }
+      }
+      function pad(value) {
+        return String(value).padStart(2, '0');
+      }
+      function todayKey() {
+        const now = new Date();
+        return now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+      }
+      function daysUntil(dateKey) {
+        if (!dateKey) return null;
+        const a = dateKey.split('-').map(Number);
+        const b = todayKey().split('-').map(Number);
+        return Math.round((new Date(a[0], a[1] - 1, a[2]) - new Date(b[0], b[1] - 1, b[2])) / 86400000);
+      }
+      function refundFor(left) {
+        if (left === null) return { label: '日期缺失', rate: 0 };
+        if (left >= 3) return { label: '距出发 ≥3 天', rate: 1 };
+        if (left >= 1) return { label: '距出发 1–2 天', rate: 0.5 };
+        return { label: '出发当天', rate: 0 };
+      }
+
+      const key = 'sh_orders_' + role();
+      const list = document.getElementById('orderList');
+      const filterBar = document.querySelector('.order-filter');
+
+      function buildCard(order) {
+        const rate = refundFor(daysUntil(order.checkin));
+        const article = document.createElement('article');
+        article.className = 'overflow-hidden rounded-[22px] border border-line bg-cream';
+        article.dataset.order = order.id || '';
+        article.dataset.status = 'pending';
+        article.innerHTML = '<div class="flex items-center justify-between border-b border-line px-5 py-3">'
+          + '<div class="flex items-center gap-3 text-[8px] text-ink/35"><span>订单号 ' + (order.id || 'SH-DEMO') + '</span><span>模拟预订 · 无真实支付</span></div>'
+          + '<span class="rounded-full bg-[#F8EAE4] px-2.5 py-1 text-[8px] font-semibold text-coral" data-order-badge>模拟支付成功</span></div>'
+          + '<div class="flex flex-col gap-4 p-5 sm:flex-row sm:items-center">'
+          + '<div class="flex h-24 w-full shrink-0 items-center justify-center rounded-[16px] bg-[#91A79A] text-cream sm:w-36"><iconify-icon class="text-[30px]" icon="mdi:ticket-confirmation-outline"></iconify-icon></div>'
+          + '<div class="flex-1"><p class="text-[8px] text-ink/35">云南 · 大理 · 门票预订</p>'
+          + '<h3 class="mt-1 font-display text-[20px] font-semibold">大理 3 天 2 晚 · 洱海慢行</h3>'
+          + '<p class="mt-1.5 text-[9px] text-ink/40">' + String(order.checkin || '').replace(/-/g, '.') + ' 起 · 共 ' + (order.days || 2) + ' 晚 · 虚拟库存已扣减</p>'
+          + '<p class="mt-1 text-[9px] text-ink/40" data-order-refund>距出发 ' + Math.max(daysUntil(order.checkin) || 0, 0) + ' 天 · ' + rate.label + ' · 可退 ' + Math.round(rate.rate * 100) + '% · 退款 ¥' + Math.floor((order.amount || 0) * rate.rate).toLocaleString('zh-CN') + '</p></div>'
+          + '<div class="flex items-end justify-between gap-4 sm:block sm:text-right"><p class="font-display text-[22px] font-semibold text-coral">¥' + Number(order.amount || 0).toLocaleString('zh-CN') + '</p>'
+          + '<div class="mt-2 flex gap-2 sm:justify-end"><button class="h-8 rounded-full border border-ink/15 px-3 text-[8px] text-ink/50" data-cancel-order type="button">取消退款</button></div></div>'
+          + '</div>';
+        article.dataset.amount = String(order.amount || 0);
+        article.dataset.checkin = order.checkin || '';
+        return article;
+      }
+
+      function loadOrders() {
+        let stored = [];
+        try {
+          stored = JSON.parse(localStorage.getItem(key) || '[]');
+        } catch (error) {
+          stored = [];
+        }
+        if (!Array.isArray(stored)) stored = [];
+        stored.forEach((order) => list.insertBefore(buildCard(order), list.firstChild));
+      }
+      loadOrders();
+
+      document.querySelectorAll('[data-cancel-order]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const card = button.closest('[data-order]');
+          const badge = card.querySelector('[data-order-badge]');
+          if (card.dataset.status === 'cancelled') {
+            showToast('该订单已取消，无需重复操作');
+            return;
+          }
+          let checkin = card.dataset.checkin || '';
+          if (!checkin) {
+            const match = (card.textContent || '').match(/(\d{4})\.(\d{2})\.(\d{2})/);
+            if (match) checkin = match[1] + '-' + match[2] + '-' + match[3];
+          }
+          const amount = Number(card.dataset.amount || 0) || Number(((card.querySelector('.text-coral') || {}).textContent || '0').replace(/[^0-9]/g, '')) || 0;
+          const left = daysUntil(checkin);
+          const rule = refundFor(left);
+          const refund = Math.floor(amount * rule.rate);
+          const ok = window.confirm('模拟取消：出行日期 ' + (checkin || '未记录') + '，' + rule.label + '，按规则可退 ' + Math.round(rule.rate * 100) + '%（¥' + refund.toLocaleString('zh-CN') + '）。无真实资金流转，是否继续？');
+          if (!ok) return;
+          card.dataset.status = 'cancelled';
+          if (badge) {
+            badge.textContent = '已取消 · 模拟退款 ' + Math.round(rule.rate * 100) + '%';
+            badge.className = 'rounded-full bg-sand px-2.5 py-1 text-[8px] font-semibold text-ink/45';
+          }
+          const refundLine = card.querySelector('[data-order-refund]');
+          if (refundLine) {
+            refundLine.textContent = '已取消 · ' + rule.label + ' · 退款 ' + Math.round(rule.rate * 100) + '% = ¥' + refund.toLocaleString('zh-CN') + '（模拟）';
+          }
+          button.textContent = '已取消';
+          button.disabled = true;
+          button.className = 'h-8 cursor-not-allowed rounded-full border border-ink/10 px-3 text-[8px] text-ink/30';
+          const payLink = card.querySelector('a[href="booking.html"]');
+          if (payLink) payLink.classList.add('hidden');
+          const activeFilter = document.querySelector('.order-filter.bg-pine') || filterBar;
+          if (activeFilter) activeFilter.click();
+          showToast('订单已取消，按「' + rule.label + '」模拟退款 ¥' + refund.toLocaleString('zh-CN'));
+        });
+      });
+    })();
+  </script>
+<script>
+(function () {
+  var PROFILE_KEY = 'sh_profile';
+  function role() {
+    try {
+      if (sessionStorage.getItem('用户名') === '1') {
+        return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : (localStorage.getItem('sh_role') || 'user');
+      }
+      return localStorage.getItem('sh_role') || 'guest';
+    } catch (error) {
+      return 'guest';
+    }
+  }
+  function readProfile() {
+    try {
+      return JSON.parse(localStorage.getItem(PROFILE_KEY) || '{}') || {};
+    } catch (error) {
+      return {};
+    }
+  }
+  var current = role();
+  if (current === 'guest') {
+    window.location.replace('login.html?redirect=profile.html');
+    return;
+  }
+  var isAdmin = current === 'admin';
+  var stored = readProfile();
+  var fields = document.querySelectorAll('[data-profile-field]');
+  fields.forEach(function (field) {
+    var key = field.getAttribute('data-profile-field');
+    if (typeof stored[key] === 'string' && stored[key]) field.value = stored[key];
+    if (isAdmin && key === 'nickname' && !stored[key]) field.value = '平台管理员';
+  });
+  var avatarImage = document.querySelector('[data-avatar-image]');
+  if (stored.avatar) {
+    if (avatarImage) avatarImage.src = stored.avatar;
+    document.querySelectorAll('[data-avatar-set]').forEach(function (btn) {
+      btn.classList.toggle('ring-2', btn.getAttribute('data-avatar-set') === stored.avatar);
+      btn.classList.toggle('ring-pine', btn.getAttribute('data-avatar-set') === stored.avatar);
+      btn.classList.toggle('ring-1', btn.getAttribute('data-avatar-set') !== stored.avatar);
+      btn.classList.toggle('ring-line', btn.getAttribute('data-avatar-set') !== stored.avatar);
+    });
+  }
+  function pick(key) {
+    var el = document.querySelector('[data-profile-field="' + key + '"]');
+    return el ? el.value.trim() : '';
+  }
+  function paint() {
+    var name = pick('nickname') || '林小满';
+    var bio = pick('bio');
+    var city = pick('city');
+    document.querySelectorAll('[data-profile-name-text]').forEach(function (node) {
+      node.textContent = name;
+    });
+    document.querySelectorAll('[data-profile-initial]').forEach(function (node) {
+      node.textContent = name.slice(0, 1);
+    });
+    var bioNode = document.querySelector('[data-profile-bio]');
+    if (bioNode && bio) bioNode.textContent = bio;
+    var cityNode = document.getElementById('heroCity');
+    if (cityNode && city) cityNode.textContent = city;
+    var badge = document.getElementById('roleBadge');
+    var heroTag = document.getElementById('heroRoleTag');
+    var entry = document.getElementById('adminEntry');
+    if (badge) {
+      badge.innerHTML = isAdmin
+        ? '<iconify-icon icon="mdi:shield-account-outline"></iconify-icon>管理员'
+        : '<iconify-icon icon="mdi:account-outline"></iconify-icon>普通用户';
+      badge.className = isAdmin
+        ? 'flex items-center gap-1 rounded-full bg-coral/15 px-3 py-1.5 text-[8px] font-semibold text-coral'
+        : 'flex items-center gap-1 rounded-full bg-pine/10 px-3 py-1.5 text-[8px] font-semibold text-pine';
+    }
+    if (heroTag) {
+      heroTag.innerHTML = isAdmin
+        ? '<iconify-icon class="text-[12px]" icon="mdi:shield-account-outline"></iconify-icon>管理员'
+        : '<iconify-icon class="text-[12px]" icon="mdi:account-outline"></iconify-icon>普通用户';
+      heroTag.className = isAdmin
+        ? 'flex items-center gap-1 rounded-full border border-coral/40 bg-coral/10 px-2.5 py-1 text-[8px] font-semibold text-coral'
+        : 'flex items-center gap-1 rounded-full border border-line px-2.5 py-1 text-[8px] font-semibold text-ink/55';
+    }
+    if (entry) entry.classList.toggle('hidden', !isAdmin);
+    var topName = document.querySelector('[data-profile-name]');
+    if (topName) topName.setAttribute('href', isAdmin ? 'admin.html' : 'profile.html');
+    var avatarInitials = document.querySelectorAll('[data-profile-initial]');
+    avatarInitials.forEach(function (node) {
+      node.textContent = name.slice(0, 1);
+    });
+  }
+  paint();
+  document.querySelectorAll('[data-avatar-set]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var src = btn.getAttribute('data-avatar-set');
+      if (avatarImage) avatarImage.src = src;
+      document.querySelectorAll('[data-avatar-set]').forEach(function (other) {
+        var active = other === btn;
+        other.classList.toggle('ring-2', active);
+        other.classList.toggle('ring-pine', active);
+        other.classList.toggle('ring-1', !active);
+        other.classList.toggle('ring-line', !active);
+      });
+      document.querySelectorAll('[data-profile-avatar-mini]').forEach(function (img) {
+        img.src = src;
+      });
+    });
+  });
+  var save = document.getElementById('profileSave');
+  if (save) {
+    save.addEventListener('click', function () {
+      var email = pick('email');
+      var phone = pick('phone');
+      if (!pick('nickname')) {
+        showToast('昵称不能为空');
+        return;
+      }
+      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showToast('请填写正确的邮箱格式');
+        return;
+      }
+      var data = { nickname: pick('nickname'), city: pick('city'), bio: pick('bio'), phone: phone, email: email };
+      if (avatarImage) data.avatar = avatarImage.getAttribute('src');
+      try {
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(data));
+      } catch (error) {
+        showToast('浏览器存储不可用，本次修改未保存');
+        return;
+      }
+      paint();
+      showToast('个人资料已保存，页面已即时更新');
+    });
+  }
+  var reset = document.getElementById('profileReset');
+  if (reset) {
+    reset.addEventListener('click', function () {
+      try {
+        localStorage.removeItem(PROFILE_KEY);
+      } catch (error) {}
+      window.location.reload();
+    });
+  }
+  document.querySelectorAll('[data-logout]').forEach(function (btn) {
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      try {
+        localStorage.setItem('sh_role', 'guest');
+        localStorage.removeItem('sh_profile');
+        sessionStorage.setItem('用户名', '0');
+        sessionStorage.setItem('sh_demo_role', 'guest');
+      } catch (error) {}
+      window.location.href = 'login.html';
+    });
+  });
+})();
+</script>
+
+
+</body></html>

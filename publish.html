@@ -1,0 +1,396 @@
+<!DOCTYPE html><html lang="zh-CN"><head><style id="mb-code-iframe-style">
+  html, body { margin: 0; width: 100%; min-height: 100%; }
+  html { --uiWidth: 100% !important; --uiHeight: 100% !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>发布游记｜山海行</title>
+<meta content="记录你的旅行故事，上传照片、编辑正文并发布到山海行。" name="description">
+<script src="assets/vendor/tailwindcss.js"></script>
+<script src="assets/vendor/iconify-icon.min.js"></script>
+  <script src="assets/vendor/mdi-icons.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { sand: '#F6F2E9', cream: '#FFFCF6', ink: '#12312E', pine: '#0E5A52', moss: '#6F8F7C', coral: '#E9663F', sun: '#F0C264', line: '#E4DDCF' },
+          fontFamily: {
+            display: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+            sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -36px rgba(18,49,46,.4)',
+            card: '0 14px 34px -24px rgba(18,49,46,.28)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-sand font-sans text-ink antialiased">
+<div class="bg-ink text-[11px] tracking-wide text-cream/70">
+<div class="mx-auto flex h-9 max-w-[1240px] items-center justify-between px-6">
+<p class="flex items-center gap-2"><iconify-icon class="text-[14px] text-sun" icon="mdi:compass-rose"></iconify-icon>山海行 · 把假期过成故事</p>
+<div class="flex items-center gap-6"><span class="hidden items-center gap-1.5 sm:flex"><iconify-icon class="text-[13px]" icon="mdi:headset"></iconify-icon>400-820-2026</span><a class="transition hover:text-sun" href="profile.html">订单中心</a><a class="transition hover:text-sun" href="profile.html">我的主页</a></div>
+</div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-sand/95 backdrop-blur-md">
+<div class="mx-auto flex h-[76px] max-w-[1240px] items-center justify-between px-6">
+<a aria-label="山海行首页" class="flex items-center gap-3" href="home.html">
+<span class="grid h-10 w-10 place-items-center rounded-full bg-pine text-cream"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span>
+<span class="flex flex-col"><span class="font-display text-[22px] font-bold leading-none tracking-[0.16em]">山海行</span><span class="mt-1 text-[8px] font-medium uppercase tracking-[0.3em] text-ink/45">Shanhai Travel</span></span>
+</a>
+<nav class="-mx-1 hidden items-center gap-1 text-[14px] font-medium text-ink/60 lg:flex">
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="home.html">首页</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="destinations.html">目的地</a>
+<a class="relative inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-coral" href="guides.html">攻略游记</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="booking.html">预订服务</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="profile.html">我的行程</a>
+</nav>
+<div class="flex items-center gap-3">
+<span class="hidden items-center gap-1.5 text-[9px] text-ink/35 sm:flex" id="saveStatus"><iconify-icon class="text-[15px] text-pine" icon="mdi:cloud-check-outline"></iconify-icon>草稿已保存</span>
+<a class="hidden h-10 items-center rounded-full border border-ink/20 px-5 text-[13px] font-semibold transition hover:border-pine hover:text-pine sm:flex" href="guides.html">返回游记</a>
+<a class="flex h-10 items-center gap-2 rounded-full bg-pine px-5 text-[13px] font-semibold text-cream transition hover:bg-ink" href="profile.html"><iconify-icon class="text-[17px]" icon="mdi:account-outline"></iconify-icon>我的主页</a>
+</div>
+</div>
+</header>
+<main class="mx-auto max-w-[1240px] px-6 pb-20 pt-7">
+<div class="flex items-center gap-2 text-[10px] text-ink/40">
+<a class="hover:text-pine" href="home.html">首页</a><iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<a class="hover:text-pine" href="guides.html">攻略游记</a><iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<span class="text-ink/65">写游记</span>
+</div>
+<div class="mt-6 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+<div><p class="text-[10px] font-semibold uppercase tracking-[0.26em] text-coral">写下你的故事</p><h1 class="mt-2 font-display text-[38px] font-semibold">把走过的路，写成礼物</h1><p class="mt-2 text-[11px] text-ink/45">照片会褪色，但文字会记得当时的风。</p></div>
+<div class="flex items-center gap-2">
+<button class="flex h-10 items-center gap-2 rounded-full border border-ink/15 px-5 text-[10px] font-semibold text-ink/55 transition hover:border-pine hover:text-pine" id="draftButton" type="button"><iconify-icon class="text-[16px]" icon="mdi:content-save-outline"></iconify-icon>保存草稿</button>
+<button class="flex h-10 items-center gap-2 rounded-full bg-coral px-5 text-[10px] font-semibold text-white transition hover:bg-[#D95530]" onclick="openPublishModal()" type="button"><iconify-icon class="text-[16px]" icon="mdi:send-outline"></iconify-icon>发布游记</button>
+</div>
+</div>
+<div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+<div class="min-w-0 space-y-5">
+<section class="overflow-hidden rounded-[28px] border border-line bg-cream">
+<div class="relative h-[280px] bg-[#8FA69A] sm:h-[340px]">
+<img alt="Cover image of rice fields and mountains in Dali" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_3f8351023827413cb8394c99b14819c4.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-ink/65 via-ink/5 to-transparent"></div>
+<div class="absolute left-5 top-5 flex items-center gap-2 rounded-full bg-ink/30 px-3 py-1.5 text-[8px] text-white backdrop-blur"><iconify-icon icon="mdi:image-outline"></iconify-icon>封面图 · 建议 16:9</div>
+<div class="absolute bottom-5 left-5 right-5 flex flex-wrap items-end justify-between gap-3">
+<div class="text-white"><p class="text-[8px] uppercase tracking-[0.22em] text-white/60">封面预览</p><p class="mt-1 font-display text-[21px] font-semibold">喜洲稻田 · 十月的风</p></div>
+<button class="flex h-9 items-center gap-2 rounded-full bg-cream/90 px-4 text-[9px] font-semibold text-ink backdrop-blur transition hover:bg-sun" onclick="document.getElementById('coverInput').click()" type="button"><iconify-icon class="text-[15px]" icon="mdi:camera-outline"></iconify-icon>更换封面</button>
+</div>
+<input accept="image/*" class="hidden" id="coverInput" type="file">
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 border-t border-line px-5 py-3 text-[8px] text-ink/35"><span id="coverFileName">当前封面：xizhou-ricefield.jpg</span><span>推荐尺寸 1600 × 900 px，小于 5MB</span></div>
+</section>
+<section class="rounded-[28px] border border-line bg-cream p-5 sm:p-7">
+<div class="flex items-center justify-between border-b border-line pb-3">
+<div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-coral"></span><span class="text-[9px] font-semibold uppercase tracking-[0.2em] text-ink/45">故事编辑器</span></div>
+<span class="text-[8px] text-ink/30" id="autoSaveLabel">自动保存于 12:14</span>
+</div>
+<input class="mt-5 w-full bg-transparent font-display text-[28px] font-semibold leading-[1.45] outline-none placeholder:text-ink/25 sm:text-[34px]" id="storyTitle" placeholder="给这段旅程起一个标题…" type="text" value="在大理住进风里，把四天过成一场慢动作">
+<div class="mt-4 flex flex-wrap gap-2">
+<label class="flex h-9 items-center gap-1.5 rounded-full bg-sand px-3 text-[9px] text-ink/55"><iconify-icon class="text-[14px] text-pine" icon="mdi:map-marker-outline"></iconify-icon><select class="cursor-pointer bg-transparent outline-none" id="storyDestination"><option>云南 · 大理</option><option>福建 · 泉州</option><option>新疆 · 阿勒泰</option><option>福建 · 厦门</option><option>江西 · 婺源</option></select></label>
+<label class="flex h-9 items-center gap-1.5 rounded-full bg-sand px-3 text-[9px] text-ink/55"><iconify-icon class="text-[14px] text-pine" icon="mdi:calendar-range"></iconify-icon><input class="w-[110px] bg-transparent outline-none" type="text" value="2026.10.17 - 10.21"></label>
+<span class="flex h-9 items-center gap-1.5 rounded-full bg-[#E7F0E8] px-3 text-[9px] font-medium text-pine"><iconify-icon class="text-[14px]" icon="mdi:check-circle-outline"></iconify-icon>原创旅行记录</span>
+</div>
+<div class="mt-5 flex flex-wrap items-center gap-1 rounded-xl border border-line bg-[#FBF8F1] px-2 py-1.5">
+<button aria-label="加粗" class="toolbar-btn" onclick="formatText('bold')" type="button"><iconify-icon icon="mdi:format-bold"></iconify-icon></button>
+<button aria-label="斜体" class="toolbar-btn" onclick="formatText('italic')" type="button"><iconify-icon icon="mdi:format-italic"></iconify-icon></button>
+<button aria-label="下划线" class="toolbar-btn" onclick="formatText('underline')" type="button"><iconify-icon icon="mdi:format-underline"></iconify-icon></button>
+<span class="mx-1 h-4 w-px bg-line"></span>
+<button aria-label="小标题" class="toolbar-btn text-[9px] font-semibold" onclick="formatText('formatBlock', 'h2')" type="button">H2</button>
+<button aria-label="列表" class="toolbar-btn" onclick="formatText('insertUnorderedList')" type="button"><iconify-icon icon="mdi:format-list-bulleted"></iconify-icon></button>
+<button aria-label="引用" class="toolbar-btn" onclick="formatText('formatBlock', 'blockquote')" type="button"><iconify-icon icon="mdi:format-quote-open"></iconify-icon></button>
+<span class="mx-1 h-4 w-px bg-line"></span>
+<button aria-label="插入图片" class="toolbar-btn" onclick="document.getElementById('photoInput').click()" type="button"><iconify-icon icon="mdi:image-plus-outline"></iconify-icon></button>
+<button aria-label="撤销" class="toolbar-btn ml-auto" onclick="formatText('undo')" type="button"><iconify-icon icon="mdi:undo"></iconify-icon></button>
+<button aria-label="重做" class="toolbar-btn" onclick="formatText('redo')" type="button"><iconify-icon icon="mdi:redo"></iconify-icon></button>
+</div>
+<div class="relative mt-4">
+<div class="pointer-events-none absolute left-0 top-1 hidden text-[13px] leading-8 text-ink/25" id="editorPlaceholder">从出发那天写起……</div>
+<div class="min-h-[330px] outline-none" contenteditable="true" id="storyContent">
+<p class="text-[13px] leading-8 text-ink/58">从大理站出来，风先替我接了行李。出租车沿大丽路往喜洲开，左手是苍山，右手是洱海，云影一路落在车窗上。那一刻我就知道，这趟不需要排得太满。</p>
+<p class="mt-4 text-[13px] leading-8 text-ink/58">四天里，我没有去所有“必去”的地方。只在古城吃了一顿很慢的早饭，在喜洲的稻田边骑了两圈车，去海舌公园等了一场日落，最后一天上苍山走了一小段路。</p>
+<h2 class="mt-6 font-display text-[22px] font-semibold">喜洲的下午，应该交给稻田</h2>
+<p class="mt-3 text-[13px] leading-8 text-ink/58">从古城打车到才村，租了一辆带电量的小电驴。原计划骑到喜洲，结果刚上生态廊道就被风景绊住：左手是湖，右手是稻田，云低得像可以伸手碰到。</p>
+<p class="mt-4 text-[13px] leading-8 text-ink/58">喜洲古镇比想象中安静。从侧门绕进去，避开主街的人流，沿巷子走能看到很多保存很好的白族民居。转角那家破酥粑粑刚出炉，外皮酥得掉渣，玫瑰馅有一点点甜。</p>
+</div>
+</div>
+<div class="mt-5 flex items-center justify-between border-t border-line pt-3 text-[8px] text-ink/30"><span class="flex items-center gap-1"><iconify-icon class="text-[13px]" icon="mdi:information-outline"></iconify-icon>支持自动保存，草稿仅自己可见</span><span><span id="wordCount">0</span> 字 · 约 <span id="readTime">1</span> 分钟阅读</span></div>
+</section>
+<section class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex items-center justify-between"><div><h2 class="font-display text-[21px] font-semibold">旅途照片</h2><p class="mt-1 text-[9px] text-ink/40">最多上传 9 张，建议选择有故事感的瞬间。</p></div><span class="text-[9px] text-ink/35" id="photoCount">3 / 9</span></div>
+<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+<div class="group relative h-28 overflow-hidden rounded-[16px] bg-[#A9B7A2]"><img alt="Rice field near Dali in autumn" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_7995931c8e4d4a96b308d16fa7645cd3.jpg"><button aria-label="删除照片" class="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full bg-ink/40 text-white opacity-0 backdrop-blur transition group-hover:opacity-100" type="button"><iconify-icon class="text-[13px]" icon="mdi:close"></iconify-icon></button></div>
+<div class="group relative h-28 overflow-hidden rounded-[16px] bg-[#B89C7D]"><img alt="Morning market food stall in Dali" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_9f1085029921485c92917f3f402e61f3.jpg"><button aria-label="删除照片" class="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full bg-ink/40 text-white opacity-0 backdrop-blur transition group-hover:opacity-100" type="button"><iconify-icon class="text-[13px]" icon="mdi:close"></iconify-icon></button></div>
+<div class="group relative h-28 overflow-hidden rounded-[16px] bg-[#8FA398]"><img alt="Sunset at Sea tongue park in Dali" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_de6cb7ad67684c3ba7a580c22c300d49.jpg"><button aria-label="删除照片" class="absolute right-2 top-2 grid h-6 w-6 place-items-center rounded-full bg-ink/40 text-white opacity-0 backdrop-blur transition group-hover:opacity-100" type="button"><iconify-icon class="text-[13px]" icon="mdi:close"></iconify-icon></button></div>
+<button class="flex h-28 flex-col items-center justify-center gap-2 rounded-[16px] border border-dashed border-ink/20 bg-[#FBF8F1] text-ink/35 transition hover:border-pine hover:text-pine" onclick="document.getElementById('photoInput').click()" type="button"><iconify-icon class="text-[24px]" icon="mdi:plus"></iconify-icon><span class="text-[8px]">添加照片</span></button>
+<input accept="image/*" class="hidden" id="photoInput" multiple="" type="file">
+</div>
+</section>
+<section class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<h2 class="font-display text-[21px] font-semibold">给故事加几个标签</h2>
+<p class="mt-1 text-[9px] text-ink/40">最多选择 5 个，帮助更多同频的旅人找到你。</p>
+<div class="mt-4 flex flex-wrap gap-2" id="tagGroup">
+<button class="story-tag rounded-full bg-pine px-3.5 py-2 text-[9px] font-medium text-cream transition" data-selected="true" data-tag="" type="button">#大理慢行</button>
+<button class="story-tag rounded-full bg-pine px-3.5 py-2 text-[9px] font-medium text-cream transition" data-selected="true" data-tag="" type="button">#洱海骑行</button>
+<button class="story-tag rounded-full bg-pine px-3.5 py-2 text-[9px] font-medium text-cream transition" data-selected="true" data-tag="" type="button">#秋日旅行</button>
+<button class="story-tag rounded-full border border-ink/10 bg-white px-3.5 py-2 text-[9px] font-medium text-ink/50 transition hover:border-pine hover:text-pine" data-tag="" type="button">#住宿推荐</button>
+<button class="story-tag rounded-full border border-ink/10 bg-white px-3.5 py-2 text-[9px] font-medium text-ink/50 transition hover:border-pine hover:text-pine" data-tag="" type="button">#小众路线</button>
+<button class="story-tag rounded-full border border-ink/10 bg-white px-3.5 py-2 text-[9px] font-medium text-ink/50 transition hover:border-pine hover:text-pine" data-tag="" type="button">#在地美食</button>
+<button class="story-tag rounded-full border border-ink/10 bg-white px-3.5 py-2 text-[9px] font-medium text-ink/50 transition hover:border-pine hover:text-pine" data-tag="" type="button">#两人旅行</button>
+<button class="story-tag rounded-full border border-ink/10 bg-white px-3.5 py-2 text-[9px] font-medium text-ink/50 transition hover:border-pine hover:text-pine" data-tag="" type="button">#摄影记录</button>
+</div>
+<p class="mt-3 text-[8px] text-ink/30" id="tagHint">已选 3 个，还可以选择 2 个</p>
+</section>
+</div>
+<aside class="space-y-4 lg:sticky lg:top-[100px] lg:self-start">
+<div class="rounded-[24px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between"><h2 class="text-[11px] font-semibold">读者预览</h2><span class="rounded-full bg-sand px-2 py-1 text-[7px] text-ink/35">实时</span></div>
+<div class="mt-4 overflow-hidden rounded-[18px] border border-line bg-white">
+<div class="h-28 bg-[#93A99B]"><img alt="Preview cover of Dali rice field story" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_76ff49cb734948c9a4df90dff603b6ba.jpg"></div>
+<div class="p-4"><p class="text-[8px] font-semibold uppercase tracking-[0.16em] text-coral">Slow travel</p><h3 class="mt-1.5 font-display text-[16px] font-semibold leading-6" id="previewTitle">在大理住进风里，把四天过成一场慢动作</h3><p class="mt-2 text-[8px] text-ink/35" id="previewMeta">云南 · 大理 · 5 分钟阅读</p></div>
+</div>
+<p class="mt-3 text-center text-[8px] leading-4 text-ink/30">发布后将同步展示在攻略游记与个人主页</p>
+</div>
+<div class="rounded-[24px] border border-line bg-cream p-5">
+<h2 class="text-[11px] font-semibold">发布设置</h2>
+<div class="mt-4 space-y-3">
+<label class="block"><span class="mb-1.5 block text-[8px] font-medium text-ink/45">谁可以看到</span><select class="h-9 w-full cursor-pointer rounded-lg border border-line bg-white px-3 text-[9px] outline-none focus:border-pine"><option>所有人</option><option>仅关注我的旅人</option><option>仅自己可见</option></select></label>
+<label class="block"><span class="mb-1.5 block text-[8px] font-medium text-ink/45">评论权限</span><select class="h-9 w-full cursor-pointer rounded-lg border border-line bg-white px-3 text-[9px] outline-none focus:border-pine"><option>所有旅人可评论</option><option>仅关注我的旅人可评论</option><option>关闭评论</option></select></label>
+<label class="flex items-center justify-between gap-4 border-t border-line pt-3 text-[9px] text-ink/50"><span><strong class="block text-[10px] font-semibold text-ink">声明原创</strong><span class="mt-0.5 block text-[8px] text-ink/35">保护你的文字与照片</span></span><input checked="" class="h-3.5 w-3.5 accent-[#0E5A52]" type="checkbox"></label>
+<label class="flex items-center justify-between gap-4 text-[9px] text-ink/50"><span><strong class="block text-[10px] font-semibold text-ink">允许转载</strong><span class="mt-0.5 block text-[8px] text-ink/35">注明作者与出处即可</span></span><input class="h-3.5 w-3.5 accent-[#0E5A52]" type="checkbox"></label>
+</div>
+</div>
+<div class="rounded-[24px] bg-pine p-5 text-cream">
+<div class="flex items-center gap-2 text-[10px] font-semibold"><iconify-icon class="text-[17px] text-sun" icon="mdi:lightbulb-on-outline"></iconify-icon>让故事更好读</div>
+<ul class="mt-3 space-y-2.5 text-[9px] leading-5 text-cream/55">
+<li class="flex gap-2"><span class="text-sun">·</span>用一个小场景开头，比“这次去了……”更吸引人。</li>
+<li class="flex gap-2"><span class="text-sun">·</span>每天选 2-3 个细节写透，不必面面俱到。</li>
+<li class="flex gap-2"><span class="text-sun">·</span>附上交通、花费和住宿信息，会更有帮助。</li>
+</ul>
+</div>
+<div class="rounded-[24px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between"><h2 class="text-[11px] font-semibold">发布清单</h2><span class="text-[8px] text-ink/35" id="checkProgress">3 / 4</span></div>
+<div class="mt-3 space-y-2.5 text-[9px]">
+<p class="check-item flex items-center gap-2 text-pine"><iconify-icon class="text-[15px]" icon="mdi:check-circle"></iconify-icon>添加标题</p>
+<p class="check-item flex items-center gap-2 text-pine"><iconify-icon class="text-[15px]" icon="mdi:check-circle"></iconify-icon>上传封面</p>
+<p class="check-item flex items-center gap-2 text-pine"><iconify-icon class="text-[15px]" icon="mdi:check-circle"></iconify-icon>写下正文</p>
+<p class="check-item flex items-center gap-2 text-pine" id="tagCheck"><iconify-icon class="text-[15px]" icon="mdi:check-circle"></iconify-icon>选择标签</p>
+</div>
+</div>
+<button class="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-coral text-[11px] font-semibold text-white shadow-card transition hover:bg-[#D95530]" onclick="openPublishModal()" type="button"><iconify-icon class="text-[17px]" icon="mdi:send-outline"></iconify-icon>发布这篇游记</button>
+<p class="text-center text-[8px] leading-4 text-ink/30">发布即表示你同意《社区内容规范》</p>
+</aside>
+</div>
+</main>
+<div class="fixed inset-0 z-[70] hidden items-center justify-center bg-ink/60 p-6 backdrop-blur-sm" id="publishModal">
+<div class="relative w-full max-w-[470px] rounded-[30px] bg-cream p-7 text-center shadow-soft">
+<button aria-label="关闭" class="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-full bg-sand text-ink/40 transition hover:text-ink" onclick="closePublishModal()" type="button"><iconify-icon class="text-[18px]" icon="mdi:close"></iconify-icon></button>
+<span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#E7F0E8] text-pine"><iconify-icon class="text-[36px]" icon="mdi:send-check"></iconify-icon></span>
+<p class="mt-5 text-[9px] font-semibold uppercase tracking-[0.25em] text-coral">游记已发布</p>
+<h2 class="mt-2 font-display text-[28px] font-semibold">你的故事，已经出发</h2>
+<p class="mx-auto mt-2 max-w-[330px] text-[10px] leading-5 text-ink/45">《<span id="modalStoryTitle">在大理住进风里，把四天过成一场慢动作</span>》已发布到山海行，期待它遇见同频的旅人。</p>
+<div class="mt-5 grid grid-cols-3 divide-x divide-line rounded-[18px] bg-sand py-4">
+<div><p class="font-display text-[21px] font-semibold text-pine">0</p><p class="mt-1 text-[8px] text-ink/35">阅读</p></div>
+<div><p class="font-display text-[21px] font-semibold text-pine">0</p><p class="mt-1 text-[8px] text-ink/35">收藏</p></div>
+<div><p class="font-display text-[21px] font-semibold text-pine">0</p><p class="mt-1 text-[8px] text-ink/35">留言</p></div>
+</div>
+<div class="mt-5 flex gap-2"><button class="h-11 flex-1 rounded-full border border-ink/15 text-[10px] font-semibold text-ink/55" onclick="closePublishModal()" type="button">继续编辑</button><a class="flex h-11 flex-1 items-center justify-center rounded-full bg-pine text-[10px] font-semibold text-cream" href="guide-detail.html">查看发布效果</a></div>
+<a class="mt-3 inline-flex items-center gap-1 text-[8px] text-ink/35 hover:text-pine" href="profile.html">前往个人中心管理我的游记 <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+</div>
+</div>
+<div class="fixed bottom-6 left-1/2 z-[80] hidden -translate-x-1/2 rounded-full bg-ink px-5 py-3 text-[10px] font-medium text-cream shadow-soft" id="toast">已保存到草稿</div>
+<footer class="bg-ink text-cream">
+<div class="mx-auto grid max-w-[1240px] gap-10 px-6 py-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+<div><a class="flex items-center gap-3 text-cream" href="home.html"><span class="grid h-10 w-10 place-items-center rounded-full bg-cream text-pine"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span><span class="font-display text-[22px] font-bold tracking-[0.16em]">山海行</span></a><p class="mt-4 max-w-[260px] text-[11px] leading-6 text-cream/50">把目的地灵感、当地人攻略、特色住宿与门票体验，放进同一趟旅程。</p></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">开始旅行</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="destinations.html">目的地灵感</a><a class="hover:text-sun" href="guides.html">攻略与游记</a><a class="hover:text-sun" href="booking.html">住宿门票预订</a><a class="hover:text-sun" href="publish.html">发布旅行记录</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行服务</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="profile.html">我的订单</a><a class="hover:text-sun" href="profile.html">收藏与心愿单</a><a class="hover:text-sun" href="booking.html">退改规则</a><a class="hover:text-sun" href="login.html">账号与安全</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行管家</h3><p class="mt-4 text-[11px] leading-6 text-cream/50">每天 08:00 - 20:00<br>400-820-2026</p><p class="mt-4 text-[10px] leading-5 text-cream/30">愿你每一次出发，<br>都抵达心里的那处山海。</p></div>
+</div>
+<div class="border-t border-white/10"><div class="mx-auto flex max-w-[1240px] flex-col gap-2 px-6 py-5 text-[9px] tracking-wide text-cream/30 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 山海行旅行 · Shanhai Travel. 本站为产品原型演示。</p><p class="flex gap-5"><a class="hover:text-cream/60" href="home.html">隐私说明</a><a class="hover:text-cream/60" href="home.html">服务条款</a><span>浙ICP备 2026001288 号</span></p></div></div>
+</footer>
+<script>
+    const storyTitle = document.getElementById('storyTitle');
+    const storyContent = document.getElementById('storyContent');
+    const wordCount = document.getElementById('wordCount');
+    const readTime = document.getElementById('readTime');
+    const saveStatus = document.getElementById('saveStatus');
+    const editorPlaceholder = document.getElementById('editorPlaceholder');
+
+    function updateWordCount() {
+      const text = storyContent.innerText.trim();
+      const count = text.replace(/\s/g, '').length;
+      wordCount.textContent = count;
+      readTime.textContent = Math.max(1, Math.ceil(count / 400));
+      editorPlaceholder.classList.toggle('hidden', text.length > 0);
+      document.getElementById('autoSaveLabel').textContent = '正在保存…';
+      window.clearTimeout(window.autoSaveTimer);
+      window.autoSaveTimer = window.setTimeout(() => {
+        document.getElementById('autoSaveLabel').textContent = '已保存于刚刚';
+      }, 900);
+    }
+
+    storyContent.addEventListener('input', updateWordCount);
+    storyContent.addEventListener('focus', () => editorPlaceholder.classList.add('hidden'));
+    storyContent.addEventListener('blur', updateWordCount);
+
+    storyTitle.addEventListener('input', () => {
+      document.getElementById('previewTitle').textContent = storyTitle.value || '未命名旅行故事';
+      updatePreviewMeta();
+    });
+
+    document.getElementById('storyDestination').addEventListener('change', updatePreviewMeta);
+
+    function updatePreviewMeta() {
+      const destination = document.getElementById('storyDestination').value;
+      document.getElementById('previewMeta').textContent = destination + ' · 约 ' + Math.max(1, Math.ceil(storyContent.innerText.replace(/\s/g, '').length / 400)) + ' 分钟阅读';
+    }
+
+    function formatText(command, value = null) {
+      storyContent.focus();
+      document.execCommand(command, false, value);
+      updateWordCount();
+    }
+
+    document.getElementById('coverInput').addEventListener('change', (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+      document.getElementById('coverFileName').textContent = '当前封面：' + file.name;
+      showToast('封面已更新，发布时生效');
+    });
+
+    document.getElementById('photoInput').addEventListener('change', (event) => {
+      const count = event.target.files ? event.target.files.length : 0;
+      if (!count) return;
+      showToast('已添加 ' + count + ' 张旅途照片');
+      document.getElementById('photoCount').textContent = (3 + count) + ' / 9';
+    });
+
+    let selectedTags = 3;
+    document.querySelectorAll('.story-tag').forEach((tag) => {
+      tag.addEventListener('click', () => {
+        const wasSelected = tag.dataset.selected === 'true';
+        if (!wasSelected && selectedTags >= 5) {
+          showToast('最多选择 5 个标签');
+          return;
+        }
+        tag.dataset.selected = String(!wasSelected);
+        selectedTags += wasSelected ? -1 : 1;
+        tag.classList.toggle('bg-pine', !wasSelected);
+        tag.classList.toggle('text-cream', !wasSelected);
+        tag.classList.toggle('border', wasSelected);
+        tag.classList.toggle('border-ink/10', wasSelected);
+        tag.classList.toggle('bg-white', wasSelected);
+        tag.classList.toggle('text-ink/50', wasSelected);
+        document.getElementById('tagHint').textContent = '已选 ' + selectedTags + ' 个，还可以选择 ' + (5 - selectedTags) + ' 个';
+        const tagDone = selectedTags > 0;
+        document.getElementById('tagCheck').classList.toggle('text-pine', tagDone);
+        document.getElementById('tagCheck').classList.toggle('text-ink/30', !tagDone);
+        document.getElementById('tagCheck').innerHTML = tagDone
+          ? '<iconify-icon icon="mdi:check-circle" class="text-[15px]"></iconify-icon>选择标签'
+          : '<iconify-icon icon="mdi:circle-outline" class="text-[15px]"></iconify-icon>选择标签';
+      });
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('hidden');
+      window.clearTimeout(window.toastTimer);
+      window.toastTimer = window.setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2200);
+    }
+
+    // 游客（未登录）发布游记前先跳登录页，登录后带回来源页
+    function currentRole() {
+      try {
+        if (sessionStorage.getItem('用户名') === '1') {
+          return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : 'user';
+        }
+        return localStorage.getItem('sh_role') || 'guest';
+      } catch (error) {
+        return 'guest';
+      }
+    }
+
+    document.getElementById('draftButton').addEventListener('click', () => {
+      showToast('已保存到草稿，可稍后继续完成');
+      saveStatus.classList.remove('hidden');
+      saveStatus.classList.add('flex');
+    });
+
+    function openPublishModal() {
+      if (currentRole() === 'guest') {
+        location.href = 'login.html?redirect=' + encodeURIComponent('publish.html') + '&op=' + encodeURIComponent('发布游记');
+        return;
+      }
+      const title = storyTitle.value.trim();
+      const content = storyContent.innerText.trim();
+      if (!title) {
+        storyTitle.focus();
+        showToast('先给故事起一个标题吧');
+        return;
+      }
+      if (content.length < 30) {
+        storyContent.focus();
+        showToast('再多写一点，让故事更完整');
+        return;
+      }
+      document.getElementById('modalStoryTitle').textContent = title;
+      const modal = document.getElementById('publishModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closePublishModal() {
+      const modal = document.getElementById('publishModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.getElementById('publishModal').addEventListener('click', (event) => {
+      if (event.target.id === 'publishModal') closePublishModal();
+    });
+
+    updateWordCount();
+    updatePreviewMeta();
+    editorPlaceholder.classList.add('hidden');
+  </script>
+<script>
+(function () {
+  function readRole() {
+    try {
+      if (sessionStorage.getItem('用户名') === '1') {
+        return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : (localStorage.getItem('sh_role') || 'user');
+      }
+      return localStorage.getItem('sh_role') || 'guest';
+    } catch (error) {
+      return 'guest';
+    }
+  }
+  var role = readRole();
+  if (role === 'guest') {
+    window.location.replace('login.html?redirect=publish.html');
+    return;
+  }
+  if (role === 'admin') {
+    var host = document.querySelector('.bg-ink .flex.items-center.gap-6');
+    if (host && !document.querySelector('a[href="admin.html"]')) {
+      var entry = document.createElement('a');
+      entry.className = 'transition hover:text-sun';
+      entry.href = 'admin.html';
+      entry.textContent = '管理后台';
+      host.appendChild(entry);
+    }
+    document.querySelectorAll('a[href="profile.html"]').forEach(function (link) {
+      if (link.closest('nav')) link.setAttribute('href', 'admin.html');
+    });
+  }
+})();
+</script>
+
+
+</body></html>

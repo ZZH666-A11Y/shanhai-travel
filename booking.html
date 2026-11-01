@@ -1,0 +1,728 @@
+<!DOCTYPE html><html lang="zh-CN"><head><style id="mb-code-iframe-style">
+  html, body { margin: 0; width: 100%; min-height: 100%; }
+  html { --uiWidth: 100% !important; --uiHeight: 100% !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>预订行程｜大理 3 天 2 晚 · 山海行</title>
+<meta content="预订大理 3 天 2 晚自由行，选择房型、附加体验并填写出行信息。" name="description">
+<script src="assets/vendor/tailwindcss.js"></script>
+<script src="assets/vendor/iconify-icon.min.js"></script>
+  <script src="assets/vendor/mdi-icons.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { sand: '#F6F2E9', cream: '#FFFCF6', ink: '#12312E', pine: '#0E5A52', moss: '#6F8F7C', coral: '#E9663F', sun: '#F0C264', line: '#E4DDCF' },
+          fontFamily: {
+            display: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+            sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -36px rgba(18,49,46,.4)',
+            card: '0 14px 34px -24px rgba(18,49,46,.28)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-sand font-sans text-ink antialiased">
+<div class="bg-ink text-[11px] tracking-wide text-cream/70">
+<div class="mx-auto flex h-9 max-w-[1240px] items-center justify-between px-6">
+<p class="flex items-center gap-2"><iconify-icon class="text-[14px] text-sun" icon="mdi:compass-rose"></iconify-icon>山海行 · 把假期过成故事</p>
+<div class="flex items-center gap-6"><span class="hidden items-center gap-1.5 sm:flex"><iconify-icon class="text-[13px]" icon="mdi:headset"></iconify-icon>400-820-2026</span><a class="transition hover:text-sun" href="profile.html">订单中心</a><a class="transition hover:text-sun" data-session-login="" href="login.html">登录 / 注册</a></div>
+</div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-sand/95 backdrop-blur-md">
+<div class="mx-auto flex h-[76px] max-w-[1240px] items-center justify-between px-6">
+<a aria-label="山海行首页" class="flex items-center gap-3" href="home.html">
+<span class="grid h-10 w-10 place-items-center rounded-full bg-pine text-cream"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span>
+<span class="flex flex-col"><span class="font-display text-[22px] font-bold leading-none tracking-[0.16em]">山海行</span><span class="mt-1 text-[8px] font-medium uppercase tracking-[0.3em] text-ink/45">Shanhai Travel</span></span>
+</a>
+<nav class="-mx-1 hidden items-center gap-1 text-[14px] font-medium text-ink/60 lg:flex">
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="home.html">首页</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="destinations.html">目的地</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="guides.html">攻略游记</a>
+<a class="relative inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-coral" href="booking.html">预订服务</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="profile.html">我的行程</a>
+</nav>
+<div class="flex items-center gap-3">
+<span class="hidden items-center gap-1.5 text-[10px] text-ink/45 sm:flex"><iconify-icon class="text-[16px] text-pine" icon="mdi:shield-lock-outline"></iconify-icon>安全预订</span>
+<a class="hidden h-10 items-center rounded-full border border-ink/20 px-5 text-[13px] font-semibold transition hover:border-pine hover:text-pine sm:flex" data-session-login="" href="login.html?redirect=booking.html">登录</a>
+<a class="flex h-10 items-center gap-2 rounded-full bg-pine px-5 text-[13px] font-semibold text-cream transition hover:bg-ink" href="profile.html"><iconify-icon class="text-[17px]" icon="mdi:account-outline"></iconify-icon>我的订单</a>
+</div>
+</div>
+</header>
+<main class="mx-auto max-w-[1240px] px-6 pb-20 pt-7">
+<div class="flex items-center gap-2 text-[10px] text-ink/40">
+<a class="hover:text-pine" href="home.html">首页</a><iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<a class="hover:text-pine" href="destination-detail.html">大理 · 苍山洱海</a><iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<span class="text-ink/65">预订行程</span>
+</div>
+<div class="mt-7 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+<div><p class="text-[10px] font-semibold uppercase tracking-[0.26em] text-coral">安心预订</p><h1 class="mt-2 font-display text-[38px] font-semibold">把这段旅程，确认下来</h1><p class="mt-2 text-[11px] text-ink/45">提交订单后，旅行管家将在 30 分钟内确认房态与接机信息。</p></div>
+<div class="flex items-center gap-4 text-[9px] text-ink/35"><span class="flex items-center gap-1.5"><iconify-icon class="text-[14px] text-pine" icon="mdi:lock-outline"></iconify-icon>加密支付</span><span class="flex items-center gap-1.5"><iconify-icon class="text-[14px] text-pine" icon="mdi:calendar-check-outline"></iconify-icon>免费取消</span><span class="flex items-center gap-1.5"><iconify-icon class="text-[14px] text-pine" icon="mdi:headset"></iconify-icon>管家服务</span></div>
+</div>
+<div class="mt-8 grid gap-7 lg:grid-cols-[minmax(0,1fr)_360px]">
+<div class="min-w-0">
+<div class="mb-7 flex items-center gap-2 rounded-[20px] border border-line bg-cream px-4 py-4 sm:gap-3 sm:px-6">
+<div class="step-item flex items-center gap-2" data-step-item="1">
+<span class="step-dot grid h-8 w-8 place-items-center rounded-full bg-pine text-[10px] font-semibold text-cream">1</span>
+<span class="step-label text-[10px] font-semibold text-ink">选择行程</span>
+</div>
+<div class="step-line h-px flex-1 bg-pine"></div>
+<div class="step-item flex items-center gap-2" data-step-item="2">
+<span class="step-dot grid h-8 w-8 place-items-center rounded-full border border-line bg-sand text-[10px] font-semibold text-ink/40">2</span>
+<span class="step-label text-[10px] font-medium text-ink/35">填写信息</span>
+</div>
+<div class="step-line h-px flex-1 bg-line"></div>
+<div class="step-item flex items-center gap-2" data-step-item="3">
+<span class="step-dot grid h-8 w-8 place-items-center rounded-full border border-line bg-sand text-[10px] font-semibold text-ink/40">3</span>
+<span class="step-label text-[10px] font-medium text-ink/35">确认支付</span>
+</div>
+</div>
+<section class="booking-step" id="step-1">
+<div class="overflow-hidden rounded-[26px] border border-line bg-cream">
+<div class="flex flex-col gap-4 border-b border-line p-5 sm:flex-row sm:items-center">
+<div class="h-24 w-full shrink-0 overflow-hidden rounded-[18px] bg-[#9CAD9E] sm:w-32"><img alt="White guesthouse and Erhai lake scenery in Dali" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_c4fd123f4937430faee344c939a0f2b8.jpg"></div>
+<div class="flex-1"><div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-[#E7F0E8] px-2.5 py-1 text-[8px] font-semibold text-pine">编辑推荐</span><span class="text-[8px] text-ink/35">行程编号 DL-3D2N-1026</span></div><h2 class="mt-2 font-display text-[23px] font-semibold">大理 3 天 2 晚 · 洱海慢行</h2><p class="mt-1 text-[10px] text-ink/45">大理古城 → 喜洲 → 双廊 → 苍山 · 含 2 晚住宿、双早与接机</p></div>
+<div class="shrink-0 sm:text-right"><p class="text-[9px] text-ink/35">套餐价</p><p class="mt-1 font-display text-[24px] font-semibold text-pine">¥1,280<span class="font-sans text-[9px] font-normal text-ink/35"> / 人起</span></p></div>
+</div>
+<div class="p-5">
+<div class="grid gap-4 sm:grid-cols-2">
+<label><span class="mb-2 flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-pine" icon="mdi:calendar-start"></iconify-icon>入住日期</span><input class="booking-date h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none focus:border-pine" type="date" value="2026-11-07"></label>
+<label><span class="mb-2 flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-pine" icon="mdi:calendar-end"></iconify-icon>退房日期</span><input class="booking-date h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none focus:border-pine" type="date" value="2026-11-09"></label>
+<label><span class="mb-2 flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-pine" icon="mdi:account-group-outline"></iconify-icon>出行人数</span><select class="h-11 w-full cursor-pointer rounded-xl border border-line bg-white px-3 text-[11px] outline-none focus:border-pine" id="guestSelect"><option value="1">1 位成人</option><option selected="" value="2">2 位成人</option><option value="3">3 位成人</option><option value="4">4 位成人</option></select></label>
+<label><span class="mb-2 flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-pine" icon="mdi:bed-outline"></iconify-icon>房间数量</span><select class="h-11 w-full cursor-pointer rounded-xl border border-line bg-white px-3 text-[11px] outline-none focus:border-pine"><option>1 间</option><option>2 间</option></select></label>
+</div>
+<div class="mt-5 rounded-[18px] border border-line bg-[#FBF8F1] p-4">
+<div class="flex flex-wrap items-center justify-between gap-2"><p class="flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-pine" icon="mdi:ticket-confirmation-outline"></iconify-icon>景点门票</p><a class="text-[9px] font-semibold text-coral hover:text-pine" href="destination-detail.html">查看票种与退款规则 <iconify-icon class="align-[-2px]" icon="mdi:arrow-right"></iconify-icon></a></div>
+<p class="mt-1 text-[8px] leading-4 text-ink/40">套餐已含苍山感通索道单程票，可按需加购其他景点门票；未使用门票入园前 72 小时可申请退款。</p>
+<div class="mt-3 grid gap-2 sm:grid-cols-3">
+<label class="flex cursor-pointer items-start gap-2 rounded-xl border border-line bg-white p-3 has-[:checked]:border-pine"><input checked="" class="ticket-option mt-0.5 h-3.5 w-3.5 accent-[#0E5A52]" data-name="苍山索道通票（套餐自带）" data-price="0" data-unit="guest" type="checkbox"><span class="min-w-0 flex-1"><span class="block text-[10px] font-semibold">苍山索道通票</span><span class="mt-0.5 block text-[8px] text-ink/40">套餐自带 · 每人 1 张</span></span><span class="text-[9px] font-semibold text-pine">¥0</span></label>
+<label class="flex cursor-pointer items-start gap-2 rounded-xl border border-line bg-white p-3 has-[:checked]:border-pine"><input class="ticket-option mt-0.5 h-3.5 w-3.5 accent-[#0E5A52]" data-name="崇圣寺三塔门票" data-price="75" data-unit="guest" type="checkbox"><span class="min-w-0 flex-1"><span class="block text-[10px] font-semibold">崇圣寺三塔</span><span class="mt-0.5 block text-[8px] text-ink/40">含讲解 · 按人计</span></span><span class="text-[9px] font-semibold text-pine">¥75</span></label>
+<label class="flex cursor-pointer items-start gap-2 rounded-xl border border-line bg-white p-3 has-[:checked]:border-pine"><input class="ticket-option mt-0.5 h-3.5 w-3.5 accent-[#0E5A52]" data-name="喜洲扎染体验券" data-price="128" data-unit="group" type="checkbox"><span class="min-w-0 flex-1"><span class="block text-[10px] font-semibold">喜洲扎染体验</span><span class="mt-0.5 block text-[8px] text-ink/40">一组一份 · 约 1 小时</span></span><span class="text-[9px] font-semibold text-pine">¥128</span></label>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-5 rounded-[18px] border border-line bg-white p-4">
+<div class="flex flex-wrap items-center justify-between gap-2"><p class="flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-pine" icon="mdi:package-variant-closed"></iconify-icon>每日库存 · 按「产品 + 日期」独立</p><span class="rounded-full bg-sand px-2.5 py-1 text-[8px] text-ink/45"><span id="stockGuests">2 位</span> · 虚拟库存</span></div>
+<div class="mt-3 grid gap-2 sm:grid-cols-2" id="stockBoard"></div>
+<p class="mt-3 flex items-start gap-2 rounded-[16px] border border-pine/20 bg-[#E7F0E8] px-4 py-3 text-[9px] leading-5 text-pine" id="stockStatus">该日剩余 6 间，可继续预订。</p>
+</div>
+<div class="mt-4 rounded-[18px] border border-line bg-[#FBF8F1] p-4">
+<p class="flex items-center gap-1.5 text-[10px] font-semibold"><iconify-icon class="text-[14px] text-coral" icon="mdi:undo-variant"></iconify-icon>阶梯退款规则 · 按出行日期试算</p>
+<div class="mt-3 grid gap-2 sm:grid-cols-3">
+<div class="rounded-xl border border-line bg-white px-3 py-2.5"><p class="text-[9px] font-semibold">距出发 ≥3 天</p><p class="mt-1 font-display text-[16px] font-semibold text-pine">退款 100%</p></div>
+<div class="rounded-xl border border-line bg-white px-3 py-2.5"><p class="text-[9px] font-semibold">距出发 1–2 天</p><p class="mt-1 font-display text-[16px] font-semibold text-coral">退款 50%</p></div>
+<div class="rounded-xl border border-line bg-white px-3 py-2.5"><p class="text-[9px] font-semibold">出发当天</p><p class="mt-1 font-display text-[16px] font-semibold text-ink/45">退款 0%</p></div>
+</div>
+<p class="mt-3 text-[9px] leading-5 text-ink/50" data-refund-tiers="">当前为「距出发 ≥3 天」档：可退 100%</p>
+<div class="mt-2 flex flex-wrap gap-2">
+<button class="refund-date-chip h-7 rounded-full border border-line bg-white px-3 text-[8px] text-ink/60 transition" data-refund-date="2026-10-31" type="button">演示：10-31（≥3 天）</button>
+<button class="refund-date-chip h-7 rounded-full border border-line bg-white px-3 text-[8px] text-ink/60 transition" data-refund-date="2026-10-30" type="button">演示：10-30（1–2 天）</button>
+<button class="refund-date-chip h-7 rounded-full border border-line bg-white px-3 text-[8px] text-ink/60 transition" data-refund-date="2026-10-29" type="button">演示：当天（0 天）</button>
+</div>
+<div class="mt-3 rounded-xl bg-white p-3 text-[9px] leading-5 text-ink/55" id="refundPreview"></div>
+</div>
+<div class="mt-4 rounded-[18px] bg-[#EFE9DC] p-4">
+<div class="flex items-start gap-3"><iconify-icon class="text-[19px] text-pine" icon="mdi:information-outline"></iconify-icon><div class="text-[9px] leading-5 text-ink/55"><p class="font-semibold text-ink">模拟预订说明</p><p class="mt-1">本页为产品原型演示：不接入第三方支付、无线下核销、不产生任何真实资金流转；库存为虚拟库存，下单只扣减虚拟库存。</p><p class="mt-1 text-ink/40">无真实支付、无真实资金流转，页面中的金额仅用于演示。</p></div></div>
+</div>
+<div class="mt-5 rounded-[26px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between"><div><h2 class="font-display text-[22px] font-semibold">选一间喜欢的房</h2>
+<div class="mt-4 space-y-3">
+<label class="room-option flex cursor-pointer items-center gap-4 rounded-[20px] border-2 border-pine bg-[#FBF8F1] p-3 transition" data-name="园景大床房" data-price="0">
+<input checked="" class="sr-only" name="room" type="radio" value="0">
+<div class="h-20 w-24 shrink-0 overflow-hidden rounded-[14px] bg-[#B3A58D]"><img alt="Garden view king room with wooden furniture" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_b725cb31f048460f8e87adb5ff7d252d.jpg"></div>
+<div class="min-w-0 flex-1"><div class="flex items-center gap-2"><h3 class="text-[12px] font-semibold">园景大床房</h3><span class="rounded bg-[#E7F0E8] px-1.5 py-0.5 text-[7px] text-pine">推荐</span></div><p class="mt-1 text-[9px] text-ink/40">32㎡ · 1.8m 大床 · 可住 2 人 · 庭院景观</p><p class="mt-1.5 text-[8px] text-ink/35">含双早 · 免费取消 · 到店无现付</p></div>
+<div class="shrink-0 text-right"><p class="text-[9px] text-ink/35">已含在套餐</p><p class="mt-1 text-[11px] font-semibold text-pine">+ ¥0</p><iconify-icon class="room-check mt-1 ml-auto block text-[18px] text-pine" icon="mdi:check-circle"></iconify-icon></div>
+</label>
+<label class="room-option flex cursor-pointer items-center gap-4 rounded-[20px] border border-line bg-white p-3 transition hover:border-pine/40" data-name="洱海景观房" data-price="800">
+<input class="sr-only" name="room" type="radio" value="800">
+<div class="h-20 w-24 shrink-0 overflow-hidden rounded-[14px] bg-[#90A89E]"><img alt="Lake view room with balcony facing Erhai" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_775550d24ced4cd7af0f98735d2cfd00.jpg"></div>
+<div class="min-w-0 flex-1"><div class="flex items-center gap-2"><h3 class="text-[12px] font-semibold">洱海景观房</h3><span class="rounded bg-[#F8EAE4] px-1.5 py-0.5 text-[7px] text-coral">仅剩 3 间</span></div><p class="mt-1 text-[9px] text-ink/40">42㎡ · 落地窗 · 湖景阳台 · 可住 2 人</p><p class="mt-1.5 text-[8px] text-ink/35">含双早 · 含迎宾水果 · 免费取消</p></div>
+<div class="shrink-0 text-right"><p class="text-[9px] text-ink/35">2 晚升级</p><p class="mt-1 text-[11px] font-semibold text-pine">+ ¥800</p><iconify-icon class="room-check mt-1 ml-auto hidden text-[18px] text-pine" icon="mdi:check-circle"></iconify-icon></div>
+</label>
+</div>
+</div>
+<div class="mt-5 rounded-[26px] border border-line bg-cream p-5">
+<h2 class="font-display text-[22px] font-semibold">再加一点当地体验</h2>
+<p class="mt-1 text-[9px] text-ink/40">可自由选择，抵达前 24 小时仍可取消。</p>
+<div class="mt-4 grid gap-3 sm:grid-cols-3">
+<label class="addon-card cursor-pointer rounded-[18px] border border-line bg-white p-4 transition hover:border-pine/40">
+<div class="flex items-start justify-between gap-2"><span class="grid h-8 w-8 place-items-center rounded-full bg-sand text-pine"><iconify-icon class="text-[18px]" icon="mdi:car-estate"></iconify-icon></span><input class="addon-input mt-0.5 h-3.5 w-3.5 accent-[#0E5A52]" data-name="专车接机" data-price="120" type="checkbox"></div>
+<h3 class="mt-3 text-[11px] font-semibold">专车接机</h3><p class="mt-1 text-[8px] leading-4 text-ink/40">大理机场到酒店，单程 45 分钟</p><p class="mt-2 text-[10px] font-semibold text-pine">+ ¥120</p>
+</label>
+<label class="addon-card cursor-pointer rounded-[18px] border border-line bg-white p-4 transition hover:border-pine/40">
+<div class="flex items-start justify-between gap-2"><span class="grid h-8 w-8 place-items-center rounded-full bg-sand text-pine"><iconify-icon class="text-[18px]" icon="mdi:camera-outline"></iconify-icon></span><input class="addon-input mt-0.5 h-3.5 w-3.5 accent-[#0E5A52]" data-name="洱海跟拍" data-price="680" type="checkbox"></div>
+<h3 class="mt-3 text-[11px] font-semibold">洱海跟拍 2h</h3><p class="mt-1 text-[8px] leading-4 text-ink/40">当地摄影师，含 30 张精修照片</p><p class="mt-2 text-[10px] font-semibold text-pine">+ ¥680</p>
+</label>
+<label class="addon-card cursor-pointer rounded-[18px] border border-line bg-white p-4 transition hover:border-pine/40">
+<div class="flex items-start justify-between gap-2"><span class="grid h-8 w-8 place-items-center rounded-full bg-sand text-pine"><iconify-icon class="text-[18px]" icon="mdi:bike"></iconify-icon></span><input class="addon-input mt-0.5 h-3.5 w-3.5 accent-[#0E5A52]" data-name="环海单车" data-price="80" type="checkbox"></div>
+<h3 class="mt-3 text-[11px] font-semibold">环海电单车</h3><p class="mt-1 text-[8px] leading-4 text-ink/40">2 天用车，含头盔与地图</p><p class="mt-2 text-[10px] font-semibold text-pine">+ ¥80</p>
+</label>
+</div>
+</div>
+<div class="mt-5 flex flex-col items-center justify-between gap-4 rounded-[22px] border border-line bg-[#EFE9DC] px-5 py-4 sm:flex-row">
+<p class="flex items-center gap-2 text-[9px] text-ink/45"><iconify-icon class="text-[18px] text-pine" icon="mdi:shield-check-outline"></iconify-icon>出发前 72 小时可免费取消，过期取消收取首晚房费。</p>
+<button class="flex h-11 w-full items-center justify-center gap-2 rounded-full bg-pine px-7 text-[11px] font-semibold text-cream transition hover:bg-ink sm:w-auto" id="nextStepButton" type="button">下一步：填写信息 <iconify-icon icon="mdi:arrow-right"></iconify-icon></button>
+</div>
+</div></div></section>
+<section class="booking-step hidden" id="step-2">
+<form class="rounded-[26px] border border-line bg-cream p-5 sm:p-6" id="travelerForm">
+<div class="flex items-start justify-between gap-4 border-b border-line pb-4"><div><h2 class="font-display text-[23px] font-semibold">出行人信息</h2><p class="mt-1 text-[9px] text-ink/40">请填写与证件一致的信息，用于预订与接机确认。</p></div><span class="flex items-center gap-1 text-[8px] text-pine"><iconify-icon icon="mdi:lock-outline"></iconify-icon>信息已加密</span></div>
+<div class="mt-5 grid gap-4 sm:grid-cols-2">
+<label><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">姓名 <em class="not-italic text-coral">*</em></span><input class="h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none transition focus:border-pine" placeholder="请输入真实姓名" required="" type="text"></label>
+<label><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">手机号码 <em class="not-italic text-coral">*</em></span><input class="h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none transition focus:border-pine" pattern="[0-9]{11}" placeholder="用于接收预订通知" required="" type="tel"></label>
+<label><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">证件类型</span><select class="h-11 w-full cursor-pointer rounded-xl border border-line bg-white px-3 text-[11px] outline-none focus:border-pine"><option>居民身份证</option><option>护照</option><option>港澳通行证</option></select></label>
+<label><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">证件号码 <em class="not-italic text-coral">*</em></span><input class="h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none transition focus:border-pine" placeholder="请输入证件号码" required="" type="text"></label>
+<label><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">电子邮箱 <em class="not-italic text-coral">*</em></span><input class="h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none transition focus:border-pine" placeholder="接收电子行程单" required="" type="email"></label>
+<label><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">紧急联系人电话</span><input class="h-11 w-full rounded-xl border border-line bg-white px-3 text-[11px] outline-none transition focus:border-pine" placeholder="选填" type="tel"></label>
+</div>
+<div class="mt-5 border-t border-line pt-5">
+<p class="text-[10px] font-semibold">出行偏好 <span class="ml-1 font-normal text-ink/35">帮助我们准备得更周到</span></p>
+<div class="mt-3 flex flex-wrap gap-2">
+<label class="flex cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 py-2 text-[9px] text-ink/55"><input class="h-3 w-3 accent-[#0E5A52]" type="checkbox">需要接机</label>
+<label class="flex cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 py-2 text-[9px] text-ink/55"><input class="h-3 w-3 accent-[#0E5A52]" type="checkbox">带儿童出行</label>
+<label class="flex cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 py-2 text-[9px] text-ink/55"><input class="h-3 w-3 accent-[#0E5A52]" type="checkbox">需要早餐打包</label>
+<label class="flex cursor-pointer items-center gap-2 rounded-full border border-line bg-white px-3 py-2 text-[9px] text-ink/55"><input class="h-3 w-3 accent-[#0E5A52]" type="checkbox">素食需求</label>
+</div>
+</div>
+<label class="mt-5 flex items-start gap-2 text-[9px] leading-5 text-ink/45"><input class="mt-0.5 h-3 w-3 accent-[#0E5A52]" required="" type="checkbox"><span>我已阅读并同意《预订须知》与《退改规则》，确认出行人信息真实有效。</span></label>
+</form>
+<div class="mt-5 flex flex-col items-center justify-between gap-4 sm:flex-row">
+<button class="flex h-10 items-center gap-2 text-[10px] font-semibold text-ink/45 transition hover:text-pine" onclick="goToStep(1)" type="button"><iconify-icon icon="mdi:arrow-left"></iconify-icon>返回修改行程</button>
+<button class="flex h-11 w-full items-center justify-center gap-2 rounded-full bg-pine px-8 text-[11px] font-semibold text-cream transition hover:bg-ink sm:w-auto" onclick="continueToPayment()" type="button">继续确认支付 <iconify-icon icon="mdi:arrow-right"></iconify-icon></button>
+</div>
+</section>
+<section class="booking-step hidden" id="step-3">
+<div class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex items-start justify-between gap-4 border-b border-line pb-4"><div><h2 class="font-display text-[23px] font-semibold">选择支付方式</h2><p class="mt-1 text-[9px] text-ink/40">支付成功后，管家将在 30 分钟内确认房态。</p></div><span class="flex items-center gap-1 text-[8px] text-pine"><iconify-icon icon="mdi:shield-check-outline"></iconify-icon>安全支付</span></div>
+<div class="mt-4 space-y-3">
+<label class="payment-option flex cursor-pointer items-center gap-4 rounded-[16px] border-2 border-pine bg-[#FBF8F1] p-4">
+<input checked="" class="h-3.5 w-3.5 accent-[#0E5A52]" name="payment" type="radio" value="alipay">
+<span class="grid h-9 w-9 place-items-center rounded-full bg-[#E9F2FA] text-[#1677FF]"><iconify-icon class="text-[20px]" icon="mdi:wallet-outline"></iconify-icon></span>
+<div class="flex-1"><p class="text-[11px] font-semibold">支付宝</p><p class="text-[8px] text-ink/35">支持花呗分期，部分订单可享立减</p></div>
+<iconify-icon class="text-[17px] text-ink/25" icon="mdi:chevron-right"></iconify-icon>
+</label>
+<label class="payment-option flex cursor-pointer items-center gap-4 rounded-[16px] border border-line bg-white p-4">
+<input class="h-3.5 w-3.5 accent-[#0E5A52]" name="payment" type="radio" value="wechat">
+<span class="grid h-9 w-9 place-items-center rounded-full bg-[#E9F5E8] text-[#2DAE3C]"><iconify-icon class="text-[20px]" icon="mdi:wechat"></iconify-icon></span>
+<div class="flex-1"><p class="text-[11px] font-semibold">微信支付</p><p class="text-[8px] text-ink/35">使用微信扫码完成支付</p></div>
+<iconify-icon class="text-[17px] text-ink/25" icon="mdi:chevron-right"></iconify-icon>
+</label>
+<label class="payment-option flex cursor-pointer items-center gap-4 rounded-[16px] border border-line bg-white p-4">
+<input class="h-3.5 w-3.5 accent-[#0E5A52]" name="payment" type="radio" value="card">
+<span class="grid h-9 w-9 place-items-center rounded-full bg-[#F4EEE4] text-pine"><iconify-icon class="text-[20px]" icon="mdi:credit-card-outline"></iconify-icon></span>
+<div class="flex-1"><p class="text-[11px] font-semibold">银行卡</p><p class="text-[8px] text-ink/35">支持储蓄卡与信用卡</p></div>
+<iconify-icon class="text-[17px] text-ink/25" icon="mdi:chevron-right"></iconify-icon>
+</label>
+</div>
+<div class="mt-6 border-t border-line pt-5">
+<label class="flex items-center gap-2 text-[10px] font-semibold"><input class="h-3.5 w-3.5 accent-[#0E5A52]" id="invoiceCheck" type="checkbox">需要开具发票</label>
+<div class="mt-3 hidden grid gap-3 sm:grid-cols-2" id="invoiceFields"><input class="h-10 rounded-xl border border-line bg-white px-3 text-[10px] outline-none focus:border-pine" placeholder="发票抬头" type="text"><input class="h-10 rounded-xl border border-line bg-white px-3 text-[10px] outline-none focus:border-pine" placeholder="税号" type="text"></div>
+</div>
+<div class="mt-6 rounded-[18px] bg-[#EFE9DC] p-4">
+<div class="flex items-start gap-3"><iconify-icon class="text-[19px] text-pine" icon="mdi:information-outline"></iconify-icon><div class="text-[9px] leading-5 text-ink/50"><p class="font-semibold text-ink">预订说明</p><p class="mt-1">支付完成后房态将被锁定。若房态不足，我们会在 30 分钟内全额退款，并为你推荐同级替代方案。</p></div></div>
+</div>
+<label class="mt-4 flex items-start gap-2 text-[9px] leading-5 text-ink/45"><input checked="" class="mt-0.5 h-3 w-3 accent-[#0E5A52]" type="checkbox"><span>我已确认行程信息与出行人信息无误，并同意《预订条款》。</span></label>
+</div>
+<div class="mt-5 flex flex-col items-center justify-between gap-4 sm:flex-row">
+<button class="flex h-10 items-center gap-2 text-[10px] font-semibold text-ink/45 transition hover:text-pine" onclick="goToStep(2)" type="button"><iconify-icon icon="mdi:arrow-left"></iconify-icon>返回修改信息</button>
+<button class="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-coral px-8 text-[12px] font-semibold text-white shadow-card transition hover:bg-[#D95530] sm:w-auto" onclick="confirmPayment()" type="button">模拟支付 <span id="payButtonAmount">¥2,360</span><iconify-icon icon="mdi:lock-outline"></iconify-icon></button>
+</div>
+</section>
+</div>
+<aside class="lg:sticky lg:top-[100px] lg:self-start">
+<div class="overflow-hidden rounded-[26px] border border-line bg-cream shadow-card">
+<div class="relative h-36 bg-[#7E9A8C]">
+<img alt="Cangshan mountain and Erhai lake view from a Dali guesthouse" class="h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_08386ff5052845fcaead54d973dfdb8b.jpg">
+<div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
+<div class="absolute bottom-4 left-4 text-white"><p class="text-[8px] uppercase tracking-[0.22em] text-white/60">云南 · 大理</p><p class="mt-1 font-display text-[21px] font-semibold">洱海慢行 · 3 天 2 晚</p></div>
+<span class="absolute right-3 top-3 rounded-full bg-cream/90 px-2.5 py-1 text-[8px] font-semibold text-pine">可订</span>
+</div>
+<div class="p-5">
+<div class="flex items-center gap-2 border-b border-line pb-3 text-[9px] text-ink/45"><iconify-icon class="text-[15px] text-pine" icon="mdi:calendar-range"></iconify-icon><span id="summaryDates">2026 年 11 月 07 日 - 11 月 09 日</span><span class="ml-auto" id="summaryNights">2 晚</span></div>
+<div class="mt-3 flex items-center gap-2 border-b border-line pb-3 text-[9px] text-ink/45"><iconify-icon class="text-[15px] text-pine" icon="mdi:account-group-outline"></iconify-icon><span id="summaryGuests">2 位成人 · 1 间房</span><span class="ml-auto text-pine">确认中</span></div>
+<div class="mt-3 flex items-center gap-2 border-b border-line pb-3 text-[9px] text-ink/45"><iconify-icon class="text-[15px] text-pine" icon="mdi:bed-outline"></iconify-icon><span id="summaryRoom">园景大床房</span><span class="ml-auto">含双早</span></div>
+<div class="mt-4 space-y-2.5 text-[9px]">
+<div class="flex justify-between text-ink/50"><span>套餐费用 <span class="text-ink/30" id="summaryGuestCount">× 2</span></span><span id="packagePrice">¥2,560</span></div>
+<div class="flex justify-between text-ink/50"><span>房型升级</span><span id="roomUpgradePrice">¥0</span></div>
+<div class="flex justify-between gap-4 text-ink/50"><span class="flex-1">附加体验 <span class="block text-[8px] text-ink/30" id="addonNames">暂未选择</span></span><span id="addonTotal">¥0</span></div>
+<div class="flex justify-between text-ink/50"><span>景点门票</span><span id="ticketTotal">¥0</span></div>
+<div class="flex justify-between text-ink/50"><span>早鸟优惠</span><span class="text-coral">- ¥200</span></div>
+</div>
+<div class="mt-4 flex items-end justify-between border-t border-line pt-4">
+<div><p class="text-[9px] text-ink/35">应付总额</p><p class="mt-0.5 text-[8px] text-ink/30">已含税与服务费</p></div>
+<p class="font-display text-[28px] font-semibold leading-none text-coral" id="summaryTotal">¥2,360</p>
+</div>
+<div class="mt-4 flex items-center gap-2 rounded-xl bg-[#E7F0E8] px-3 py-2.5 text-[8px] leading-4 text-pine"><iconify-icon class="text-[15px]" icon="mdi:tag-outline"></iconify-icon>已使用「秋日出发」早鸟优惠 ¥200</div>
+<div class="mt-3 rounded-xl bg-sand px-3 py-2.5 text-[8px] leading-4 text-ink/45"><p class="font-semibold text-ink/70">模拟预订</p><p class="mt-1">不接入第三方支付 · 无线下核销 · 无真实资金流转 · 虚拟库存</p></div>
+</div>
+</div>
+<div class="mt-4 rounded-[20px] border border-line bg-cream p-4">
+<div class="flex items-center gap-2 text-[10px] font-semibold"><iconify-icon class="text-[17px] text-pine" icon="mdi:headset"></iconify-icon>需要帮助？</div>
+<p class="mt-2 text-[9px] leading-5 text-ink/40">旅行管家每天 08:00 - 20:00 在线，可协助调整行程与房型。</p>
+<a class="mt-2 inline-flex items-center gap-1 text-[9px] font-semibold text-coral" href="profile.html">联系我的管家 <iconify-icon icon="mdi:arrow-right"></iconify-icon></a>
+</div>
+</aside>
+</div>
+</main>
+<div class="fixed inset-0 z-[70] hidden items-center justify-center bg-ink/60 p-6 backdrop-blur-sm" id="successModal">
+<div class="relative w-full max-w-[440px] rounded-[30px] bg-cream p-7 text-center shadow-soft">
+<button aria-label="关闭" class="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-full bg-sand text-ink/40 transition hover:text-ink" onclick="closeSuccessModal()" type="button">
+<iconify-icon class="text-[18px]" icon="mdi:close"></iconify-icon>
+</button>
+<span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-[#E7F0E8] text-pine"><iconify-icon class="text-[38px]" icon="mdi:check-circle"></iconify-icon></span>
+<p class="mt-5 text-[9px] font-semibold uppercase tracking-[0.28em] text-coral">模拟预订成功</p>
+<h2 class="mt-2 font-display text-[28px] font-semibold">模拟订单已提交</h2>
+<p class="mt-2 text-[10px] leading-5 text-ink/45">本页不接入第三方支付、无线下核销、不产生真实资金流转，虚拟库存已按所选日期扣减。</p>
+<div class="mt-5 rounded-[18px] bg-sand p-4 text-left text-[9px]">
+<div class="flex justify-between border-b border-line pb-2.5"><span class="text-ink/40">订单编号</span><span class="font-semibold">SH202610290018</span></div>
+<div class="flex justify-between border-b border-line py-2.5"><span class="text-ink/40">行程</span><span class="font-medium">大理 3 天 2 晚 · 洱海慢行</span></div>
+<div class="flex justify-between border-b border-line py-2.5"><span class="text-ink/40">入住</span><span class="font-medium" id="successCheckin">2026.11.07 - 11.09</span></div>
+<div class="flex justify-between border-b border-line py-2.5"><span class="text-ink/40">人数与晚数</span><span class="font-medium" id="successGuests">2 位成人 · 2 晚</span></div>
+<div class="flex justify-between border-b border-line py-2.5"><span class="text-ink/40">虚拟库存</span><span class="font-medium text-pine" id="successStock">该日剩余 6 间（虚拟库存）</span></div>
+<div class="flex justify-between border-b border-line py-2.5"><span class="text-ink/40">退款试算</span><span class="font-medium text-coral" id="orderRefundText">距出发 9 天，可退 100%</span></div>
+<div class="flex justify-between pt-2.5"><span class="text-ink/40">模拟支付金额</span><span class="font-semibold text-coral" id="modalTotal">¥2,360</span></div>
+</div>
+<p class="mt-3 text-left text-[8px] leading-4 text-ink/35">无真实支付、无真实资金流转，金额仅用于页面演示。</p>
+<div class="mt-5 flex gap-2">
+<button class="h-11 flex-1 rounded-full border border-ink/15 text-[10px] font-semibold text-ink/55" onclick="closeSuccessModal()" type="button">继续看看</button>
+<a class="flex h-11 flex-1 items-center justify-center rounded-full bg-pine text-[10px] font-semibold text-cream" href="profile.html">查看我的订单</a>
+</div>
+</div>
+</div>
+<footer class="bg-ink text-cream">
+<div class="mx-auto grid max-w-[1240px] gap-10 px-6 py-12 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+<div><a class="flex items-center gap-3 text-cream" href="home.html"><span class="grid h-10 w-10 place-items-center rounded-full bg-cream text-pine"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span><span class="font-display text-[22px] font-bold tracking-[0.16em]">山海行</span></a><p class="mt-4 max-w-[260px] text-[11px] leading-6 text-cream/50">把目的地灵感、当地人攻略、特色住宿与门票体验，放进同一趟旅程。</p></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">开始旅行</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="destinations.html">目的地灵感</a><a class="hover:text-sun" href="guides.html">攻略与游记</a><a class="hover:text-sun" href="booking.html">住宿门票预订</a><a class="hover:text-sun" href="publish.html">发布旅行记录</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行服务</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="profile.html">我的订单</a><a class="hover:text-sun" href="profile.html">收藏与心愿单</a><a class="hover:text-sun" href="booking.html">退改规则</a><a class="hover:text-sun" href="login.html">账号与安全</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行管家</h3><p class="mt-4 text-[11px] leading-6 text-cream/50">每天 08:00 - 20:00<br>400-820-2026</p><p class="mt-4 text-[10px] leading-5 text-cream/30">愿你每一次出发，<br>都抵达心里的那处山海。</p></div>
+</div>
+<div class="border-t border-white/10"><div class="mx-auto flex max-w-[1240px] flex-col gap-2 px-6 py-5 text-[9px] tracking-wide text-cream/30 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 山海行旅行 · Shanhai Travel. 本站为产品原型演示。</p><p class="flex gap-5"><a class="hover:text-cream/60" href="home.html">隐私说明</a><a class="hover:text-cream/60" href="home.html">服务条款</a><span>浙ICP备 2026001288 号</span></p></div></div>
+</footer>
+<script>
+    let currentStep = 1;
+    let selectedRoomPrice = 0;
+    let selectedRoomName = '园景大床房';
+    let guestCount = 2;
+
+    function updateStepUI() {
+      document.querySelectorAll('.step-item').forEach((item) => {
+        const index = Number(item.dataset.stepItem);
+        const dot = item.querySelector('.step-dot');
+        const label = item.querySelector('.step-label');
+        const active = index <= currentStep;
+        dot.classList.toggle('bg-pine', active);
+        dot.classList.toggle('text-cream', active);
+        dot.classList.toggle('bg-sand', !active);
+        dot.classList.toggle('text-ink/40', !active);
+        dot.classList.toggle('border', !active);
+        dot.classList.toggle('border-line', !active);
+        label.classList.toggle('text-ink', active);
+        label.classList.toggle('font-semibold', active);
+        label.classList.toggle('text-ink/35', !active);
+        label.classList.toggle('font-medium', !active);
+      });
+      document.querySelectorAll('.step-line').forEach((line, index) => {
+        const active = currentStep > index + 1;
+        line.classList.toggle('bg-pine', active);
+        line.classList.toggle('bg-line', !active);
+      });
+    }
+
+    function goToStep(step) {
+      currentStep = step;
+      document.querySelectorAll('.booking-step').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== 'step-' + step);
+      });
+      updateStepUI();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function continueToPayment() {
+      const form = document.getElementById('travelerForm');
+      if (form.checkValidity()) {
+        goToStep(3);
+      } else {
+        form.reportValidity();
+      }
+    }
+
+    function updatePrice() {
+      const packageTotal = 1280 * guestCount;
+      const addons = Array.from(document.querySelectorAll('.addon-input:checked'));
+      const addonTotal = addons.reduce((sum, input) => sum + Number(input.dataset.price), 0);
+      const addonNames = addons.map((input) => input.dataset.name).join('、') || '暂未选择';
+      const tickets = Array.from(document.querySelectorAll('.ticket-option:checked'));
+      const ticketTotal = tickets.reduce((sum, input) => sum + Number(input.dataset.price) * (input.dataset.unit === 'guest' ? guestCount : 1), 0);
+      const discount = 200;
+      const total = packageTotal + selectedRoomPrice + addonTotal + ticketTotal - discount;
+      const formattedTotal = '¥' + total.toLocaleString('zh-CN');
+
+      document.getElementById('summaryGuestCount').textContent = '× ' + guestCount;
+      document.getElementById('summaryGuests').textContent = guestCount + ' 位成人 · 1 间房';
+      document.getElementById('summaryRoom').textContent = selectedRoomName;
+      document.getElementById('packagePrice').textContent = '¥' + packageTotal.toLocaleString('zh-CN');
+      document.getElementById('roomUpgradePrice').textContent = '¥' + selectedRoomPrice.toLocaleString('zh-CN');
+      document.getElementById('addonNames').textContent = addonNames;
+      document.getElementById('addonTotal').textContent = '¥' + addonTotal.toLocaleString('zh-CN');
+      document.getElementById('ticketTotal').textContent = '¥' + ticketTotal.toLocaleString('zh-CN');
+      document.getElementById('summaryTotal').textContent = formattedTotal;
+      document.getElementById('payButtonAmount').textContent = formattedTotal;
+      document.getElementById('modalTotal').textContent = formattedTotal;
+    }
+
+    window.updatePrice = updatePrice;
+    updatePrice();
+    updateStepUI();
+  </script>
+<script>
+    // ===== 演示用通用能力：角色会话与登录回跳 =====
+    (function () {
+      function demoInProgress() {
+        if (window.self !== window.top || location.protocol === 'file:') return true;
+        try {
+          return sessionStorage.getItem('用户名') === '1';
+        } catch (error) {
+          return true;
+        }
+      }
+      const demo = demoInProgress();
+      function getRole() {
+        if (demo) return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : 'user';
+        try {
+          return localStorage.getItem('sh_role') || 'guest';
+        } catch (error) {
+          return 'guest';
+        }
+      }
+      function goLogin(op) {
+        const target = location.pathname.split('/').pop() + location.search;
+        location.href = 'login.html?redirect=' + encodeURIComponent(target) + '&op=' + encodeURIComponent(op || '');
+      }
+      function requireLogin(op) {
+        if (getRole() === 'guest') {
+          goLogin(op);
+          return false;
+        }
+        return true;
+      }
+      function toast(message) {
+        const el = document.getElementById('globalToast');
+        if (!el) return;
+        el.textContent = message;
+        el.classList.remove('hidden');
+        window.clearTimeout(window.globalToastTimer);
+        window.globalToastTimer = window.setTimeout(() => el.classList.add('hidden'), 2600);
+      }
+      function keyFor(kind, id) {
+        return 'sh_' + kind + '_' + getRole() + '_' + id;
+      }
+      function getStore(kind, id) {
+        try {
+          return JSON.parse(localStorage.getItem(keyFor(kind, id)) || 'null');
+        } catch (error) {
+          return null;
+        }
+      }
+      function setStore(kind, id, value) {
+        try {
+          localStorage.setItem(keyFor(kind, id), JSON.stringify(value));
+        } catch (error) {
+          /* 存储不可用时仅保留当前页面状态 */
+        }
+      }
+      window.ShanhaiDemo = { getRole, goLogin, requireLogin, toast, getStore, setStore };
+    })();
+  </script>
+<script>
+    // ===== 预订页：库存按「产品 + 日期」独立 + 自动登录回跳 + 退款规则预览 =====
+    (function () {
+      const STOCK_PRODUCT = 'DL-3D2N-1026';
+      const DEFAULT_STOCK = { '2026-11-07': 6, '2026-11-10': 3, '2026-11-14': 0, '2026-11-21': 8 };
+      const dateInputs = Array.from(document.querySelectorAll('.booking-date'));
+
+      function saveOrder(order) {
+        try {
+          const list = JSON.parse(localStorage.getItem(window.ShanhaiBooking.orderKey) || '[]');
+          list.unshift(Object.assign({ id: 'SH' + Date.now() }, order));
+          localStorage.setItem(window.ShanhaiBooking.orderKey, JSON.stringify(list.slice(0, 6)));
+        } catch (error) {
+          /* 存储不可用时仅展示当前结果 */
+        }
+      }
+
+      function pad(value) {
+        return String(value).padStart(2, '0');
+      }
+      function todayKey() {
+        const now = new Date();
+        return now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+      }
+      function parseDate(key) {
+        const parts = key.split('-').map(Number);
+        return new Date(parts[0], parts[1] - 1, parts[2]);
+      }
+      function splitDays(startKey, endKey) {
+        const days = [];
+        if (!startKey || !endKey) return days;
+        const start = parseDate(startKey);
+        const end = parseDate(endKey);
+        if (end <= start) return days;
+        const cursor = new Date(start);
+        while (cursor < end && days.length < 14) {
+          days.push(cursor.getFullYear() + '-' + pad(cursor.getMonth() + 1) + '-' + pad(cursor.getDate()));
+          cursor.setDate(cursor.getDate() + 1);
+        }
+        return days;
+      }
+      function daysUntil(dateKey) {
+        const today = parseDate(todayKey());
+        const target = parseDate(dateKey);
+        return Math.round((target - today) / 86400000);
+      }
+      function stockKey(dateKey) {
+        return 'sh_stock_' + STOCK_PRODUCT + '_' + dateKey;
+      }
+      function getStock(dateKey) {
+        try {
+          const stored = localStorage.getItem(stockKey(dateKey));
+          if (stored !== null) return Number(stored);
+        } catch (error) {
+          /* 忽略存储不可用 */
+        }
+        return dateKey in DEFAULT_STOCK ? DEFAULT_STOCK[dateKey] : 5;
+      }
+      function takeStock(dateKey) {
+        const left = Math.max(0, getStock(dateKey) - 1);
+        try {
+          localStorage.setItem(stockKey(dateKey), String(left));
+        } catch (error) {
+          /* 忽略存储不可用 */
+        }
+        return left;
+      }
+      function refundFor(days) {
+        if (days >= 3) return { label: '距出发 ≥3 天', rate: 1 };
+        if (days >= 1) return { label: '距出发 1–2 天', rate: 0.5 };
+        return { label: '出发当天', rate: 0 };
+      }
+      window.ShanhaiBooking = {
+        days: splitDays,
+        getStock: getStock,
+        saveOrder: saveOrder,
+        orderKey: 'sh_orders_' + window.ShanhaiDemo.getRole()
+      };
+
+      // 从登录页回跳后自动进入「填写信息」
+      const params = new URLSearchParams(location.search);
+      // 从目的地「门票与退款」带入所选游玩日期
+      if (/^\d{4}-\d{2}-\d{2}$/.test(params.get('date') || '') && dateInputs[0]) {
+        const picked = params.get('date');
+        const pickedStart = parseDate(picked);
+        const pickedEnd = new Date(pickedStart);
+        pickedEnd.setDate(pickedEnd.getDate() + 2);
+        dateInputs[0].value = picked;
+        dateInputs[1].value = pickedEnd.getFullYear() + '-' + pad(pickedEnd.getMonth() + 1) + '-' + pad(pickedEnd.getDate());
+        document.getElementById('summaryDates').textContent = picked.replace(/-/g, '.') + ' 起 2 晚';
+      }
+      if (params.get('resume') === '1' && window.ShanhaiDemo.getRole() !== 'guest') {
+        goToStep(2);
+      }
+
+      function renderAvailability() {
+        const board = document.getElementById('stockBoard');
+        const days = splitDays(dateInputs[0].value, dateInputs[1].value);
+        if (dateInputs[0].value && dateInputs[1].value) {
+          document.getElementById('summaryDates').textContent = dateInputs[0].value.replace(/-/g, '.') + ' - ' + dateInputs[1].value.replace(/-/g, '.');
+        }
+        document.getElementById('summaryNights').textContent = days.length + ' 晚';
+        document.getElementById('stockGuests').textContent = document.getElementById('guestSelect').value + ' 位';
+        if (!days.length) {
+          board.innerHTML = '<p class="text-[10px] text-ink/45">退房日期需晚于入住日期，请重新选择。</p>';
+          updateRefundPreview();
+          return;
+        }
+        let minStock = Infinity;
+        let blockedDay = '';
+        board.innerHTML = days.map((day) => {
+          const left = getStock(day);
+          minStock = Math.min(minStock, left);
+          if (left === 0 && !blockedDay) blockedDay = day;
+          const parts = day.split('-');
+          const soldOut = left === 0;
+          return '<div class="flex items-center justify-between rounded-xl border px-3 py-2 ' + (soldOut ? 'border-coral/40 bg-[#F8EAE4]' : 'border-line bg-white') + '">'
+            + '<span class="text-[10px] ' + (soldOut ? 'text-coral' : 'text-ink/60') + '">' + Number(parts[1]) + ' 月 ' + Number(parts[2]) + ' 日' + (soldOut ? ' · 已订满' : '') + '</span>'
+            + '<span class="text-[9px] font-semibold ' + (soldOut ? 'text-coral' : 'text-pine') + '">该日剩余 ' + left + ' 间</span>'
+            + '</div>';
+        }).join('');
+        const status = document.getElementById('stockStatus');
+        const nextBtn = document.getElementById('nextStepButton');
+        if (blockedDay) {
+          status.textContent = '所选日期中含已订满的房型，请更换入住日期后再继续。';
+          status.className = 'flex items-start gap-2 rounded-[16px] border border-coral/40 bg-[#F8EAE4] px-4 py-3 text-[9px] leading-5 text-coral';
+          nextBtn.disabled = true;
+          nextBtn.className = 'flex h-11 w-full cursor-not-allowed items-center justify-center gap-2 rounded-full bg-ink/20 px-7 text-[11px] font-semibold text-cream sm:w-auto';
+        } else {
+          status.textContent = '该日剩余 ' + minStock + ' 间，可继续预订；库存为虚拟库存，下单仅扣减虚拟库存。';
+          status.className = 'flex items-start gap-2 rounded-[16px] border border-pine/20 bg-[#E7F0E8] px-4 py-3 text-[9px] leading-5 text-pine';
+          nextBtn.disabled = false;
+          nextBtn.className = 'flex h-11 w-full items-center justify-center gap-2 rounded-full bg-pine px-7 text-[11px] font-semibold text-cream transition hover:bg-ink sm:w-auto';
+        }
+        updateRefundPreview();
+      }
+
+      function updateRefundPreview() {
+        const box = document.getElementById('refundPreview');
+        if (!box) return;
+        const total = Number(document.getElementById('summaryTotal').textContent.replace(/[^0-9]/g, '')) || 0;
+        const days = daysUntil(dateInputs[0].value);
+        const rule = refundFor(days);
+        const amount = Math.floor(total * rule.rate);
+        box.innerHTML = '<p class="text-[10px] font-semibold text-ink">按出行日期试算（当前系统日期 2026-10-29）</p>'
+          + '<p class="mt-1 text-[9px] leading-5 text-ink/55">距出发 ' + Math.max(days, 0) + ' 天 · ' + rule.label + ' · 可退 ' + Math.round(rule.rate * 100) + '% · 退款 ¥' + amount.toLocaleString('zh-CN') + '</p>'
+          + '<p class="mt-1 text-[8px] leading-4 text-ink/35">无真实支付、无真实资金流转，金额仅用于页面演示。</p>';
+        document.querySelectorAll('[data-refund-tiers]').forEach((el) => {
+          el.textContent = days < 0 ? '所选出行日期已过去，按「出发当天」档位演示。' : '当前为「' + rule.label + '」档：可退 ' + Math.round(rule.rate * 100) + '%';
+        });
+      }
+
+      dateInputs.forEach((input) => {
+        input.addEventListener('change', () => {
+          if (dateInputs[0].value) {
+            const start = parseDate(dateInputs[0].value);
+            const end = new Date(start);
+            end.setDate(end.getDate() + 2);
+            const endKey = end.getFullYear() + '-' + pad(end.getMonth() + 1) + '-' + pad(end.getDate());
+            if (dateInputs[1].value !== endKey) dateInputs[1].value = endKey;
+          }
+          renderAvailability();
+        });
+      });
+
+      document.querySelectorAll('[data-refund-date]').forEach((button) => {
+        button.addEventListener('click', () => {
+          dateInputs[0].value = button.dataset.refundDate;
+          const start = parseDate(button.dataset.refundDate);
+          const end = new Date(start);
+          end.setDate(end.getDate() + 2);
+          dateInputs[1].value = end.getFullYear() + '-' + pad(end.getMonth() + 1) + '-' + pad(end.getDate());
+          document.querySelectorAll('[data-refund-date]').forEach((item) => {
+            const active = item === button;
+            item.classList.toggle('bg-pine', active);
+            item.classList.toggle('text-cream', active);
+            item.classList.toggle('border-pine', active);
+            item.classList.toggle('bg-white', !active);
+            item.classList.toggle('text-ink/60', !active);
+          });
+          renderAvailability();
+        });
+      });
+
+      document.getElementById('guestSelect').addEventListener('change', () => {
+        document.getElementById('stockGuests').textContent = document.getElementById('guestSelect').value + ' 位';
+      });
+
+      document.getElementById('nextStepButton').addEventListener('click', () => {
+        if (document.getElementById('nextStepButton').disabled) {
+          window.ShanhaiDemo.toast('所选日期已订满，请更换入住日期');
+          return;
+        }
+        goToStep(2);
+      });
+
+      window.confirmPayment = function () {
+        if (!window.ShanhaiDemo.requireLogin('预订')) return;
+        const checkin = dateInputs[0].value;
+        const checkout = dateInputs[1].value;
+        const days = splitDays(checkin, checkout);
+        if (!days.length) {
+          goToStep(1);
+          renderAvailability();
+          window.ShanhaiDemo.toast('退房日期需晚于入住日期');
+          return;
+        }
+        if (days.some((day) => getStock(day) === 0)) {
+          goToStep(1);
+          renderAvailability();
+          window.ShanhaiDemo.toast('所选日期已订满，无法下单');
+          return;
+        }
+        days.forEach((day) => takeStock(day));
+        const left = getStock(checkin);
+        const payAmount = document.getElementById('payButtonAmount').textContent;
+        const refundDays = daysUntil(checkin);
+        const rule = refundFor(refundDays);
+        const total = Number(payAmount.replace(/[^0-9]/g, '')) || 0;
+        document.getElementById('successCheckin').textContent = checkin.replace(/-/g, '.') + ' - ' + checkout.slice(5).replace('-', '.');
+        document.getElementById('successGuests').textContent = guestCount + ' 位成人 · ' + days.length + ' 晚';
+        document.getElementById('successStock').textContent = '该日剩余 ' + left + ' 间（虚拟库存已扣减）';
+        document.getElementById('summaryTotal').textContent = payAmount;
+        document.getElementById('orderRefundText').textContent = '距出发 ' + Math.max(refundDays, 0) + ' 天，可退 ' + Math.round(rule.rate * 100) + '%，退款 ¥' + Math.floor(total * rule.rate).toLocaleString('zh-CN');
+        document.getElementById('modalTotal').textContent = payAmount;
+        if (window.ShanhaiBooking) window.ShanhaiBooking.saveOrder({ checkin: checkin, checkout: checkout, amount: total, refundRate: rule.rate, refundAmount: Math.floor(total * rule.rate), days: days.length });
+        renderAvailability();
+        if (typeof openSuccessModal === 'function') openSuccessModal();
+      };
+
+      renderAvailability();
+    })();
+  </script>
+<script>
+(function () {
+  function readRole() {
+    try {
+      if (sessionStorage.getItem('用户名') === '1') {
+        return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : (localStorage.getItem('sh_role') || 'user');
+      }
+      return localStorage.getItem('sh_role') || 'guest';
+    } catch (error) {
+      return 'guest';
+    }
+  }
+  var role = readRole();
+  if (role === 'admin') {
+    var navHost = document.querySelector('header');
+    if (navHost && !navHost.querySelector('a[href="admin.html"]')) {
+      var badge = document.createElement('a');
+      badge.className = 'hidden h-9 items-center gap-2 rounded-full border border-coral/40 bg-coral/10 px-3 text-[10px] font-semibold text-coral';
+      badge.href = 'admin.html';
+      badge.textContent = '管理后台';
+      var anchor = navHost.querySelector('a[data-session-login]');
+      if (anchor) anchor.replaceWith(badge);
+    }
+  }
+  if (role === 'admin') {
+    document.querySelectorAll('a[data-session-login]').forEach(function (link) {
+      link.textContent = '管理员';
+      link.setAttribute('href', 'admin.html');
+    });
+    document.querySelectorAll('a[href="profile.html"]').forEach(function (link) {
+      if (link.closest('nav')) link.setAttribute('href', 'admin.html');
+    });
+    if (!document.querySelector('a[href="admin.html"]')) {
+      var host = document.querySelector('.bg-ink .flex.items-center.gap-6');
+      if (host) {
+        var entry = document.createElement('a');
+        entry.className = 'transition hover:text-sun';
+        entry.href = 'admin.html';
+        entry.textContent = '管理后台';
+        host.appendChild(entry);
+      }
+    }
+  } else if (role === 'user') {
+    document.querySelectorAll('a[data-session-login]').forEach(function (link) {
+      link.textContent = '林小满';
+      link.setAttribute('href', 'profile.html');
+    });
+  }
+})();
+</script>
+
+
+</body></html>

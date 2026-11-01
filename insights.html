@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="zh-CN"><head><style id="mb-code-iframe-style">
+  html, body { margin: 0; width: 100%; min-height: 100%; }
+  html { --uiWidth: 100% !important; --uiHeight: 100% !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>平台流量看板｜山海行</title>
+<meta content="山海行平台流量看板：景点访问量、订单转化、地区热度、类别分布与热门搜索，全部使用 SVG 绘制。" name="description">
+<script src="assets/vendor/tailwindcss.js"></script>
+<script src="assets/vendor/iconify-icon.min.js"></script>
+  <script src="assets/vendor/mdi-icons.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#F6F2E9',
+            cream: '#FFFCF6',
+            ink: '#12312E',
+            pine: '#0E5A52',
+            moss: '#6F8F7C',
+            coral: '#E9663F',
+            sun: '#F0C264',
+            line: '#E4DDCF'
+          },
+          fontFamily: {
+            display: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+            sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -36px rgba(18,49,46,.4)',
+            card: '0 14px 34px -24px rgba(18,49,46,.28)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-sand font-sans text-ink antialiased">
+<div class="bg-ink text-[11px] tracking-wide text-cream/70">
+<div class="mx-auto flex h-9 max-w-[1240px] items-center justify-between px-6">
+<p class="flex items-center gap-2">
+<iconify-icon class="text-[14px] text-sun" icon="mdi:compass-rose"></iconify-icon>
+        山海行 · 把假期过成故事
+      </p>
+<div class="flex items-center gap-6">
+<span class="hidden items-center gap-1.5 sm:flex">
+<iconify-icon class="text-[13px]" icon="mdi:account-tie"></iconify-icon>
+          运营后台 · 管理员
+        </span>
+<a class="transition hover:text-sun" href="profile.html">订单中心</a>
+<a class="transition hover:text-sun" href="home.html">返回前台</a>
+</div>
+</div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-sand/95 backdrop-blur-md">
+<div class="mx-auto flex h-[76px] max-w-[1240px] items-center justify-between px-6">
+<a aria-label="山海行首页" class="flex items-center gap-3" href="home.html">
+<span class="grid h-10 w-10 place-items-center rounded-full bg-pine text-cream">
+<iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon>
+</span>
+<span class="flex flex-col">
+<span class="font-display text-[22px] font-bold leading-none tracking-[0.16em]">山海行</span>
+<span class="mt-1 text-[8px] font-medium uppercase tracking-[0.3em] text-ink/45">Shanhai Travel</span>
+</span>
+</a>
+<nav class="-mx-1 hidden items-center gap-1 text-[14px] font-medium text-ink/60 lg:flex">
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="home.html">首页</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="destinations.html">目的地</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="guides.html">攻略游记</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="booking.html">预订服务</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="profile.html">我的行程</a>
+<a class="relative inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-coral" href="admin.html">管理后台</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="insights.html">流量看板</a>
+</nav>
+<div class="flex items-center gap-3">
+<span class="hidden h-10 items-center gap-2 rounded-full border border-ink/15 px-4 text-[10px] text-ink/50 sm:flex">
+<iconify-icon class="text-[14px] text-pine" icon="mdi:calendar-month-outline"></iconify-icon>
+          数据更新至 10 月 28 日
+        </span>
+<a class="flex h-10 items-center gap-2 rounded-full bg-pine px-5 text-[13px] font-semibold text-cream transition hover:bg-ink" href="profile.html">
+<iconify-icon class="text-[17px]" icon="mdi:account-circle-outline"></iconify-icon>
+          管理员
+        </a>
+</div>
+</div>
+</header>
+<main class="mx-auto max-w-[1240px] px-6 pb-20 pt-7">
+<div class="flex flex-wrap items-end justify-between gap-5">
+<div>
+<div class="flex items-center gap-2 text-[10px] text-ink/40">
+<a class="hover:text-pine" href="home.html">首页</a>
+<iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<span class="text-ink/65">运营 · 流量看板</span>
+</div>
+<p class="mb-3 mt-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-coral"><span class="h-px w-7 bg-coral"></span>流量与推荐</p>
+<h1 class="font-display text-[40px] font-semibold leading-tight">大家都在找<span class="text-pine">哪一片山海</span></h1>
+<p class="mt-3 max-w-[560px] text-[12px] leading-7 text-ink/55">景点访问、门票订单、攻略阅读与评论互动的汇总视图，用于调整推荐位与轮播策略。</p>
+</div>
+<div class="flex gap-2 rounded-full border border-line bg-cream p-1" id="rangeTabs">
+<button class="range-tab h-8 rounded-full bg-pine px-4 text-[10px] font-semibold text-cream transition" data-range="7" type="button">近 7 天</button>
+<button class="range-tab h-8 rounded-full px-4 text-[10px] font-medium text-ink/50 transition hover:text-pine" data-range="30" type="button">近 30 天</button>
+<button class="range-tab h-8 rounded-full px-4 text-[10px] font-medium text-ink/50 transition hover:text-pine" data-range="90" type="button">近 90 天</button>
+</div>
+</div>
+<div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>景点访问量</span><iconify-icon class="text-[18px] text-pine" icon="mdi:eye-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-metric="visits">126,480</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-pine"><iconify-icon icon="mdi:trending-up"></iconify-icon>较上期 <span data-change="visits">+12.4%</span></p>
+</div>
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>门票订单</span><iconify-icon class="text-[18px] text-coral" icon="mdi:ticket-confirmation-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-metric="orders">3,842</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-pine"><iconify-icon icon="mdi:trending-up"></iconify-icon>较上期 <span data-change="orders">+8.1%</span></p>
+</div>
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>支付转化率</span><iconify-icon class="text-[18px] text-pine" icon="mdi:percent-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-metric="conversion">6.8%</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-coral"><iconify-icon icon="mdi:trending-down"></iconify-icon>较上期 <span data-change="conversion">-0.6%</span></p>
+</div>
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>新增评论</span><iconify-icon class="text-[18px] text-pine" icon="mdi:comment-text-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-metric="comments">612</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-pine"><iconify-icon icon="mdi:trending-up"></iconify-icon>较上期 <span data-change="comments">+21.0%</span></p>
+</div>
+</div>
+<div class="mt-5 grid gap-5 lg:grid-cols-[1.45fr_1fr]">
+<div class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div><h2 class="font-display text-[22px] font-semibold">访问与订单趋势</h2><p class="mt-1 text-[9px] text-ink/40" id="trendCaption">近 7 天 · 每日景点访问量与门票订单量</p></div>
+<div class="flex items-center gap-4 text-[9px] text-ink/50">
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-pine"></span>访问量</span>
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-coral"></span>订单量</span>
+</div>
+</div>
+<div class="relative mt-5 w-full" id="trendChart"></div>
+<div class="mt-2 flex justify-between text-[8px] text-ink/35" id="trendAxis"></div>
+</div>
+<div class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<div><h2 class="font-display text-[22px] font-semibold">类别偏好分布</h2><p class="mt-1 text-[9px] text-ink/40">按景点类别统计的门票订单占比</p></div>
+<div class="mt-4 flex items-center gap-5">
+<svg aria-label="景点类别订单占比环形图" class="h-[132px] w-[132px] shrink-0 -rotate-90" id="categoryDonut" viewBox="0 0 120 120">
+<circle cx="60" cy="60" fill="none" r="46" stroke="#EFE9DC" stroke-width="16"></circle>
+<circle cx="60" cy="60" fill="none" r="46" stroke="#0E5A52" stroke-dasharray="107.3 181.7" stroke-width="16"></circle>
+<circle cx="60" cy="60" fill="none" r="46" stroke="#E9663F" stroke-dasharray="69.4 219.6" stroke-dashoffset="-107.3" stroke-width="16"></circle>
+<circle cx="60" cy="60" fill="none" r="46" stroke="#F0C264" stroke-dasharray="55.6 233.4" stroke-dashoffset="-176.7" stroke-width="16"></circle>
+<circle cx="60" cy="60" fill="none" r="46" stroke="#6F8F7C" stroke-dasharray="56.7 232.3" stroke-dashoffset="-232.3" stroke-width="16"></circle>
+</svg>
+<div class="space-y-2 text-[9px] text-ink/50">
+<p class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-pine"></span><span class="flex-1">自然山水</span><strong class="font-semibold text-ink">38%</strong></p>
+<p class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-coral"></span><span class="flex-1">人文古城</span><strong class="font-semibold text-ink">25%</strong></p>
+<p class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-sun"></span><span class="flex-1">海岛度假</span><strong class="font-semibold text-ink">20%</strong></p>
+<p class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-moss"></span><span class="flex-1">户外徒步</span><strong class="font-semibold text-ink">17%</strong></p>
+</div>
+</div>
+<div class="mt-4 rounded-xl bg-sand/70 px-3 py-2.5 text-[8px] leading-4 text-ink/50"><iconify-icon class="mr-1 align-[-2px] text-[13px] text-coral" icon="mdi:lightbulb-outline"></iconify-icon>推荐策略：自然山水类访问高但转化偏低，首页轮播可增加门票权益说明。</div>
+</div>
+</div>
+<div class="mt-5 grid gap-5 lg:grid-cols-2">
+<div class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex items-center justify-between"><div><h2 class="font-display text-[22px] font-semibold">地区热度排行</h2><p class="mt-1 text-[9px] text-ink/40">景点访问量 · 近 30 天</p></div><span class="rounded-full bg-[#E7F0E8] px-2.5 py-1 text-[8px] font-semibold text-pine">TOP 6</span></div>
+<div class="mt-5 space-y-3.5" id="regionRanking">
+<div class="flex items-center gap-3 text-[9px]"><span class="w-4 font-display text-[13px] font-semibold text-coral">01</span><span class="w-14 shrink-0 text-ink/60">云南</span><div class="h-2 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-pine" style="width:100%"></div></div><span class="w-12 text-right font-semibold text-ink">32,480</span></div>
+<div class="flex items-center gap-3 text-[9px]"><span class="w-4 font-display text-[13px] font-semibold text-ink/30">02</span><span class="w-14 shrink-0 text-ink/60">福建</span><div class="h-2 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-pine/85" style="width:82%"></div></div><span class="w-12 text-right font-semibold text-ink">26,610</span></div>
+<div class="flex items-center gap-3 text-[9px]"><span class="w-4 font-display text-[13px] font-semibold text-ink/30">03</span><span class="w-14 shrink-0 text-ink/60">新疆</span><div class="h-2 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-pine/70" style="width:66%"></div></div><span class="w-12 text-right font-semibold text-ink">21,420</span></div>
+<div class="flex items-center gap-3 text-[9px]"><span class="w-4 font-display text-[13px] font-semibold text-ink/30">04</span><span class="w-14 shrink-0 text-ink/60">四川</span><div class="h-2 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-moss" style="width:54%"></div></div><span class="w-12 text-right font-semibold text-ink">17,530</span></div>
+<div class="flex items-center gap-3 text-[9px]"><span class="w-4 font-display text-[13px] font-semibold text-ink/30">05</span><span class="w-14 shrink-0 text-ink/60">广西</span><div class="h-2 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-moss/80" style="width:41%"></div></div><span class="w-12 text-right font-semibold text-ink">13,280</span></div>
+<div class="flex items-center gap-3 text-[9px]"><span class="w-4 font-display text-[13px] font-semibold text-ink/30">06</span><span class="w-14 shrink-0 text-ink/60">江西</span><div class="h-2 flex-1 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-sun" style="width:33%"></div></div><span class="w-12 text-right font-semibold text-ink">10,720</span></div>
+</div>
+</div>
+<div class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex items-center justify-between"><div><h2 class="font-display text-[22px] font-semibold">热门搜索与推荐位</h2><p class="mt-1 text-[9px] text-ink/40">按搜索次数排序，可快速调整首页推荐</p></div></div>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="rounded-full bg-pine px-3 py-1.5 text-[9px] font-semibold text-cream">大理</span>
+<span class="rounded-full bg-pine/85 px-3 py-1.5 text-[9px] font-semibold text-cream">泉州</span>
+<span class="rounded-full bg-pine/70 px-3 py-1.5 text-[9px] font-semibold text-cream">禾木</span>
+<span class="rounded-full bg-[#F8EAE4] px-3 py-1.5 text-[9px] font-semibold text-coral">喀纳斯</span>
+<span class="rounded-full bg-sand px-3 py-1.5 text-[9px] text-ink/55">洱海骑行</span>
+<span class="rounded-full bg-sand px-3 py-1.5 text-[9px] text-ink/55">扎染体验</span>
+<span class="rounded-full bg-sand px-3 py-1.5 text-[9px] text-ink/55">婺源晒秋</span>
+</div>
+<div class="mt-5 border-t border-line pt-4">
+<p class="text-[9px] font-semibold uppercase tracking-[0.2em] text-ink/35">协同过滤推荐 · 命中率</p>
+<div class="mt-3 space-y-3 text-[9px]">
+<div><div class="flex justify-between text-ink/50"><span>看过大理的人，也在看泉州</span><strong class="text-ink">42%</strong></div><div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-sand"><div class="h-full w-[42%] rounded-full bg-coral"></div></div></div>
+<div><div class="flex justify-between text-ink/50"><span>收藏禾木的人，也在看喀纳斯</span><strong class="text-ink">36%</strong></div><div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-sand"><div class="h-full w-[36%] rounded-full bg-coral"></div></div></div>
+<div><div class="flex justify-between text-ink/50"><span>读过大理攻略的人，也在看婺源</span><strong class="text-ink">28%</strong></div><div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-sand"><div class="h-full w-[28%] rounded-full bg-coral"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-5 grid gap-5 lg:grid-cols-[1.2fr_1fr_1fr]">
+<div class="rounded-[26px] border border-line bg-cream p-5 sm:p-6">
+<h2 class="font-display text-[20px] font-semibold">内容与评论健康度</h2>
+<p class="mt-1 text-[9px] text-ink/40">敏感词过滤规则命中情况</p>
+<div class="mt-4 grid grid-cols-3 gap-3 text-center">
+<div class="rounded-[16px] bg-sand/70 p-3"><p class="font-display text-[22px] font-semibold text-pine">1,284</p><p class="mt-1 text-[8px] text-ink/40">待审评论</p></div>
+<div class="rounded-[16px] bg-[#F8EAE4] p-3"><p class="font-display text-[22px] font-semibold text-coral">37</p><p class="mt-1 text-[8px] text-ink/40">敏感词命中</p></div>
+<div class="rounded-[16px] bg-[#E7F0E8] p-3"><p class="font-display text-[22px] font-semibold text-pine">96.2%</p><p class="mt-1 text-[8px] text-ink/40">自动通过率</p></div>
+</div>
+</div>
+<a class="group flex flex-col justify-between rounded-[26px] border border-line bg-cream p-5 transition hover:-translate-y-1 hover:shadow-card sm:p-6" href="destinations.html">
+<div><h2 class="font-display text-[20px] font-semibold">景点与路线维护</h2><p class="mt-1 text-[9px] leading-5 text-ink/40">地区、类别、图册、门票与路线节点，共 128 个景点、46 条路线。</p></div>
+<div class="mt-4 flex items-center justify-between text-[9px] font-semibold text-pine">去目的地列表<iconify-icon class="text-[16px] transition group-hover:translate-x-1" icon="mdi:arrow-right"></iconify-icon></div>
+</a>
+<a class="group flex flex-col justify-between rounded-[26px] border border-line bg-cream p-5 transition hover:-translate-y-1 hover:shadow-card sm:p-6" href="guides.html">
+<div><h2 class="font-display text-[20px] font-semibold">攻略与轮播位</h2><p class="mt-1 text-[9px] leading-5 text-ink/40">本周轮播 5 张，攻略大厅新增 42 篇，可一键替换首页推荐。</p></div>
+<div class="mt-4 flex items-center justify-between text-[9px] font-semibold text-pine">管理攻略大厅<iconify-icon class="text-[16px] transition group-hover:translate-x-1" icon="mdi:arrow-right"></iconify-icon></div>
+</a>
+</div>
+</main>
+<footer class="bg-ink text-cream">
+<div class="mx-auto grid max-w-[1240px] gap-10 px-6 py-14 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+<div><a class="flex items-center gap-3 text-cream" href="home.html"><span class="grid h-10 w-10 place-items-center rounded-full bg-cream text-pine"><iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon></span><span class="font-display text-[22px] font-bold tracking-[0.16em]">山海行</span></a><p class="mt-5 max-w-[260px] text-[11px] leading-6 text-cream/50">把目的地灵感、当地人攻略、特色住宿与门票体验，放进同一趟旅程。</p><div class="mt-6 flex items-center gap-3"><span class="grid h-8 w-8 place-items-center rounded-full border border-white/15 text-cream/60"><iconify-icon class="text-[16px]" icon="mdi:wechat"></iconify-icon></span><span class="grid h-8 w-8 place-items-center rounded-full border border-white/15 text-cream/60"><iconify-icon class="text-[16px]" icon="mdi:instagram"></iconify-icon></span><span class="grid h-8 w-8 place-items-center rounded-full border border-white/15 text-cream/60"><iconify-icon class="text-[16px]" icon="mdi:book-open-variant"></iconify-icon></span><span class="ml-1 text-[10px] text-cream/35">@山海行</span></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">开始旅行</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="destinations.html">目的地灵感</a><a class="hover:text-sun" href="guides.html">攻略与游记</a><a class="hover:text-sun" href="booking.html">住宿门票预订</a><a class="hover:text-sun" href="publish.html">发布旅行记录</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行服务</h3><div class="mt-4 flex flex-col gap-3 text-[11px] text-cream/50"><a class="hover:text-sun" href="profile.html">我的订单</a><a class="hover:text-sun" href="favorites.html">收藏与心愿单</a><a class="hover:text-sun" href="booking.html">退改规则</a><a class="hover:text-sun" href="insights.html">平台流量看板</a></div></div>
+<div><h3 class="text-[11px] font-semibold tracking-[0.2em] text-cream/80">旅行管家</h3><p class="mt-4 text-[11px] leading-6 text-cream/50">每天 08:00 - 20:00<br>400-820-2026</p><p class="mt-4 text-[10px] leading-5 text-cream/30">愿你每一次出发，<br>都抵达心里的那处山海。</p></div>
+</div>
+<div class="border-t border-white/10"><div class="mx-auto flex max-w-[1240px] flex-col gap-2 px-6 py-5 text-[9px] tracking-wide text-cream/30 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 山海行旅行 · Shanhai Travel. 本站为产品原型演示。</p><p class="flex gap-5"><a class="hover:text-cream/60" href="home.html">隐私说明</a><a class="hover:text-cream/60" href="home.html">服务条款</a><span>浙ICP备 2026001288 号</span></p></div></div>
+</footer>
+<script>
+    (function () {
+      try {
+        var demo = sessionStorage.getItem('用户名') === '1';
+        var role = demo
+          ? (sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : (localStorage.getItem('sh_role') || 'user'))
+          : (localStorage.getItem('sh_role') || 'guest');
+        if (role !== 'admin') {
+          window.location.replace('login.html?redirect=insights.html');
+        }
+      } catch (error) {}
+    })();
+    const series = {
+      7: {
+        labels: ['10/22', '10/23', '10/24', '10/25', '10/26', '10/27', '10/28'],
+        visits: [14800, 16200, 21000, 24800, 19300, 17600, 12780],
+        orders: [420, 486, 690, 812, 590, 512, 332]
+      },
+      30: {
+        labels: ['第 1 周', '第 2 周', '第 3 周', '第 4 周'],
+        visits: [82200, 94500, 103800, 126480],
+        orders: [2410, 2860, 3140, 3842]
+      },
+      90: {
+        labels: ['8 月', '9 月', '10 月'],
+        visits: [268000, 312000, 386400],
+        orders: [8120, 9460, 11280]
+      }
+    };
+    const metrics = {
+      7: { visits: '126,480', orders: '3,842', conversion: '6.8%', comments: '612' },
+      30: { visits: '407,010', orders: '12,250', conversion: '7.1%', comments: '2,486' },
+      90: { visits: '966,400', orders: '28,860', conversion: '7.4%', comments: '6,920' }
+    };
+
+    const chartHost = document.getElementById('trendChart');
+    const axisHost = document.getElementById('trendAxis');
+    const caption = document.getElementById('trendCaption');
+
+    function renderChart(days) {
+      const data = series[days];
+      const width = 600;
+      const height = 220;
+      const padX = 16;
+      const padY = 22;
+      const maxVisits = Math.max(...data.visits) * 1.15;
+      const maxOrders = Math.max(...data.orders) * 1.15;
+      const stepX = (width - padX * 2) / Math.max(data.labels.length - 1, 1);
+      const toX = (index) => padX + index * stepX;
+      const toYVisits = (value) => height - padY - (value / maxVisits) * (height - padY * 2);
+      const toYOrders = (value) => height - padY - (value / maxOrders) * (height - padY * 2);
+      const pointsVisits = data.visits.map((value, index) => toX(index) + ',' + toYVisits(value)).join(' ');
+      const pointsOrders = data.orders.map((value, index) => toX(index) + ',' + toYOrders(value)).join(' ');
+      const gridLines = [0.25, 0.5, 0.75].map((ratio) => {
+        const y = padY + (1 - ratio) * (height - padY * 2);
+        return '<line x1="' + padX + '" y1="' + y + '" x2="' + (width - padX) + '" y2="' + y + '" stroke="#E4DDCF" stroke-dasharray="3 5" stroke-width="1"></line>';
+      }).join('');
+      const dotsVisits = data.visits.map((value, index) => '<circle cx="' + toX(index) + '" cy="' + toYVisits(value) + '" fill="#0E5A52" r="3.5"><title>' + data.labels[index] + ' 访问 ' + value.toLocaleString('zh-CN') + '</title></circle>').join('');
+      const dotsOrders = data.orders.map((value, index) => '<circle cx="' + toX(index) + '" cy="' + toYOrders(value) + '" fill="#E9663F" r="3"><title>' + data.labels[index] + ' 订单 ' + value.toLocaleString('zh-CN') + '</title></circle>').join('');
+      chartHost.innerHTML = '<svg aria-label="访问量与订单趋势折线图" class="h-[220px] w-full" preserveAspectRatio="none" viewBox="0 0 ' + width + ' ' + height + '">'
+        + gridLines
+        + '<polyline fill="none" points="' + pointsVisits + '" stroke="#0E5A52" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>'
+        + '<polyline fill="none" points="' + pointsOrders + '" stroke="#E9663F" stroke-dasharray="6 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>'
+        + dotsVisits + dotsOrders + '</svg>';
+      axisHost.innerHTML = data.labels.map((label) => '<span>' + label + '</span>').join('');
+      caption.textContent = '近 ' + days + ' 天 · ' + (days === 7 ? '每日' : days === 30 ? '每周' : '每月') + '景点访问量与门票订单量';
+    }
+
+    document.querySelectorAll('.range-tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.range-tab').forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('bg-pine', active);
+          item.classList.toggle('text-cream', active);
+          item.classList.toggle('font-semibold', active);
+          item.classList.toggle('text-ink/50', !active);
+        });
+        const days = tab.dataset.range;
+        renderChart(days);
+        document.querySelectorAll('[data-metric]').forEach((node) => {
+          node.textContent = metrics[days][node.dataset.metric];
+        });
+        document.querySelectorAll('[data-change]').forEach((node) => {
+          node.textContent = days === '90' ? '+3.2%' : days === '30' ? '+9.6%' : '+12.4%';
+        });
+      });
+    });
+
+    renderChart(7);
+  </script>
+
+
+</body></html>

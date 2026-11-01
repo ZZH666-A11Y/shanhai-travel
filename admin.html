@@ -1,0 +1,517 @@
+<!DOCTYPE html><html lang="zh-CN"><head><style id="mb-code-iframe-style">
+  html, body { margin: 0; width: 100%; min-height: 100%; }
+  html { --uiWidth: 100% !important; --uiHeight: 100% !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>管理后台｜山海行</title>
+<meta content="山海行管理后台：景点、攻略与产品维护，用户内容审核，评论治理与基础统计。" name="description">
+<script src="assets/vendor/tailwindcss.js"></script>
+<script src="assets/vendor/iconify-icon.min.js"></script>
+  <script src="assets/vendor/mdi-icons.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: '#F6F2E9',
+            cream: '#FFFCF6',
+            ink: '#12312E',
+            pine: '#0E5A52',
+            moss: '#6F8F7C',
+            coral: '#E9663F',
+            sun: '#F0C264',
+            line: '#E4DDCF'
+          },
+          fontFamily: {
+            display: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+            sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -36px rgba(18,49,46,.4)',
+            card: '0 14px 34px -24px rgba(18,49,46,.28)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-sand font-sans text-ink antialiased">
+<div class="bg-ink text-[11px] tracking-wide text-cream/70">
+<div class="mx-auto flex h-9 max-w-[1240px] items-center justify-between px-6">
+<p class="flex items-center gap-2">
+<iconify-icon class="text-[14px] text-sun" icon="mdi:compass-rose"></iconify-icon>
+        山海行 · 把假期过成故事
+      </p>
+<div class="flex items-center gap-6">
+<span class="hidden items-center gap-1.5 sm:flex">
+<iconify-icon class="text-[13px]" icon="mdi:shield-account-outline"></iconify-icon>
+          管理后台 · 管理员
+        </span>
+<a class="transition hover:text-sun" href="profile.html">个人中心</a>
+<a class="transition hover:text-sun" data-admin-logout="" href="login.html">退出登录</a>
+<a class="transition hover:text-sun" href="home.html">返回前台</a>
+</div>
+</div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink/10 bg-sand/95 backdrop-blur-md">
+<div class="mx-auto flex h-[76px] max-w-[1240px] items-center justify-between px-6">
+<a aria-label="山海行首页" class="flex items-center gap-3" href="home.html">
+<span class="grid h-10 w-10 place-items-center rounded-full bg-pine text-cream">
+<iconify-icon class="text-[23px]" icon="mdi:terrain"></iconify-icon>
+</span>
+<span class="flex flex-col">
+<span class="font-display text-[22px] font-bold leading-none tracking-[0.16em]">山海行</span>
+<span class="mt-1 text-[8px] font-medium uppercase tracking-[0.3em] text-ink/45">Platform Console</span>
+</span>
+</a>
+<nav class="-mx-1 hidden items-center gap-1 text-[14px] font-medium text-ink/60 lg:flex">
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="home.html">首页</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="destinations.html">目的地</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="guides.html">攻略游记</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="booking.html">预订服务</a>
+<a class="inline-flex h-full min-h-[44px] items-center px-3 py-3 transition hover:text-ink" href="profile.html">我的行程</a>
+<a class="relative inline-flex h-full min-h-[44px] items-center px-3 py-3 text-ink after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[2px] after:bg-coral" href="admin.html">管理后台</a>
+</nav>
+<div class="flex items-center gap-3">
+<span class="hidden h-9 items-center gap-2 rounded-full border border-coral/40 bg-coral/10 px-3 text-[10px] font-semibold text-coral sm:flex" data-admin-badge="">
+<iconify-icon class="text-[14px]" icon="mdi:shield-account-outline"></iconify-icon>
+          管理员
+        </span>
+<a class="flex h-10 items-center gap-2 rounded-full bg-pine px-4 text-[12px] font-semibold text-cream transition hover:bg-ink" href="profile.html">
+<span class="grid h-6 w-6 place-items-center rounded-full bg-[#D1A27F] text-[8px] text-white">管</span>
+          平台管理员
+        </a>
+</div>
+</div>
+</header>
+<main class="mx-auto max-w-[1240px] px-6 pb-20 pt-7">
+<div class="flex flex-wrap items-end justify-between gap-5">
+<div>
+<div class="flex items-center gap-2 text-[10px] text-ink/40">
+<a class="hover:text-pine" href="home.html">首页</a>
+<iconify-icon class="text-[12px]" icon="mdi:chevron-right"></iconify-icon>
+<span class="text-ink/65">运营 · 管理后台</span>
+</div>
+<p class="mb-3 mt-6 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-coral"><span class="h-px w-7 bg-coral"></span>平台管理</p>
+<h1 class="font-display text-[40px] font-semibold leading-tight">让每一条内容，<span class="text-pine">都值得被看到</span></h1>
+<p class="mt-3 max-w-[620px] text-[12px] leading-7 text-ink/55">维护景点、攻略与酒店门票产品，审核用户发布的游记和评论，并查看基础使用与订单数据。</p>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<a class="flex h-10 items-center gap-2 rounded-full border border-line bg-cream px-4 text-[10px] font-semibold text-ink/60 transition hover:border-pine hover:text-pine" href="insights.html">
+<iconify-icon class="text-[15px]" icon="mdi:chart-line"></iconify-icon>流量看板
+</a>
+<button class="flex h-10 items-center gap-2 rounded-full bg-pine px-4 text-[10px] font-semibold text-cream transition hover:bg-ink" id="exportData" type="button">
+<iconify-icon class="text-[15px]" icon="mdi:tray-arrow-down"></iconify-icon>导出本期报表
+</button>
+</div>
+</div>
+<div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>近 7 天访问量</span><iconify-icon class="text-[18px] text-pine" icon="mdi:eye-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none">32,480</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-pine"><iconify-icon icon="mdi:trending-up"></iconify-icon>较上期 +12.4%</p>
+</div>
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>本周订单量</span><iconify-icon class="text-[18px] text-coral" icon="mdi:receipt-text-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-stat="orders">1,286</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-pine"><iconify-icon icon="mdi:trending-up"></iconify-icon>较上期 +8.1%</p>
+</div>
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>待审核内容</span><iconify-icon class="text-[18px] text-sun" icon="mdi:clipboard-clock-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-stat="pending">3</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-ink/40"><iconify-icon icon="mdi:alert-outline"></iconify-icon>需在 24 小时内处理</p>
+</div>
+<div class="rounded-[22px] border border-line bg-cream p-5">
+<div class="flex items-center justify-between text-[9px] text-ink/40"><span>待处理评论</span><iconify-icon class="text-[18px] text-coral" icon="mdi:message-alert-outline"></iconify-icon></div>
+<p class="mt-3 font-display text-[30px] font-semibold leading-none" data-stat="comments">4</p>
+<p class="mt-2 flex items-center gap-1 text-[9px] text-ink/40"><iconify-icon icon="mdi:flag-outline"></iconify-icon>用户标记 4 条低质评论</p>
+</div>
+</div>
+<div class="mt-7 grid gap-5 lg:grid-cols-[1fr_1.15fr]">
+<section class="rounded-[24px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div>
+<h2 class="font-display text-[21px] font-semibold">近 7 天使用与订单趋势</h2>
+<p class="mt-1 text-[9px] text-ink/40">单位：访客数 / 订单数（纯前端 SVG 绘制）</p>
+</div>
+<div class="flex items-center gap-4 text-[8px] text-ink/50">
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-pine"></span>访问量</span>
+<span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-coral"></span>订单量</span>
+</div>
+</div>
+<div class="mt-4 overflow-hidden rounded-[16px] bg-sand/60 p-3">
+<svg aria-label="近七天访问量与订单量趋势图" class="h-[190px] w-full" viewBox="0 0 560 190">
+<g stroke="#E4DDCF" stroke-width="1">
+<line x1="24" x2="540" y1="30" y2="30"></line>
+<line x1="24" x2="540" y1="70" y2="70"></line>
+<line x1="24" x2="540" y1="110" y2="110"></line>
+<line x1="24" x2="540" y1="150" y2="150"></line>
+</g>
+<polyline fill="none" points="60,126 140,110 220,118 300,84 380,92 460,62 520,48" stroke="#0E5A52" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<polyline fill="none" points="60,150 140,140 220,132 300,124 380,118 460,104 520,96" stroke="#E9663F" stroke-dasharray="5 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<g fill="#12312E" font-size="9" opacity=".45" text-anchor="middle">
+<text x="60" y="172">10/22</text>
+<text x="140" y="172">10/23</text>
+<text x="220" y="172">10/24</text>
+<text x="300" y="172">10/25</text>
+<text x="380" y="172">10/26</text>
+<text x="460" y="172">10/27</text>
+<text x="520" y="172">10/28</text>
+</g>
+<g fill="#0E5A52">
+<circle cx="60" cy="126" r="3.5"></circle>
+<circle cx="140" cy="110" r="3.5"></circle>
+<circle cx="220" cy="118" r="3.5"></circle>
+<circle cx="300" cy="84" r="3.5"></circle>
+<circle cx="380" cy="92" r="3.5"></circle>
+<circle cx="460" cy="62" r="3.5"></circle>
+<circle cx="520" cy="48" r="3.5"></circle>
+</g>
+</svg>
+</div>
+<div class="mt-4 grid gap-3 sm:grid-cols-3">
+<div class="rounded-[14px] border border-line px-3 py-2.5"><p class="text-[8px] text-ink/40">收藏转化率</p><p class="mt-1 text-[15px] font-semibold">18.6%</p></div>
+<div class="rounded-[14px] border border-line px-3 py-2.5"><p class="text-[8px] text-ink/40">取消订单占比</p><p class="mt-1 text-[15px] font-semibold">4.2%</p></div>
+<div class="rounded-[14px] border border-line px-3 py-2.5"><p class="text-[8px] text-ink/40">退款金额（模拟）</p><p class="mt-1 text-[15px] font-semibold">¥8,640</p></div>
+</div>
+</section>
+<section class="rounded-[24px] border border-line bg-cream p-5 sm:p-6">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<h2 class="font-display text-[21px] font-semibold">内容类型占比</h2>
+<span class="rounded-full bg-sand px-2.5 py-1 text-[8px] font-semibold text-ink/45">本季度累计</span>
+</div>
+<div class="mt-5 space-y-4">
+<div>
+<div class="flex items-center justify-between text-[9px]"><span class="font-semibold">景点</span><span class="text-ink/45">186 条</span></div>
+<div class="mt-1.5 h-2 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-pine" style="width:74%"></div></div>
+</div>
+<div>
+<div class="flex items-center justify-between text-[9px]"><span class="font-semibold">攻略与游记</span><span class="text-ink/45">132 篇</span></div>
+<div class="mt-1.5 h-2 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-moss" style="width:58%"></div></div>
+</div>
+<div>
+<div class="flex items-center justify-between text-[9px]"><span class="font-semibold">酒店与门票产品</span><span class="text-ink/45">96 个</span></div>
+<div class="mt-1.5 h-2 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-coral" style="width:44%"></div></div>
+</div>
+<div>
+<div class="flex items-center justify-between text-[9px]"><span class="font-semibold">用户评论</span><span class="text-ink/45">2,418 条</span></div>
+<div class="mt-1.5 h-2 overflow-hidden rounded-full bg-sand"><div class="h-full rounded-full bg-sun" style="width:88%"></div></div>
+</div>
+</div>
+<div class="mt-5 rounded-[16px] bg-sand/70 p-4">
+<p class="flex items-center gap-1.5 text-[9px] font-semibold text-ink/60"><iconify-icon class="text-coral" icon="mdi:lightbulb-on-outline"></iconify-icon>治理提示</p>
+<p class="mt-1.5 text-[9px] leading-5 text-ink/45">评论量增长快于审核人力增长，建议把「包含联系方式」的评论自动进入待处理队列。</p>
+</div>
+</section>
+</div>
+<div class="mt-7 flex flex-wrap gap-2 rounded-full border border-line bg-cream p-1" id="adminTabs">
+<button class="admin-tab h-9 rounded-full bg-pine px-4 text-[10px] font-semibold text-cream transition" data-panel="spots" type="button">景点维护</button>
+<button class="admin-tab h-9 rounded-full px-4 text-[10px] font-medium text-ink/50 transition hover:text-pine" data-panel="guides" type="button">攻略维护</button>
+<button class="admin-tab h-9 rounded-full px-4 text-[10px] font-medium text-ink/50 transition hover:text-pine" data-panel="products" type="button">酒店 / 门票产品</button>
+<button class="admin-tab h-9 rounded-full px-4 text-[10px] font-medium text-ink/50 transition hover:text-pine" data-panel="review" type="button">内容审核<span class="ml-1.5 rounded-full bg-coral/15 px-1.5 text-[8px] text-coral" data-stat="pending">3</span></button>
+<button class="admin-tab h-9 rounded-full px-4 text-[10px] font-medium text-ink/50 transition hover:text-pine" data-panel="comments" type="button">评论治理<span class="ml-1.5 rounded-full bg-coral/15 px-1.5 text-[8px] text-coral" data-stat="comments">4</span></button>
+</div>
+<div class="mt-4 rounded-[24px] border border-line bg-cream p-5 sm:p-6">
+<section data-admin-panel="spots">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div><h2 class="font-display text-[21px] font-semibold">景点维护</h2><p class="mt-1 text-[9px] text-ink/40">编辑基础信息、调整上下架状态或删除景点。</p></div>
+<div class="flex items-center gap-2"><input class="h-9 w-44 rounded-full border border-line bg-white px-4 text-[9px] outline-none focus:border-pine" placeholder="搜索景点名称" type="search"><button class="flex h-9 items-center gap-1 rounded-full bg-pine px-3 text-[9px] font-semibold text-cream" data-add-item="spots" type="button"><iconify-icon icon="mdi:plus"></iconify-icon>新增景点</button></div>
+</div>
+<div class="mt-4 space-y-2" data-list="spots">
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="online">
+<div class="h-11 w-14 shrink-0 overflow-hidden rounded-[10px] bg-[#789A8B]"></div>
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">大理 · 苍山洱海</p><p class="mt-0.5 text-[8px] text-ink/40">云南 · 4.9 分 · 1,286 收藏 · 更新于 10/26</p></div>
+<span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine" data-status-label="">上架中</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">下架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="online">
+<div class="h-11 w-14 shrink-0 overflow-hidden rounded-[10px] bg-[#BA9277]"></div>
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">泉州 · 开元寺</p><p class="mt-0.5 text-[8px] text-ink/40">福建 · 4.8 分 · 862 收藏 · 更新于 10/24</p></div>
+<span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine" data-status-label="">上架中</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">下架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="offline">
+<div class="h-11 w-14 shrink-0 overflow-hidden rounded-[10px] bg-[#B9AE9A]"></div>
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">婺源 · 篁岭晒秋</p><p class="mt-0.5 text-[8px] text-ink/40">江西 · 4.7 分 · 已过季待更新 · 更新于 10/12</p></div>
+<span class="rounded-full bg-sand px-2 py-1 text-[8px] font-semibold text-ink/45" data-status-label="">已下架</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">上架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+</div>
+</section>
+<section class="hidden" data-admin-panel="guides">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div><h2 class="font-display text-[21px] font-semibold">攻略维护</h2><p class="mt-1 text-[9px] text-ink/40">维护官方攻略与精选游记的展示状态。</p></div>
+<button class="flex h-9 items-center gap-1 rounded-full bg-pine px-3 text-[9px] font-semibold text-cream" data-add-item="guides" type="button"><iconify-icon icon="mdi:plus"></iconify-icon>新增攻略</button>
+</div>
+<div class="mt-4 space-y-2" data-list="guides">
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="online">
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">在大理住进风里｜4 天 3 晚环洱海慢行记</p><p class="mt-0.5 text-[8px] text-ink/40">作者 林小满 · 关联 大理 · 阅读 6,428</p></div>
+<span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine" data-status-label="">已发布</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">下架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="online">
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">去泉州，先把胃空出来</p><p class="mt-0.5 text-[8px] text-ink/40">作者 小鹿向南 · 关联 泉州 · 收藏 295</p></div>
+<span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine" data-status-label="">已发布</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">下架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="offline">
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">婺源晒秋｜三天两夜自驾路线</p><p class="mt-0.5 text-[8px] text-ink/40">作者 阿川 · 关联 婺源 · 待补充交通信息</p></div>
+<span class="rounded-full bg-sand px-2 py-1 text-[8px] font-semibold text-ink/45" data-status-label="">已下架</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">上架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+</div>
+</section>
+<section class="hidden" data-admin-panel="products">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div><h2 class="font-display text-[21px] font-semibold">酒店 / 门票产品维护</h2><p class="mt-1 text-[9px] text-ink/40">价格与库存按「产品 + 日期」独立维护，下架后前台不可预订。</p></div>
+<button class="flex h-9 items-center gap-1 rounded-full bg-pine px-3 text-[9px] font-semibold text-cream" data-add-item="products" type="button"><iconify-icon icon="mdi:plus"></iconify-icon>新增产品</button>
+</div>
+<div class="mt-4 space-y-2" data-list="products">
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="online">
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">大理 3 天 2 晚 · 洱海慢行</p><p class="mt-0.5 text-[8px] text-ink/40">酒店套餐 · ¥1,280 起 · 10/30 余量 6</p></div>
+<span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine" data-status-label="">可预订</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">下架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="online">
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">周城白族扎染工坊体验</p><p class="mt-0.5 text-[8px] text-ink/40">门票体验 · ¥168 起 · 10/30 余量 12</p></div>
+<span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine" data-status-label="">可预订</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">下架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+<article class="flex flex-wrap items-center gap-3 rounded-[16px] border border-line px-3 py-3" data-status="offline">
+<div class="min-w-0 flex-1"><p class="text-[11px] font-semibold">篁岭晒秋观景门票</p><p class="mt-0.5 text-[8px] text-ink/40">门票 · ¥120 · 季节结束，暂停售卖</p></div>
+<span class="rounded-full bg-sand px-2 py-1 text-[8px] font-semibold text-ink/45" data-status-label="">已下架</span>
+<div class="flex gap-1.5"><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-pine hover:text-pine" data-edit="" type="button">编辑</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/55 transition hover:border-coral hover:text-coral" data-toggle="" type="button">上架</button><button class="h-7 rounded-full border border-line px-2.5 text-[8px] text-ink/40 transition hover:border-coral hover:text-coral" data-remove="" type="button">删除</button></div>
+</article>
+</div>
+</section>
+<section class="hidden" data-admin-panel="review">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div><h2 class="font-display text-[21px] font-semibold">用户发布内容审核</h2><p class="mt-1 text-[9px] text-ink/40">通过后在前台公开展示，驳回会通知作者修改。</p></div>
+<span class="rounded-full bg-sand px-3 py-1.5 text-[8px] font-semibold text-ink/50">待审核 <span data-stat="pending">3</span> 条</span>
+</div>
+<div class="mt-4 space-y-2" data-review-list="">
+<article class="rounded-[16px] border border-line p-4" data-review-item="">
+<div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-sun/25 px-2 py-1 text-[8px] font-semibold text-[#8A6A1E]">游记</span><p class="text-[11px] font-semibold">秋天的婺源，晒秋不只是拍照</p><span class="ml-auto text-[8px] text-ink/35">提交于 10/28 · 作者 阿川</span></div>
+<p class="mt-2 text-[9px] leading-5 text-ink/50">篁岭的清晨六点，屋檐上铺满了红辣椒……（正文 1,240 字，含 9 张图片）</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-review-action="approve" type="button">通过</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-review-action="reject" type="button">驳回</button></div>
+</article>
+<article class="rounded-[16px] border border-line p-4" data-review-item="">
+<div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-sun/25 px-2 py-1 text-[8px] font-semibold text-[#8A6A1E]">评论</span><p class="text-[11px] font-semibold">关于「洱海西岸骑行」的评论</p><span class="ml-auto text-[8px] text-ink/35">提交于 10/27 · 作者 一只鸽子</span></div>
+<p class="mt-2 text-[9px] leading-5 text-ink/50">含外部联系方式，疑似推广内容，需要人工确认。</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-review-action="approve" type="button">通过</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-review-action="reject" type="button">驳回</button></div>
+</article>
+<article class="rounded-[16px] border border-line p-4" data-review-item="">
+<div class="flex flex-wrap items-center gap-2"><span class="rounded-full bg-sun/25 px-2 py-1 text-[8px] font-semibold text-[#8A6A1E]">游记</span><p class="text-[11px] font-semibold">厦门两天，只走了这三条街</p><span class="ml-auto text-[8px] text-ink/35">提交于 10/27 · 作者 小鹿向南</span></div>
+<p class="mt-2 text-[9px] leading-5 text-ink/50">图片清晰、无外部链接，引用信息与产品价格一致，可优先处理。</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-review-action="approve" type="button">通过</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-review-action="reject" type="button">驳回</button></div>
+</article>
+</div>
+<p class="mt-4 hidden rounded-[14px] bg-[#E7F0E8] px-4 py-3 text-[9px] text-pine" data-review-empty="">待审核内容已全部处理完毕。</p>
+</section>
+<section class="hidden" data-admin-panel="comments">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div><h2 class="font-display text-[21px] font-semibold">待处理评论标记</h2><p class="mt-1 text-[9px] text-ink/40">用户标记或系统识别的低质评论，可隐藏、驳回或移除。</p></div>
+<span class="rounded-full bg-sand px-3 py-1.5 text-[8px] font-semibold text-ink/50">待处理 <span data-stat="comments">4</span> 条</span>
+</div>
+<div class="mt-4 space-y-2" data-comment-list="">
+<article class="rounded-[16px] border border-coral/30 bg-[#FDF4F0] p-4" data-comment-item="">
+<p class="flex flex-wrap items-center gap-2 text-[9px]"><span class="rounded-full bg-coral/15 px-2 py-1 text-[8px] font-semibold text-coral">含广告</span><span class="font-semibold">一只鸽子</span><span class="text-ink/35">评论于「洱海西岸骑行，从哪段开始？」· 10/28</span></p>
+<p class="mt-2 text-[9px] leading-5 text-ink/55">「需要包车的可以加我 V… 全程 200 元一天。」</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-comment-action="hide" type="button">隐藏并警告</button><button class="h-8 rounded-full border border-line px-4 text-[8px] font-semibold text-ink/60" data-comment-action="ignore" type="button">误报，恢复</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-comment-action="remove" type="button">直接移除</button></div>
+</article>
+<article class="rounded-[16px] border border-coral/30 bg-[#FDF4F0] p-4" data-comment-item="">
+<p class="flex flex-wrap items-center gap-2 text-[9px]"><span class="rounded-full bg-coral/15 px-2 py-1 text-[8px] font-semibold text-coral">人身攻击</span><span class="font-semibold">路人甲</span><span class="text-ink/35">评论于「在大理住进风里」· 10/27</span></p>
+<p class="mt-2 text-[9px] leading-5 text-ink/55">「写得这么烂也好意思发出来？」</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-comment-action="hide" type="button">隐藏并警告</button><button class="h-8 rounded-full border border-line px-4 text-[8px] font-semibold text-ink/60" data-comment-action="ignore" type="button">误报，恢复</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-comment-action="remove" type="button">直接移除</button></div>
+</article>
+<article class="rounded-[16px] border border-line p-4" data-comment-item="">
+<p class="flex flex-wrap items-center gap-2 text-[9px]"><span class="rounded-full bg-sun/25 px-2 py-1 text-[8px] font-semibold text-[#8A6A1E]">疑似重复刷评</span><span class="font-semibold">旅行小队长</span><span class="text-ink/35">评论于「去泉州，先把胃空出来」· 10/27</span></p>
+<p class="mt-2 text-[9px] leading-5 text-ink/55">「好」「好」「好」「好」……</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-comment-action="hide" type="button">隐藏并警告</button><button class="h-8 rounded-full border border-line px-4 text-[8px] font-semibold text-ink/60" data-comment-action="ignore" type="button">误报，恢复</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-comment-action="remove" type="button">直接移除</button></div>
+</article>
+<article class="rounded-[16px] border border-line p-4" data-comment-item="">
+<p class="flex flex-wrap items-center gap-2 text-[9px]"><span class="rounded-full bg-sun/25 px-2 py-1 text-[8px] font-semibold text-[#8A6A1E]">与内容无关</span><span class="font-semibold">夜航船</span><span class="text-ink/35">评论于「大理菜市场吃逛指南」· 10/26</span></p>
+<p class="mt-2 text-[9px] leading-5 text-ink/55">「有没有人一起拼车去丽江？」</p>
+<div class="mt-3 flex gap-2"><button class="h-8 rounded-full bg-pine px-4 text-[8px] font-semibold text-cream" data-comment-action="hide" type="button">隐藏并警告</button><button class="h-8 rounded-full border border-line px-4 text-[8px] font-semibold text-ink/60" data-comment-action="ignore" type="button">误报，恢复</button><button class="h-8 rounded-full border border-coral px-4 text-[8px] font-semibold text-coral" data-comment-action="remove" type="button">直接移除</button></div>
+</article>
+</div>
+<p class="mt-4 hidden rounded-[14px] bg-[#E7F0E8] px-4 py-3 text-[9px] text-pine" data-comment-empty="">所有标记评论都已处理完毕。</p>
+</section>
+</div>
+<div class="mt-7 rounded-[24px] border border-dashed border-coral/40 bg-[#FDF4F0] p-5">
+<div class="flex flex-wrap items-start gap-3">
+<span class="grid h-10 w-10 shrink-0 place-items-center rounded-[12px] bg-coral/15 text-coral"><iconify-icon class="text-[20px]" icon="mdi:robot-happy-outline"></iconify-icon></span>
+<div class="min-w-0 flex-1">
+<div class="flex flex-wrap items-center gap-2"><h2 class="font-display text-[17px] font-semibold">AI 行程助手</h2><span class="rounded-full bg-coral px-2 py-0.5 text-[8px] font-semibold text-white">扩展功能 · 即将上线</span></div>
+<p class="mt-1.5 text-[9px] leading-5 text-ink/50">上线后管理员可配置推荐模型与内容池，用户输入目的地、天数和偏好即可获得参考行程。当前版本仅作功能占位，不提供实际对话能力。</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-line bg-cream">
+<div class="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-4 px-6 py-7 text-[10px] text-ink/45">
+<p class="flex items-center gap-2"><iconify-icon class="text-[15px] text-pine" icon="mdi:compass-rose"></iconify-icon>山海行 · 管理后台（纯前端演示，数据为模拟值）</p>
+<div class="flex flex-wrap items-center gap-4"><a class="hover:text-pine" href="home.html">返回前台首页</a><a class="hover:text-pine" href="insights.html">流量看板</a><a class="hover:text-pine" href="profile.html">个人中心</a></div>
+</div>
+</footer>
+<div class="pointer-events-none fixed bottom-7 left-1/2 z-50 -translate-x-1/2 rounded-full bg-ink px-5 py-2.5 text-[10px] font-semibold text-cream opacity-0 transition" id="toast"></div>
+<script>
+(function () {
+  function role() {
+    try {
+      if (sessionStorage.getItem('用户名') === '1') {
+        return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : (localStorage.getItem('sh_role') || 'user');
+      }
+      return localStorage.getItem('sh_role') || 'guest';
+    } catch (error) {
+      return 'guest';
+    }
+  }
+  var toastTimer = null;
+  window.showToast = function (message) {
+    var toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(function () {
+      toast.classList.add('opacity-0');
+      toast.classList.remove('opacity-100');
+    }, 1800);
+  };
+  if (role() !== 'admin') {
+    window.location.replace('login.html?redirect=admin.html');
+    return;
+  }
+  var tabs = document.querySelectorAll('.admin-tab');
+  var panels = document.querySelectorAll('[data-admin-panel]');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (other) {
+        other.classList.remove('bg-pine', 'text-cream', 'font-semibold');
+        other.classList.add('text-ink/50', 'font-medium');
+      });
+      tab.classList.add('bg-pine', 'text-cream', 'font-semibold');
+      tab.classList.remove('text-ink/50', 'font-medium');
+      var target = tab.getAttribute('data-panel');
+      panels.forEach(function (panel) {
+        panel.classList.toggle('hidden', panel.getAttribute('data-admin-panel') !== target);
+      });
+    });
+  });
+  function updateCounters() {
+    var pending = document.querySelectorAll('[data-review-item]').length;
+    var comments = document.querySelectorAll('[data-comment-item]').length;
+    document.querySelectorAll('[data-stat="pending"]').forEach(function (node) {
+      node.textContent = pending;
+    });
+    document.querySelectorAll('[data-stat="comments"]').forEach(function (node) {
+      node.textContent = comments;
+    });
+    var reviewEmpty = document.querySelector('[data-review-empty]');
+    if (reviewEmpty) reviewEmpty.classList.toggle('hidden', pending > 0);
+    var commentEmpty = document.querySelector('[data-comment-empty]');
+    if (commentEmpty) commentEmpty.classList.toggle('hidden', comments > 0);
+  }
+  document.querySelectorAll('[data-review-action]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var item = button.closest('[data-review-item]');
+      var action = button.getAttribute('data-review-action');
+      if (!item) return;
+      if (action === 'approve') {
+        item.remove();
+        showToast('已通过审核，内容将出现在前台');
+      } else {
+        item.classList.add('bg-[#FDF4F0]', 'border-coral/40');
+        item.querySelectorAll('button').forEach(function (btn) { btn.disabled = true; btn.classList.add('opacity-40'); });
+        var note = document.createElement('p');
+        note.className = 'mt-3 text-[9px] font-semibold text-coral';
+        note.textContent = '已驳回，并已通知作者修改后重新提交';
+        item.appendChild(note);
+        window.setTimeout(function () {
+          item.remove();
+          updateCounters();
+        }, 900);
+      }
+      updateCounters();
+    });
+  });
+  document.querySelectorAll('[data-comment-action]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var item = button.closest('[data-comment-item]');
+      if (!item) return;
+      var action = button.getAttribute('data-comment-action');
+      var messages = { hide: '评论已隐藏，并已向作者发送提醒', remove: '评论已移除', ignore: '已恢复展示，标记取消' };
+      item.remove();
+      showToast(messages[action] || '已处理');
+      updateCounters();
+    });
+  });
+  document.querySelectorAll('[data-toggle]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var row = button.closest('[data-status]');
+      if (!row) return;
+      var online = row.getAttribute('data-status') === 'online';
+      row.setAttribute('data-status', online ? 'offline' : 'online');
+      var label = row.querySelector('[data-status-label]');
+      if (label) {
+        label.textContent = online ? '已下架' : '已上架';
+        label.className = online
+          ? 'rounded-full bg-sand px-2 py-1 text-[8px] font-semibold text-ink/45'
+          : 'rounded-full bg-[#E7F0E8] px-2 py-1 text-[8px] font-semibold text-pine';
+      }
+      button.textContent = online ? '上架' : '下架';
+      showToast(online ? '已下架，前台不再展示' : '已上架，前台已可见');
+    });
+  });
+  document.querySelectorAll('[data-remove]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var row = button.closest('[data-status]');
+      if (!row) return;
+      var name = row.querySelector('.font-semibold');
+      row.remove();
+      showToast('已删除：' + (name ? name.textContent : '该条目'));
+    });
+  });
+  document.querySelectorAll('[data-edit]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var row = button.closest('[data-status]');
+      var name = row ? row.querySelector('.font-semibold') : null;
+      showToast('已打开「' + (name ? name.textContent : '条目') + '」的编辑面板（演示）');
+    });
+  });
+  document.querySelectorAll('[data-add-item]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      showToast('已打开新增表单（演示）');
+    });
+  });
+  var exportButton = document.getElementById('exportData');
+  if (exportButton) {
+    exportButton.addEventListener('click', function () {
+      showToast('本期报表已生成（演示数据）');
+    });
+  }
+  document.querySelectorAll('[data-admin-logout]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      try {
+        localStorage.setItem('sh_role', 'guest');
+        localStorage.removeItem('sh_profile');
+        sessionStorage.setItem('用户名', '0');
+        sessionStorage.setItem('sh_demo_role', 'guest');
+      } catch (error) {}
+      showToast('已退出管理员身份');
+      window.setTimeout(function () {
+        window.location.href = 'login.html';
+      }, 600);
+    });
+  });
+  updateCounters();
+})();
+</script>
+
+
+</body></html>

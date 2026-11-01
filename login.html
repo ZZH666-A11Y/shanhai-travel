@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="zh-CN"><head><style id="mb-code-iframe-style">
+  html, body { margin: 0; width: 100%; min-height: 100%; }
+  html { --uiWidth: 100% !important; --uiHeight: 100% !important; }
+  *, *::before, *::after { box-sizing: border-box; }
+</style>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>登录注册｜山海行</title>
+<meta content="登录山海行，管理旅行订单、收藏与游记。" name="description">
+<script src="assets/vendor/tailwindcss.js"></script>
+<script src="assets/vendor/iconify-icon.min.js"></script>
+  <script src="assets/vendor/mdi-icons.js"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { sand: '#F6F2E9', cream: '#FFFCF6', ink: '#12312E', pine: '#0E5A52', moss: '#6F8F7C', coral: '#E9663F', sun: '#F0C264', line: '#E4DDCF' },
+          fontFamily: {
+            display: ['"Noto Serif SC"', '"Songti SC"', '"STSong"', 'serif'],
+            sans: ['Inter', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 24px 70px -36px rgba(18,49,46,.4)',
+            card: '0 14px 34px -24px rgba(18,49,46,.28)'
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-cream font-sans text-ink antialiased">
+<main class="grid min-h-screen lg:grid-cols-[1.05fr_0.95fr]">
+<section class="relative hidden min-h-screen overflow-hidden bg-ink lg:block">
+<img alt="Traveler looking at misty mountains and lake in Dali" class="absolute inset-0 h-full w-full object-cover" src="assets/img/generated_images_2026-10-29_b57570b6bc8a45918c8213b65f8edb01.jpg">
+<div class="absolute inset-0 bg-gradient-to-br from-ink/80 via-ink/30 to-ink/60"></div>
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(233,102,63,.28),_transparent_42%)]"></div>
+<div class="relative flex min-h-screen flex-col justify-between p-10 xl:p-14">
+<a aria-label="返回山海行首页" class="flex w-fit items-center gap-3 text-cream" href="home.html">
+<span class="grid h-11 w-11 place-items-center rounded-full bg-cream text-pine"><iconify-icon class="text-[25px]" icon="mdi:terrain"></iconify-icon></span>
+<span class="flex flex-col"><span class="font-display text-[23px] font-bold leading-none tracking-[0.16em]">山海行</span><span class="mt-1 text-[8px] font-medium uppercase tracking-[0.32em] text-cream/45">Shanhai Travel</span></span>
+</a>
+<div class="max-w-[520px]">
+<p class="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-sun"><span class="h-px w-8 bg-sun"></span>旅行，也成为自己</p>
+<h1 class="mt-5 font-display text-[48px] font-semibold leading-[1.28] text-cream xl:text-[56px]">去更远的地方，<br>也离自己更近一点。</h1>
+<p class="mt-5 max-w-[430px] text-[12px] leading-7 text-cream/58">登录后收藏想去的地方，保存每一次出发，也把路上的故事留给下一位旅人。</p>
+<div class="mt-8 flex items-center gap-5 text-[9px] text-cream/55">
+<span class="flex items-center gap-2"><iconify-icon class="text-[17px] text-sun" icon="mdi:bookmark-check-outline"></iconify-icon>收藏旅程</span>
+<span class="h-3 w-px bg-white/20"></span>
+<span class="flex items-center gap-2"><iconify-icon class="text-[17px] text-sun" icon="mdi:calendar-check-outline"></iconify-icon>管理订单</span>
+<span class="h-3 w-px bg-white/20"></span>
+<span class="flex items-center gap-2"><iconify-icon class="text-[17px] text-sun" icon="mdi:pencil-outline"></iconify-icon>记录故事</span>
+</div>
+</div>
+<div class="flex items-end justify-between gap-6">
+<div class="max-w-[390px] rounded-[22px] border border-white/15 bg-ink/25 p-5 backdrop-blur-md">
+<div class="flex items-center justify-between"><span class="text-[8px] font-semibold uppercase tracking-[0.2em] text-white/45">今日灵感</span><span class="flex items-center gap-1 text-[8px] text-white/55"><iconify-icon class="text-sun" icon="mdi:weather-partly-cloudy"></iconify-icon>19℃</span></div>
+<div class="mt-3 flex items-end justify-between">
+<div><p class="font-display text-[22px] font-semibold text-cream">大理 · 洱海西岸</p><p class="mt-1 text-[9px] text-white/50">风穿过稻田，也穿过你</p></div>
+<a aria-label="查看大理" class="grid h-9 w-9 place-items-center rounded-full bg-cream text-ink transition hover:bg-sun" href="destination-detail.html">
+<iconify-icon class="text-[17px]" icon="mdi:arrow-top-right"></iconify-icon>
+</a>
+</div>
+</div>
+<p class="hidden text-right text-[8px] leading-5 tracking-[0.18em] text-white/30 xl:block">EXPLORE · STAY<br>WANDER · RETURN</p>
+</div>
+</div>
+</section>
+<section class="relative flex min-h-screen flex-col bg-cream">
+<div class="pointer-events-none absolute right-0 top-0 h-56 w-56 rounded-bl-full bg-sand"></div>
+<div class="relative flex items-center justify-between px-6 py-6 sm:px-10">
+<a class="flex items-center gap-2.5 lg:hidden" href="home.html">
+<span class="grid h-9 w-9 place-items-center rounded-full bg-pine text-cream"><iconify-icon class="text-[20px]" icon="mdi:terrain"></iconify-icon></span>
+<span class="font-display text-[20px] font-bold tracking-[0.14em]">山海行</span>
+</a>
+<a class="hidden items-center gap-2 text-[9px] font-medium text-ink/40 transition hover:text-pine lg:flex" href="home.html">
+<iconify-icon class="text-[14px]" icon="mdi:arrow-left"></iconify-icon>
+          返回首页
+        </a>
+<div class="ml-auto flex items-center gap-2 text-[9px] text-ink/40">
+<span>第一次来？</span>
+<button class="rounded-full border border-ink/15 px-4 py-2 text-[9px] font-semibold text-ink/60 transition hover:border-pine hover:text-pine" data-auth-switch="register" type="button">创建账号</button>
+</div>
+</div>
+<div class="relative flex flex-1 items-center justify-center px-6 py-8 sm:px-10">
+<div class="w-full max-w-[420px]">
+<div class="flex items-center gap-5 border-b border-line">
+<button class="auth-tab border-b-2 border-pine pb-3 text-[13px] font-semibold text-ink" data-auth-tab="login" type="button">登录</button>
+<button class="auth-tab pb-3 text-[13px] font-medium text-ink/35 transition hover:text-ink" data-auth-tab="register" type="button">注册</button>
+<span class="ml-auto pb-3 text-[8px] text-ink/30">安全 · 快速 · 无广告</span>
+</div>
+<div class="auth-panel" id="auth-login">
+<div class="mt-8">
+<p class="text-[9px] font-semibold uppercase tracking-[0.26em] text-coral">欢迎回来</p>
+<h2 class="mt-2 font-display text-[34px] font-semibold">欢迎回来，旅人</h2>
+<p class="mt-2 text-[10px] leading-5 text-ink/45">登录后继续你的旅程，收藏和订单都在这里。</p>
+</div>
+<div class="mt-4 flex items-start gap-2 rounded-[16px] border border-coral/30 bg-[#F8EAE4] px-4 py-3 text-[9px] leading-5 text-ink/60"><iconify-icon class="mt-0.5 text-[15px] text-coral" icon="mdi:login-variant"></iconify-icon><span id="loginReturnHint">游客无需注册即可浏览全部公开内容，仅在预订、收藏、评分、评论、发布游记时需要登录。</span></div>
+<form action="profile.html" class="mt-6 space-y-4" id="loginForm" method="get">
+<label class="block"><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">手机号</span><div class="flex h-12 items-center gap-2 rounded-xl border border-line bg-white px-4 transition focus-within:border-pine"><span class="text-[10px] font-medium text-ink/40">+86</span><span class="h-4 w-px bg-line"></span><input class="min-w-0 flex-1 bg-transparent text-[11px] outline-none placeholder:text-ink/25" name="phone" pattern="[0-9]{11}" placeholder="请输入手机号" required="" type="tel" value="13800002086"></div></label>
+<label class="block"><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">密码</span><div class="flex h-12 items-center gap-2 rounded-xl border border-line bg-white px-4 transition focus-within:border-pine"><iconify-icon class="text-[17px] text-ink/30" icon="mdi:lock-outline"></iconify-icon><input class="min-w-0 flex-1 bg-transparent text-[11px] outline-none placeholder:text-ink/25" id="loginPassword" name="password" placeholder="请输入密码" required="" type="password" value="mountain2026"><button aria-label="显示密码" class="text-ink/30 transition hover:text-pine" data-password-toggle="loginPassword" type="button"><iconify-icon class="text-[17px]" icon="mdi:eye-outline"></iconify-icon></button></div></label>
+<div class="flex items-center justify-between text-[9px]">
+<label class="flex cursor-pointer items-center gap-2 text-ink/45"><input checked="" class="h-3 w-3 accent-[#0E5A52]" type="checkbox">记住我</label>
+<button class="font-medium text-pine hover:text-coral" onclick="showToast('密码重置链接已发送至绑定邮箱')" type="button">忘记密码？</button>
+</div>
+<button class="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-pine text-[11px] font-semibold text-cream shadow-card transition hover:bg-ink" type="submit">登录并继续 <iconify-icon class="text-[17px]" icon="mdi:arrow-right"></iconify-icon></button>
+</form>
+<div class="mt-5 flex items-center gap-3"><span class="h-px flex-1 bg-line"></span><span class="text-[8px] text-ink/30">或使用其他方式</span><span class="h-px flex-1 bg-line"></span></div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<button class="flex h-11 items-center justify-center gap-2 rounded-xl border border-line text-[9px] font-medium text-ink/55 transition hover:border-pine hover:text-pine" onclick="showToast('微信授权登录暂未接入，请使用手机号登录')" type="button"><iconify-icon class="text-[18px] text-[#2DAE3C]" icon="mdi:wechat"></iconify-icon>微信登录</button>
+<button class="flex h-11 items-center justify-center gap-2 rounded-xl border border-line text-[9px] font-medium text-ink/55 transition hover:border-pine hover:text-pine" id="guestEnter" type="button"><iconify-icon class="text-[18px] text-pine" icon="mdi:compass-outline"></iconify-icon>以游客身份浏览</button>
+</div>
+<div class="mt-4 flex flex-wrap items-center gap-2 text-[8px] text-ink/45"><span class="font-semibold text-ink/60">演示身份：</span><span class="rounded-full bg-sand px-2 py-1">游客（未登录，可浏览全部公开内容）</span><span class="rounded-full bg-[#E7F0E8] px-2 py-1 text-pine">注册用户（登录后开放预订/收藏/评分/评论/发布）</span><button class="rounded-full border border-pine/30 px-2 py-1 text-pine transition hover:bg-[#E7F0E8]" id="adminDemo" type="button">以管理员身份进入</button></div>
+<div class="mt-3 flex flex-wrap items-center gap-2 rounded-[14px] border border-line bg-white px-3 py-2.5 text-[8px] text-ink/50"><span class="font-semibold text-ink/60">当前身份：</span><span class="rounded-full bg-sand px-2 py-1" id="sessionRoleLabel">游客（未登录）</span><span class="ml-auto text-ink/30">管理员登录后将进入管理后台</span></div>
+<div class="mt-5 rounded-xl bg-sand px-4 py-3 text-[8px] leading-5 text-ink/40"><span class="font-semibold text-ink/60">演示提示：</span>账号已预填，点击「登录并继续」即可回到来源页面继续操作。</div>
+</div>
+<div class="auth-panel hidden" id="auth-register">
+<div class="mt-8">
+<p class="text-[9px] font-semibold uppercase tracking-[0.26em] text-coral">开始你的旅程</p>
+<h2 class="mt-2 font-display text-[34px] font-semibold">从这里，成为旅人</h2>
+<p class="mt-2 text-[10px] leading-5 text-ink/45">创建账号，收下第一份属于你的旅行灵感。</p>
+</div>
+<form action="profile.html" class="mt-7 space-y-3.5" id="registerForm" method="get">
+<label class="block"><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">昵称</span><div class="flex h-12 items-center gap-2 rounded-xl border border-line bg-white px-4 transition focus-within:border-pine"><iconify-icon class="text-[17px] text-ink/30" icon="mdi:account-outline"></iconify-icon><input class="min-w-0 flex-1 bg-transparent text-[11px] outline-none placeholder:text-ink/25" name="nickname" placeholder="旅行中的你叫什么" required="" type="text"></div></label>
+<label class="block"><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">手机号</span><div class="flex h-12 items-center gap-2 rounded-xl border border-line bg-white px-4 transition focus-within:border-pine"><span class="text-[10px] font-medium text-ink/40">+86</span><span class="h-4 w-px bg-line"></span><input class="min-w-0 flex-1 bg-transparent text-[11px] outline-none placeholder:text-ink/25" name="phone" pattern="[0-9]{11}" placeholder="请输入手机号" required="" type="tel"></div></label>
+<label class="block"><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">验证码</span><div class="flex gap-2"><div class="flex h-12 flex-1 items-center gap-2 rounded-xl border border-line bg-white px-4 transition focus-within:border-pine"><iconify-icon class="text-[17px] text-ink/30" icon="mdi:shield-key-outline"></iconify-icon><input class="min-w-0 flex-1 bg-transparent text-[11px] outline-none placeholder:text-ink/25" name="code" placeholder="6 位验证码" required="" type="text"></div><button class="h-12 w-[104px] shrink-0 rounded-xl border border-pine text-[9px] font-semibold text-pine transition hover:bg-pine hover:text-cream" id="codeButton" type="button">获取验证码</button></div></label>
+<label class="block"><span class="mb-1.5 block text-[9px] font-semibold text-ink/50">设置密码</span><div class="flex h-12 items-center gap-2 rounded-xl border border-line bg-white px-4 transition focus-within:border-pine"><iconify-icon class="text-[17px] text-ink/30" icon="mdi:lock-outline"></iconify-icon><input class="min-w-0 flex-1 bg-transparent text-[11px] outline-none placeholder:text-ink/25" id="registerPassword" name="password" placeholder="至少 8 位，包含字母和数字" required="" type="password"><button aria-label="显示密码" class="text-ink/30 transition hover:text-pine" data-password-toggle="registerPassword" type="button"><iconify-icon class="text-[17px]" icon="mdi:eye-outline"></iconify-icon></button></div></label>
+<label class="flex items-start gap-2 text-[8px] leading-5 text-ink/45"><input class="mt-0.5 h-3 w-3 accent-[#0E5A52]" required="" type="checkbox"><span>我已阅读并同意《用户协议》与《隐私政策》，愿意接收旅行灵感推送。</span></label>
+<button class="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-coral text-[11px] font-semibold text-white shadow-card transition hover:bg-[#D95530]" type="submit">创建账号 <iconify-icon class="text-[17px]" icon="mdi:arrow-right"></iconify-icon></button>
+</form>
+</div>
+<p class="mt-7 text-center text-[8px] leading-5 text-ink/30">登录即表示你同意 <a class="text-ink/50 underline decoration-ink/20 underline-offset-2 hover:text-pine" href="home.html">服务条款</a> 与 <a class="text-ink/50 underline decoration-ink/20 underline-offset-2 hover:text-pine" href="home.html">隐私说明</a><br>山海行会保护你的个人信息与出行数据</p>
+</div>
+</div>
+<div class="relative flex flex-wrap items-center justify-between gap-3 border-t border-line px-6 py-5 text-[8px] text-ink/30 sm:px-10">
+<span>© 2026 山海行旅行 · Shanhai Travel</span>
+<span class="flex items-center gap-2"><iconify-icon class="text-[13px] text-pine" icon="mdi:shield-lock-outline"></iconify-icon>已启用 SSL 加密保护</span>
+</div>
+</section>
+</main>
+<div class="fixed bottom-6 left-1/2 z-[80] hidden -translate-x-1/2 rounded-full bg-ink px-5 py-3 text-[10px] font-medium text-cream shadow-soft" id="toast">操作成功</div>
+<script>
+    const authTabs = Array.from(document.querySelectorAll('.auth-tab'));
+    const authPanels = Array.from(document.querySelectorAll('.auth-panel'));
+
+    function switchAuthPanel(name) {
+      authTabs.forEach((tab) => {
+        const active = tab.dataset.authTab === name;
+        tab.classList.toggle('border-b-2', active);
+        tab.classList.toggle('border-pine', active);
+        tab.classList.toggle('font-semibold', active);
+        tab.classList.toggle('text-ink', active);
+        tab.classList.toggle('font-medium', !active);
+        tab.classList.toggle('text-ink/35', !active);
+      });
+      authPanels.forEach((panel) => {
+        panel.classList.toggle('hidden', panel.id !== 'auth-' + name);
+      });
+    }
+
+    authTabs.forEach((tab) => {
+      tab.addEventListener('click', () => switchAuthPanel(tab.dataset.authTab));
+    });
+
+    document.querySelectorAll('[data-auth-switch]').forEach((button) => {
+      button.addEventListener('click', () => switchAuthPanel(button.dataset.authSwitch));
+    });
+
+    document.querySelectorAll('[data-password-toggle]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const input = document.getElementById(button.dataset.passwordToggle);
+        const visible = input.type === 'text';
+        input.type = visible ? 'password' : 'text';
+        button.innerHTML = visible
+          ? '<iconify-icon icon="mdi:eye-outline" class="text-[17px]"></iconify-icon>'
+          : '<iconify-icon icon="mdi:eye-off-outline" class="text-[17px]"></iconify-icon>';
+      });
+    });
+
+    const codeButton = document.getElementById('codeButton');
+    codeButton.addEventListener('click', () => {
+      if (codeButton.disabled) return;
+      codeButton.disabled = true;
+      let seconds = 60;
+      codeButton.textContent = seconds + ' 秒后重试';
+      showToast('验证码已发送至你的手机');
+      const timer = setInterval(() => {
+        seconds -= 1;
+        codeButton.textContent = seconds + ' 秒后重试';
+        if (seconds <= 0) {
+          clearInterval(timer);
+          codeButton.disabled = false;
+          codeButton.textContent = '获取验证码';
+        }
+      }, 1000);
+    });
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.remove('hidden');
+      window.clearTimeout(window.authToastTimer);
+      window.authToastTimer = window.setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 2400);
+    }
+
+    // ===== 角色会话与登录后回跳原页面 =====
+    (function () {
+      function demoMode() {
+        if (window.self !== window.top || location.protocol === 'file:') return true;
+        try {
+          return sessionStorage.getItem('用户名') === '1';
+        } catch (error) {
+          return true;
+        }
+      }
+      function setRole(role) {
+        sessionStorage.setItem('sh_demo_role', role);
+        localStorage.setItem('sh_role', role);
+      }
+      const params = new URLSearchParams(location.search);
+      const op = params.get('op');
+      const raw = params.get('redirect');
+      const safeRedirect = raw && /^[a-zA-Z0-9_-]+\.html(\?[^#]*)?$/.test(raw) && raw.indexOf('login.html') !== 0 ? raw : '';
+      const opNames = { '预订': '预订行程', '发布游记': '发布游记', '收藏': '收藏内容', '评分': '提交评分', '评论': '发表评论' };
+      const hint = document.getElementById('loginReturnHint');
+      if (safeRedirect && op) {
+        hint.textContent = '你正在以游客身份浏览，' + (opNames[op] || op) + '需要登录。登录后会自动回到原页面继续。';
+        document.getElementById('loginReturnHint').classList.add('text-coral');
+      } else if (safeRedirect) {
+        hint.textContent = '登录后自动返回来源页面继续操作。';
+      }
+
+      function finish(role, target) {
+        setRole(role);
+        if (role === 'admin') sessionStorage.setItem('sh_demo_role', 'admin');
+        showToast(role === 'admin' ? '已切换为管理员身份，正在进入管理后台' : '登录成功，正在返回');
+        window.setTimeout(() => {
+          if (target) {
+            location.href = target;
+          } else if (safeRedirect) {
+            const join = safeRedirect.indexOf('?') >= 0 ? '&' : '?';
+            location.href = safeRedirect + join + 'resume=1';
+          } else {
+            location.href = 'profile.html?resume=1';
+          }
+        }, 700);
+      }
+
+      const currentRole = (() => {
+        try {
+          if (sessionStorage.getItem('用户名') === '1') {
+            return sessionStorage.getItem('sh_demo_role') === 'guest' ? 'guest' : (localStorage.getItem('sh_role') || 'user');
+          }
+          return localStorage.getItem('sh_role') || 'guest';
+        } catch (error) {
+          return 'guest';
+        }
+      })();
+      const roleLabel = document.getElementById('sessionRoleLabel');
+      if (roleLabel) {
+        if (currentRole === 'admin') {
+          roleLabel.textContent = '管理员（已登录）';
+          roleLabel.className = 'rounded-full bg-coral/15 px-2 py-1 font-semibold text-coral';
+        } else if (currentRole === 'user') {
+          roleLabel.textContent = '普通用户（已登录）';
+          roleLabel.className = 'rounded-full bg-[#E7F0E8] px-2 py-1 font-semibold text-pine';
+        }
+      }
+      document.getElementById('loginForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        finish('user');
+      });
+      document.getElementById('registerForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        finish('user');
+      });
+      document.getElementById('guestEnter').addEventListener('click', () => {
+        setRole('guest');
+        showToast('已进入游客模式，可浏览全部公开内容');
+        window.setTimeout(() => { location.href = 'home.html'; }, 700);
+      });
+      const adminDemo = document.getElementById('adminDemo');
+      if (adminDemo) {
+        adminDemo.addEventListener('click', () => finish('admin', 'admin.html'));
+      }
+    })();
+  </script>
+
+
+</body></html>
